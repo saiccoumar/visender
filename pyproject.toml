@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "viser2blender"
+version = "0.1.0"
+description = "Snapshot a live viser scene and rebuild it in Blender for high-quality rendering."
+requires-python = ">=3.9"
+dependencies = ["numpy"]
+
+# viser is needed only for the export half, bpy only for the import half; the
+# two never run in the same interpreter, so neither is a hard dependency.
+[project.optional-dependencies]
+export = ["viser>=1.0"]
+
+[tool.setuptools]
+packages = ["viser2blender"]
