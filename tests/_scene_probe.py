@@ -1,4 +1,4 @@
-"""Run the bliser pipeline inside Blender and report the scene as JSON.
+"""Run the visender pipeline inside Blender and report the scene as JSON.
 
 Executed by ``test_blender_integration.py`` via ``blender -b --python``. Runs
 every stage except the render itself (so the tests stay cheap), then prints one
@@ -19,9 +19,9 @@ from pathlib import Path
 import bpy
 
 HERE = Path(__file__).resolve().parent
-BLENDER_IMPORT = HERE.parent / "bliser" / "blender_import.py"
+BLENDER_IMPORT = HERE.parent / "visender" / "blender_import.py"
 
-_spec = importlib.util.spec_from_file_location("bliser_blender_import", BLENDER_IMPORT)
+_spec = importlib.util.spec_from_file_location("visender_blender_import", BLENDER_IMPORT)
 bi = importlib.util.module_from_spec(_spec)
 sys.modules[_spec.name] = bi
 _spec.loader.exec_module(bi)

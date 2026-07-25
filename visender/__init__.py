@@ -2,12 +2,12 @@
 
 Add a button to any viser sandbox::
 
-    import bliser
-    bliser.add_export_button(server, out_dir="renders/pen_grip")
+    import visender
+    visender.add_export_button(server, out_dir="renders/pen_grip")
 
 Then, once you have clicked it::
 
-    blender --python external/bliser/bliser/blender_import.py \
+    blender --python external/visender/visender/blender_import.py \
             -- --bundle renders/pen_grip_142530
 
 See :func:`export_scene` for the programmatic entry point.

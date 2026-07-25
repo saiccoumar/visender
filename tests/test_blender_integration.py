@@ -45,7 +45,7 @@ def probe(blender: str, bundle: Path, extra: list[str]) -> dict:
     return json.loads(report[-1][len("PROBE_JSON:"):])
 
 
-BLENDER_IMPORT = Path(__file__).resolve().parents[1] / "bliser" / "blender_import.py"
+BLENDER_IMPORT = Path(__file__).resolve().parents[1] / "visender" / "blender_import.py"
 
 
 # --------------------------------------------------------------------------- #
@@ -290,7 +290,7 @@ def test_missing_bundle_argument_is_a_clean_error(blender, tmp_path):
     assert "no bundle" in proc.stdout + proc.stderr
 
 
-def test_bliser_end_to_end_through_the_cli(blender, make_bundle, tmp_path):
+def test_visender_end_to_end_through_the_cli(blender, make_bundle, tmp_path):
     """The wrapper, the config, and Blender, all for real."""
     bundle = make_bundle()
     cfg = tmp_path / "scene.yaml"
@@ -303,6 +303,6 @@ def test_bliser_end_to_end_through_the_cli(blender, make_bundle, tmp_path):
         "lighting: {auto: true}\n"
         "backdrop: {enabled: true, color: [205, 205, 210]}\n"
     )
-    from bliser import cli
+    from visender import cli
     assert cli.main(["render", str(cfg), "--profile", "test"]) == 0
     assert (tmp_path / "out" / "test.png").exists()

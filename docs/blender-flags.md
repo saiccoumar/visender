@@ -1,6 +1,6 @@
 # Raw `blender_import.py` flags
 
-`bliser render` is a convenience layer over exactly these flags; everything here
+`visender render` is a convenience layer over exactly these flags; everything here
 still works without it. Nothing is installed on the Blender side —
 `blender_import.py` imports only `bpy` and numpy, both of which ship with
 Blender, and it is loaded by file path rather than as a package.
@@ -11,7 +11,7 @@ before it, and everything after it is passed to the script.
 ## Open the scene in the Blender app
 
 ```bash
-blender --python bliser/blender_import.py -- --bundle renders/pen_grip_142530
+blender --python visender/blender_import.py -- --bundle renders/pen_grip_142530
 ```
 
 Blender opens with the scene built and the camera framed on whatever view your
@@ -27,7 +27,7 @@ directory is not your shell's.
 
 ```python
 import sys
-sys.path.insert(0, "/abs/path/to/bliser/bliser")
+sys.path.insert(0, "/abs/path/to/visender/visender")
 sys.argv = ["blender", "--", "--bundle", "/abs/path/to/renders/pen_grip_142530"]
 
 import blender_import
@@ -39,7 +39,7 @@ blender_import.main()
 `-b` (background) renders without opening a window:
 
 ```bash
-blender -b --python bliser/blender_import.py \
+blender -b --python visender/blender_import.py \
         -- --bundle renders/pen_grip_142530 \
            --render cover.png --samples 512 --gpu \
            --hdri ~/hdris/studio_small_08_4k.exr \
@@ -65,7 +65,7 @@ Two things that catch people out:
 | `--samples` | `128` | Render samples. |
 | `--resolution W H` | browser size | Override the output resolution. |
 | `--gpu` | off | Render Cycles on the GPU (OPTIX/CUDA/HIP/METAL/ONEAPI, first found). |
-| `--config PATH` | — | Resolved-JSON config; fills any flag not passed explicitly (written by `bliser`, but hand-writable). |
+| `--config PATH` | — | Resolved-JSON config; fills any flag not passed explicitly (written by `visender`, but hand-writable). |
 | `--list-nodes` | off | Print each node's path/kind/size and exit without building. |
 
 ## World & materials

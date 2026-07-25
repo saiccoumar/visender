@@ -2,7 +2,7 @@
 
 Two tiers of test live here:
 
-* Solver-side tests import ``bliser.config`` / ``cli`` / ``_export``
+* Solver-side tests import ``visender.config`` / ``cli`` / ``_export``
   normally -- they only need numpy + pyyaml.
 * ``blender_import`` imports ``bpy`` and ``mathutils`` at module scope, so it
   cannot be imported by a plain pytest run. The ``bi`` fixture loads it against
@@ -28,7 +28,7 @@ import numpy as np
 import pytest
 
 REPO = Path(__file__).resolve().parents[1]
-BLENDER_IMPORT_PY = REPO / "bliser" / "blender_import.py"
+BLENDER_IMPORT_PY = REPO / "visender" / "blender_import.py"
 
 
 # --------------------------------------------------------------------------- #
@@ -118,7 +118,7 @@ def bi():
         import bpy  # noqa: F401  (running inside Blender)
     except ImportError:
         _install_stubs()
-    spec = importlib.util.spec_from_file_location("_bliser_blender_import",
+    spec = importlib.util.spec_from_file_location("_visender_blender_import",
                                                   BLENDER_IMPORT_PY)
     module = importlib.util.module_from_spec(spec)
     sys.modules[spec.name] = module
@@ -145,7 +145,7 @@ def make_bundle(tmp_path):
     built: dict[tuple, Path] = {}
 
     def _make(name: str = "bundle", *, camera: bool = True, version: int = 1,
-              fmt: str = "bliser", lights: bool = True) -> Path:
+              fmt: str = "visender", lights: bool = True) -> Path:
         # Same arguments -> same bundle, so a test may call this repeatedly (e.g.
         # to run Blender twice with different flags) without rebuilding.
         key = (name, camera, version, fmt, lights)

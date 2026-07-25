@@ -1,10 +1,10 @@
-# bliser config schema
+# visender config schema
 
 A `*.yaml` config replaces the pile of shell flags a figure would otherwise
-need, and gives every figure one entry point: `bliser render config.yaml`.
+need, and gives every figure one entry point: `visender render config.yaml`.
 
 The config is read in your **solver** env (it needs `pyyaml`, installed by the
-`cli` extra: `pip install 'bliser[cli]'`). `bliser` resolves it to a flat
+`cli` extra: `pip install 'visender[cli]'`). `visender` resolves it to a flat
 JSON dict and hands that to Blender via `blender_import.py --config`; Blender's
 Python never sees the YAML. See [`blender-flags.md`](blender-flags.md) for the
 no-wrapper path.
@@ -17,7 +17,7 @@ For any single setting:
 config file  <  selected profile  <  explicit CLI flag
 ```
 
-`bliser render config.yaml --profile final --samples 4096` takes `samples` from the
+`visender render config.yaml --profile final --samples 4096` takes `samples` from the
 CLI, everything else from the `final` profile, and the rest from the file. A flag
 you do not pass is left to the profile/file — the Blender side distinguishes
 "you passed `--samples`" from "128 is the default", so a config value is never
@@ -123,24 +123,24 @@ you meant.
 ## Blender lookup order
 
 `--blender` flag → `blender:` in config → `$BLENDER` → `which blender` → newest
-`/opt/blender/blender-*/blender`. If none resolves, `bliser` fails and lists what it
+`/opt/blender/blender-*/blender`. If none resolves, `visender` fails and lists what it
 tried.
 
 ## Provenance sidecar
 
 Every successful render writes `<output>.yaml` next to the image: the bundle
-path, `bliser` and Blender versions, the wall-clock render time, and
+path, `visender` and Blender versions, the wall-clock render time, and
 `resolved_config` — the **effective** settings, after CLI flags have won over the
 config, so it reproduces the frame from the image alone. When a config file was
 used, its own values are also recorded under `config_file_values`, so you can see
 what the command line changed.
 
-## `bliser` subcommands
+## `visender` subcommands
 
 ```
-bliser render config.yaml --profile final [--output cover.png] [--quality draft] [blender flags]
-bliser list-nodes <bundle>      # node path / kind / vertex-or-point count
-bliser init <bundle> > cfg.yaml # scaffold a starter config from a bundle
+visender render config.yaml --profile final [--output cover.png] [--quality draft] [blender flags]
+visender list-nodes <bundle>      # node path / kind / vertex-or-point count
+visender init <bundle> > cfg.yaml # scaffold a starter config from a bundle
 ```
 
 `--quality draft|preview|final` is a shorthand for when no profile is written

@@ -1,4 +1,4 @@
-# bliser
+# visender
 
 Sai Coumar
 
@@ -6,7 +6,7 @@ Sai Coumar
 
 
 ### Overview 
-bliser is a codegen tool that lets you snapshot a live viser scene and rebuild it in Blender to create beautiful demonstration renderings with Cycles instead of three.js. It saves a viser scene to an intermediate bundle representation which is then routed into blenderpy for automatic environment regeneration.
+visender is a codegen tool that lets you snapshot a live viser scene and rebuild it in Blender to create beautiful demonstration renderings with Cycles instead of three.js. It saves a viser scene to an intermediate bundle representation which is then routed into blenderpy for automatic environment regeneration.
 
 
 The two halves never share an interpreter. **Export** needs `viser` and runs in
@@ -20,13 +20,13 @@ props and lights, a render config and a pre-exported bundle — is in
 ## Install
 As a prerequisite, blender must be installed. Blender 5.2's tar.gz can be downloadeed here: [Blender 5.2 Linux Download](https://www.blender.org/download/release/Blender5.2/blender-5.2.0-linux-x64.tar.xz/)
 
-The path to the blender executable must be set to the $BLENDER variable for bliser to run.
+The path to the blender executable must be set to the $BLENDER variable for visender to run.
 
 ```bash
 pip install -e '.[cli]'
 ```
 
-The `cli` extra pulls in `pyyaml`, which the `bliser` wrapper needs to read config
+The `cli` extra pulls in `pyyaml`, which the `visender` wrapper needs to read config
 files. A plain `pip install -e .` is enough for the export half and the raw
 `blender --python` path. Nothing is installed on the Blender side.
 
@@ -35,12 +35,12 @@ files. A plain `pip install -e .` is enough for the export half and the raw
 Add a button to any viser script:
 
 ```python
-import bliser
+import visender
 
 server = viser.ViserServer()
 ...  # build the scene as usual
 
-bliser.add_export_button(server, out_dir="renders/pen_grip",
+visender.add_export_button(server, out_dir="renders/pen_grip",
                                 environment_map="city")
 ```
 
@@ -51,7 +51,7 @@ export several takes and pick the best one later.
 There is a plain function too, if you want to export without a GUI:
 
 ```python
-bliser.export_scene(server, "renders/take1")
+visender.export_scene(server, "renders/take1")
 ```
 
 Both entry points take the same options:
@@ -68,17 +68,17 @@ to a transform control (`/ctrl/key/light`) keeps the pose you dragged it to —
 world transforms are composed down the full `/a/b/c` path regardless of which
 nodes get emitted. This is the intended way to art-direct a shot.
 
-## 2. Render with `bliser`
+## 2. Render with `visender`
 
-The `bliser` command quickly automates the blenderpy environment generation. 
+The `visender` command quickly automates the blenderpy environment generation. 
 
-`bliser` can be run with the following commands:
+`visender` can be run with the following commands:
 
 ```bash
-bliser render renders/pen_grip.yaml --profile final
-bliser render renders/pen_grip.yaml --profile draft --output preview.png
-bliser list-nodes renders/pen_grip_142530            # node paths + vertex/point counts
-bliser init renders/pen_grip_142530 > pen_grip.yaml  # scaffold a starter config
+visender render renders/pen_grip.yaml --profile final
+visender render renders/pen_grip.yaml --profile draft --output preview.png
+visender list-nodes renders/pen_grip_142530            # node paths + vertex/point counts
+visender init renders/pen_grip_142530 > pen_grip.yaml  # scaffold a starter config
 ```
 
 A minimal config:
@@ -99,25 +99,25 @@ Precedence is **config file < profile < explicit CLI flag** — any raw
 `blender_import.py` flag passed after the config is forwarded straight through
 and wins over the file. Every successful render also writes a `<output>.yaml`
 provenance sidecar: the *effective* settings after overrides, the config file's
-own values, bundle path, bliser/Blender versions and render time.
+own values, bundle path, visender/Blender versions and render time.
 
 Before a config exists, `--quality draft|preview|final` is a shorthand (mutually
 exclusive with `--profile`):
 
 ```bash
-bliser render pen_grip.yaml --quality draft
+visender render pen_grip.yaml --quality draft
 ```
 
 The full schema — profiles, aliases, per-polygon material splits, camera
 framing, lighting rig — is in [`docs/config.md`](docs/config.md).
 
-## Rendering without `bliser`
+## Rendering without `visender`
 
-`bliser` is a convenience layer over `blender_import.py`, which you can drive
+`visender` is a convenience layer over `blender_import.py`, which you can drive
 directly:
 
 ```bash
-blender -b --python bliser/blender_import.py \
+blender -b --python visender/blender_import.py \
         -- --bundle renders/pen_grip_142530 --render cover.png --samples 512
 ```
 
@@ -173,7 +173,7 @@ BLENDER=/path/to/blender pytest         # pick a specific Blender
 Three tiers, in `tests/`:
 
 - **Solver side** (`test_config.py`, `test_cli.py`, `test_export.py`) — config
-  resolution, the `bliser` wrapper (Blender stubbed out) and the bundle format the
+  resolution, the `visender` wrapper (Blender stubbed out) and the bundle format the
   exporter writes, driven by fakes shaped like viser handles.
 - **Contracts** (`test_contracts.py`) — the invariants that keep the two
   interpreters in step: `blender_import` imports nothing pip-only,

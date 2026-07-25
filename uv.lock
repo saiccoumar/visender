@@ -2630,7 +2630,7 @@ wheels = [
 ]
 
 [[package]]
-name = "bliser"
+name = "visender"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [

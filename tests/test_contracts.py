@@ -13,10 +13,10 @@ from pathlib import Path
 
 import pytest
 
-from bliser import cli, config as cfg
+from visender import cli, config as cfg
 
 REPO = Path(__file__).resolve().parents[1]
-BLENDER_IMPORT_PY = REPO / "bliser" / "blender_import.py"
+BLENDER_IMPORT_PY = REPO / "visender" / "blender_import.py"
 
 # Blender's Python ships the stdlib plus numpy/bpy/mathutils and nothing else.
 ALLOWED_BLENDER_SIDE_IMPORTS = {
@@ -26,7 +26,7 @@ ALLOWED_BLENDER_SIDE_IMPORTS = {
     "functools", "textwrap", "shutil", "glob",
     # The provenance sidecar reads __version__ from the package if it happens to
     # be on Blender's path; the import is guarded and must stay that way.
-    "bliser",
+    "visender",
 }
 
 
@@ -50,7 +50,7 @@ def test_blender_side_imports_nothing_pip_only():
 
 def test_blender_side_never_imports_the_solver_half():
     text = BLENDER_IMPORT_PY.read_text()
-    assert "from bliser import config" not in text
+    assert "from visender import config" not in text
     assert "import yaml" not in text
 
 
@@ -150,7 +150,7 @@ def test_pyproject_keeps_pyyaml_out_of_the_base_dependencies():
     base = " ".join(data["project"]["dependencies"]).lower()
     assert "yaml" not in base
     assert "yaml" in " ".join(data["project"]["optional-dependencies"]["cli"]).lower()
-    assert data["project"]["scripts"]["bliser"] == "bliser.cli:main"
+    assert data["project"]["scripts"]["visender"] == "visender.cli:main"
 
 
 def test_cli_locates_blender_import_next_to_itself():
