@@ -2,6 +2,8 @@
 
 Sai Coumar
 
+![Render](cover.png)
+
 
 ### Overview 
 viser2blender is a codegen tool that lets you snapshot a live viser scene and rebuild it in Blender to create beautiful demonstration renderings with Cycles instead of three.js. It saves a viser scene to an intermediate bundle representation which is then routed into blenderpy for automatic environment regeneration.
