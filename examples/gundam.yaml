@@ -1,28 +1,45 @@
-# Render config for examples/panda_desk.py.
+# Render config for examples/gundam.py.
 #
-#   visender render examples/panda_desk.yaml --profile draft
-#   visender render examples/panda_desk.yaml --profile final
+#   visender render examples/gundam.yaml --profile draft
+#   visender render examples/gundam.yaml --profile final
 #
 # Every path here resolves relative to this file, not your shell's CWD.
 
-bundle: bundle_panda_desk         # the prebuilt sample bundle shipped here; swap
-                                  # in your own, e.g. out/panda_desk_142530
-
-
-# bundle: out/panda_desk_223026
-output: out/panda_desk_{profile}.png
+bundle: bundle_gundam                # whatever examples/gundam.py last exported;
+                                  # a timestamped dir like out/gundam_142530
+                                  # works too — point `bundle:` at it.
+output: out/gundam_{profile}.png
 
 profiles:
   draft: {engine: EEVEE,  samples: 64,   resolution: [1280, 720]}
-  final: {engine: CYCLES, samples: 2048, resolution: [2560, 1440], gpu: true}
+  final: {engine: CYCLES, samples: 4096, resolution: [7680 , 4320], gpu: true}
 
+# `hdri:` resolves relative to this file, and it wins over `studio:` — the
+# studio gradient is only used when no HDRI is given. Set `backdrop.enabled`
+# back to true to hide the environment behind a flat wall while still lighting
+# the scene with it.
 world:    {studio: true, strength: 0.9}
-backdrop: {enabled: true, color: [205, 205, 210]}
+backdrop: {enabled: true, color: [255, 255, 255]}
 
 camera:
   auto: true         # frames the scene when you export with no browser attached;
-  dolly: 0.75        # harmless once a real browser camera is in the bundle
-  orbit: [0, 8]
+                     # ignored once a real browser camera is in the bundle
+  # Keep the browser's low hero angle — eye ~3 m up, tilted ~20 degrees into an
+  # 8.9 m look-at — so the robot towers and the HDRI's skyline leans back with
+  # the tilt. The only problem with the original was distance: at dolly 0.75 the
+  # feet fell 40% of a frame-height below the bottom edge. Positive elevation
+  # here *lowers* the eye (it is measured from the camera toward the look-at),
+  # so keep it small; anything past ~6 combined with a dolly puts the camera
+  # underground.
+  # An HDRI sits at infinity, so the skyline's *angular* size never changes —
+  # the only way to dwarf it is to make the robot subtend more of the frame.
+  # el 14 drops the eye to 1.4 m, the height the EXR was shot from, so the
+  # buildings read exactly as a person on the Bund sees them while the robot,
+  # 15 m away, fills ~90% of the frame and leans over the camera.
+  orbit: [0, 14]
+  dolly: 1.0         # 11 m -> 15 m: as close as 18.3 m of robot fits at 75 deg
+  fit: keep_vertical # keeps the browser's full 75-degree vertical FOV — the one
+                     # that matters for an 18 m subject in a 16:9 frame
 
 lighting:
   # The scene's own key/fill are the ones you dragged in the browser. Knock them
@@ -31,23 +48,35 @@ lighting:
   dim_authored: 0.35
   key: {az: -40, el: 35, energy: 4.0, angle: 12.0}
 
-# The URDF's node paths are deep (`/robot/visual/panda_link1/.../link6.obj`),
-# so name them once here and use `{alias}` in the rules below. `visender list-nodes
-# <bundle>` prints the exact paths.
+# The URDF's node paths are deep and the link names are generated
+# (`/robot/visual/rx78_Null_018_link/...`), so name them once here and use
+# `{alias}` in the rules below. `visender list-nodes <bundle>` prints the exact
+# paths.
 aliases:
-  arm: /robot/visual
-  hand: /robot/visual/panda_link1/panda_link2/panda_link3/panda_link4/panda_link5/panda_link6/panda_link7/panda_link8/panda_hand
+  body: /robot/visual
+  head: /robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_015_link/rx78_Null_014_link
 
 materials:
   library:
-    panda_white: {base_color: [232, 233, 236], metallic: 0.0, roughness: 0.4}
-    panda_dark:  {base_color: [30, 32, 36],    metallic: 0.1, roughness: 0.5}
+    rx78_gold: {base_color: [125, 125, 125],
+      metallic: 1.0,
+      roughness: 0.18}
+    rx78_dark:  {base_color: [25, 25, 25],    metallic: 1.0, roughness: 0.0}
   rules:
-    - node: "{arm}/*"          # trailing /* matches the whole subtree
-      use: panda_white
-    - node: "{hand}/*"         # later rules win — the gripper goes dark
-      use: panda_dark
-    - node: /ctrl/cube/mesh    # gizmos are dropped on export; the props they
-      use: matte_black         # carried keep their dragged pose and their paths
-    - node: /ctrl/ball/mesh
-      use: aluminium
+    - node: "{body}/*"           # trailing /* matches the whole subtree
+      use: rx78_gold
+    - node: "{head}/*"           # later rules win — the head goes dark
+      use: rx78_gold
+
+# materials:
+#   rules:
+#     - node: "{body}/*"
+#       override:
+#         metallic: 1.0
+#         roughness: 0.5
+
+#     - node: "{head}/*"
+#       override:
+#         metallic: 1.0
+#         roughness: 0.5
+
