@@ -17,13 +17,30 @@ A runnable end-to-end example — a Panda on a desk with joint sliders, draggabl
 props and lights, a render config and a pre-exported bundle — is in
 [`examples/`](examples/README.md).
 
+## Quickstart
+
+This quickstart will download the tool and run the example
+```
+git clone https://github.com/saiccoumar/visender.git
+cd visender
+uv sync
+source .venv/bin/activate
+uv pip install -e '.[cli]'
+uv pip install viser
+python examples/gundam.py
+time visender render examples/gundam.yaml --profile final
+```
+
 ## Install
 As a prerequisite, blender must be installed. Blender 5.2's tar.gz can be downloadeed here: [Blender 5.2 Linux Download](https://www.blender.org/download/release/Blender5.2/blender-5.2.0-linux-x64.tar.xz/)
 
 The path to the blender executable must be set to the $BLENDER variable for visender to run.
 
 ```bash
-pip install -e '.[cli]'
+uv sync
+source .venv/bin/activate
+uv pip install -e '.[cli]'
+uv pip install viser
 ```
 
 The `cli` extra pulls in `pyyaml`, which the `visender` wrapper needs to read config
