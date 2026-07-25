@@ -1,6 +1,6 @@
 # Example: Panda on a desk
 
-This example walks a user through the viser2blender pipeline: viser scene → bundle → cycles render — on an example scene
+This example walks a user through the bliser pipeline: viser scene → bundle → cycles render — on an example scene
 
 ![Render](../cover.png)
 
@@ -10,13 +10,13 @@ Files:
 | | |
 | --- | --- |
 | [`panda_desk.py`](panda_desk.py) | the viser scene, with joint sliders, transform gizmos and the export button |
-| [`panda_desk.yaml`](panda_desk.yaml) | the render config (`v2b render`) |
+| [`panda_desk.yaml`](panda_desk.yaml) | the render config (`bliser render`) |
 | `bundle_panda_desk/` | a bundle already exported from that script, so step 2 is optional |
 
 ## 1. Install
 
 ```bash
-uv sync --extra cli --extra export     # from the viser2blender repo root
+uv sync --extra cli --extra export     # from the bliser repo root
 source .venv/bin/activate
 ```
 
@@ -47,8 +47,8 @@ in `vamp-shru`, and `package://` paths resolve against the URDF's own directory.
 ## 3. Render
 
 ```bash
-v2b render examples/panda_desk.yaml --profile draft   # EEVEE, seconds
-v2b render examples/panda_desk.yaml --profile final   # Cycles, GPU
+bliser render examples/panda_desk.yaml --profile draft   # EEVEE, seconds
+bliser render examples/panda_desk.yaml --profile final   # Cycles, GPU
 ```
 
 Output lands in `examples/out/`, next to a `.png.yaml` provenance sidecar
@@ -61,7 +61,7 @@ session and that block becomes unnecessary.
 ## Where to go next
 
 - Add `save_blend: true` to the config and open the `.blend` to art-direct by hand.
-- `v2b init <bundle> > my.yaml` scaffolds a config for a bundle of your own.
+- `bliser init <bundle> > my.yaml` scaffolds a config for a bundle of your own.
 - The full config schema is in [`../docs/config.md`](../docs/config.md); the raw
   `blender --python blender_import.py -- --bundle ...` path is in
   [`../docs/blender-flags.md`](../docs/blender-flags.md).

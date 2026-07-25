@@ -4,13 +4,13 @@
     blender -b --python blender_import.py -- --bundle my_scene.viserbundle \
             --render cover.png --samples 256
 
-    # or, driven by a resolved JSON config written by the ``v2b`` wrapper:
+    # or, driven by a resolved JSON config written by the ``bliser`` wrapper:
     blender -b --python blender_import.py -- --config /tmp/resolved.json
 
 This module deliberately imports nothing from the rest of the package, and
 nothing outside Blender's bundled interpreter: only ``bpy``, ``numpy``,
 ``mathutils`` and the standard library. Blender's Python has no ``viser``, no
-``yaml``, no ``pydantic``. The two halves of viser2blender communicate through
+``yaml``, no ``pydantic``. The two halves of bliser communicate through
 files on disk (the bundle, and an optional resolved-config JSON), never through
 a shared interpreter.
 
@@ -169,7 +169,7 @@ class Settings:
 
 def _add_arguments(p: argparse.ArgumentParser) -> None:
     p.add_argument("--bundle", help="Bundle directory from export_scene")
-    p.add_argument("--config", default=None, help="Resolved-JSON config (written by v2b). "
+    p.add_argument("--config", default=None, help="Resolved-JSON config (written by bliser). "
                    "Values fill in any flag not passed explicitly on the command line.")
     p.add_argument("--list-nodes", action="store_true",
                    help="Print each node's path/kind/size from scene.json and exit.")
@@ -627,7 +627,7 @@ def apply_split(objs, rules: list[dict], library: dict, node_name: str) -> None:
         summary = ", ".join(
             f"rule[{i}]{'(default)' if rules[i].get('default') else ''}={counts[i]}"
             for i in range(len(rules)))
-        print(f"[viser2blender] split {node_name}: {summary}")
+        print(f"[bliser] split {node_name}: {summary}")
 
 
 # --------------------------------------------------------------------------- #
@@ -1059,7 +1059,7 @@ def _apply_aspect_fit(data, cam: dict, width: int, height: int, fit: str) -> Non
         if fit == "keep_horizontal":
             axis = "vertically" if render_aspect < bundle_aspect else "horizontally"
         note = "letterboxing" if fit == "fit_all" else f"cropping {axis}"
-        print(f"[viser2blender] WARNING: render aspect {render_aspect:.3f} differs from "
+        print(f"[bliser] WARNING: render aspect {render_aspect:.3f} differs from "
               f"bundle camera aspect {bundle_aspect:.3f}; {note} (fit={fit}).")
 
 
@@ -1071,7 +1071,7 @@ def auto_camera_spec(settings: Settings) -> dict | None:
     """
     bounds = scene_bounds()
     if bounds is None:
-        print("[viser2blender] --auto-camera: nothing built to frame.")
+        print("[bliser] --auto-camera: nothing built to frame.")
         return None
     mins, maxs = bounds
     center = (mins + maxs) / 2.0
@@ -1177,7 +1177,7 @@ def apply_lighting(manifest: dict, settings: Settings) -> None:
 
     if cam is None:
         if settings.three_point or (settings.auto_light and n_lights == 0):
-            print("[viser2blender] lighting rig needs a camera; skipping (no camera in bundle).")
+            print("[bliser] lighting rig needs a camera; skipping (no camera in bundle).")
         return
 
     key_color = _parse_rgb(settings.key_color) if settings.key_color else (255, 255, 255)
@@ -1221,7 +1221,7 @@ def make_backdrop(color: str, shadow_catcher: bool = False, engine: str = "CYCLE
         if engine.upper().startswith("CYCLES") and hasattr(plane, "is_shadow_catcher"):
             plane.is_shadow_catcher = True
         else:
-            print("[viser2blender] shadow catcher is Cycles-only; using an opaque plane.")
+            print("[bliser] shadow catcher is Cycles-only; using an opaque plane.")
 
 
 def setup_world(manifest: dict, settings) -> None:
@@ -1278,7 +1278,7 @@ def setup_world(manifest: dict, settings) -> None:
 
     if manifest.get("environment_map"):
         print(
-            f"[viser2blender] scene used the '{manifest['environment_map']}' viser "
+            f"[bliser] scene used the '{manifest['environment_map']}' viser "
             "environment map; pass --hdri <file.exr> to match it in Blender."
         )
 
@@ -1320,7 +1320,7 @@ def build(manifest: dict, bundle: Path, settings) -> dict[str, list]:
         elif kind.endswith("LightProps"):
             add_light(node, matrix, settings)
         else:
-            print(f"[viser2blender] unhandled node kind: {kind} ({node['name']})")
+            print(f"[bliser] unhandled node kind: {kind} ({node['name']})")
 
         if created:
             created_map[node["name"]] = created
@@ -1335,7 +1335,7 @@ def build(manifest: dict, bundle: Path, settings) -> dict[str, list]:
         node = rule["node"]
         objs = _rule_targets(created_map, node)
         if not objs:
-            print(f"[viser2blender] material rule: no objects for node {node!r}")
+            print(f"[bliser] material rule: no objects for node {node!r}")
             continue
         if "split" in rule:
             apply_split(objs, rule["split"], library, node)
@@ -1397,10 +1397,10 @@ def enable_gpu() -> None:
             for device in prefs.devices:
                 device.use = device.type == backend
             bpy.context.scene.cycles.device = "GPU"
-            print(f"[viser2blender] Cycles on {backend}: "
+            print(f"[bliser] Cycles on {backend}: "
                   f"{', '.join(d.name for d in gpus)}")
             return
-    print("[viser2blender] --gpu requested but no GPU found; rendering on CPU.")
+    print("[bliser] --gpu requested but no GPU found; rendering on CPU.")
 
 
 def set_render_engine(scene, requested: str) -> str:
@@ -1409,7 +1409,7 @@ def set_render_engine(scene, requested: str) -> str:
         try:
             bpy.ops.preferences.addon_enable(module="cycles")
         except Exception as exc:  # already on, or genuinely absent
-            print(f"[viser2blender] cycles addon_enable: {exc}")
+            print(f"[bliser] cycles addon_enable: {exc}")
         try:
             scene.render.engine = "CYCLES"
             return "CYCLES"
@@ -1477,7 +1477,7 @@ def render(path: str, settings) -> None:
     out.parent.mkdir(parents=True, exist_ok=True)
     scene.render.filepath = str(out)
     bpy.ops.render.render(write_still=True)
-    print(f"[viser2blender] rendered -> {path}")
+    print(f"[bliser] rendered -> {path}")
 
 
 # --------------------------------------------------------------------------- #
@@ -1485,15 +1485,15 @@ def render(path: str, settings) -> None:
 # --------------------------------------------------------------------------- #
 
 def check_bundle_version(manifest: dict, bundle: Path) -> None:
-    if manifest.get("format") != "viser2blender":
-        raise SystemExit(f"{bundle} is not a viser2blender bundle")
+    if manifest.get("format") != "bliser":
+        raise SystemExit(f"{bundle} is not a bliser bundle")
     version = int(manifest.get("version", 1))
     if version > SUPPORTED_BUNDLE_VERSION:
         raise SystemExit(
             f"{bundle} is format version {version}, but this importer only understands "
-            f"up to {SUPPORTED_BUNDLE_VERSION}. Update viser2blender.")
+            f"up to {SUPPORTED_BUNDLE_VERSION}. Update bliser.")
     if version < SUPPORTED_BUNDLE_VERSION:
-        print(f"[viser2blender] WARNING: bundle is format version {version} "
+        print(f"[bliser] WARNING: bundle is format version {version} "
               f"(importer is {SUPPORTED_BUNDLE_VERSION}); some fields may be missing.")
 
 
@@ -1525,7 +1525,7 @@ def write_sidecar(output: str, settings: Settings, bundle: Path,
     doc = {
         "bundle": str(bundle),
         "bundle_version": manifest.get("version"),
-        "viser2blender_version": _package_version(),
+        "bliser_version": _package_version(),
         "blender_version": bpy.app.version_string,
         "render_time_seconds": round(render_time, 2),
         "rendered_at": _dt.datetime.now().isoformat(timespec="seconds"),
@@ -1534,12 +1534,12 @@ def write_sidecar(output: str, settings: Settings, bundle: Path,
     if settings._resolved_config is not None:
         doc["config_file_values"] = settings._resolved_config
     sidecar.write_text(_to_yaml(doc))
-    print(f"[viser2blender] wrote provenance -> {sidecar}")
+    print(f"[bliser] wrote provenance -> {sidecar}")
 
 
 def _package_version() -> str:
     try:
-        from viser2blender import __version__  # may fail: not on Blender's path
+        from bliser import __version__  # may fail: not on Blender's path
         return __version__
     except Exception:
         return "unknown"
@@ -1572,7 +1572,7 @@ def _to_yaml(doc: dict, indent: int = 0) -> str:
 def save_blend(path: str) -> None:
     Path(path).absolute().parent.mkdir(parents=True, exist_ok=True)
     bpy.ops.wm.save_as_mainfile(filepath=str(Path(path).absolute()))
-    print(f"[viser2blender] saved .blend -> {path}")
+    print(f"[bliser] saved .blend -> {path}")
 
 
 def _derive_blend_path(settings: Settings) -> str | None:
@@ -1671,7 +1671,7 @@ class Pipeline:
         elif self.settings.auto_camera:
             pass  # plan_camera already reported that there was nothing to frame
         else:
-            print("[viser2blender] no camera in bundle (no browser was connected). "
+            print("[bliser] no camera in bundle (no browser was connected). "
                   "Pass --auto-camera to frame the scene automatically.")
             if self.settings.resolution:
                 bpy.context.scene.render.resolution_x = self.settings.resolution[0]
@@ -1701,7 +1701,7 @@ class Pipeline:
         self.camera()
         self.before_render()
         self.render()
-        print(f"[viser2blender] built {len(self.manifest['nodes'])} nodes from {self.bundle}")
+        print(f"[bliser] built {len(self.manifest['nodes'])} nodes from {self.bundle}")
         return self
 
     # -- construction ------------------------------------------------------ #

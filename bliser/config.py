@@ -1,7 +1,7 @@
-"""Config resolution for the ``v2b`` wrapper. Runs in the *solver* env.
+"""Config resolution for the ``bliser`` wrapper. Runs in the *solver* env.
 
 This module may import anything pip provides (it imports ``yaml``). It is never
-imported by :mod:`viser2blender.blender_import`, which runs inside Blender's
+imported by :mod:`bliser.blender_import`, which runs inside Blender's
 bundled Python. Its job is to turn a human-friendly ``pen_grip.yaml`` into a
 flat, fully-resolved JSON dict whose keys match ``blender_import.Settings``
 field names, which the Blender side then simply loads.
@@ -267,7 +267,7 @@ def _expand_output(template: str, raw: dict, profile: str | None, base_dir: Path
 
 
 def scaffold(bundle: str | Path) -> str:
-    """Return a starter YAML config for ``bundle`` (used by ``v2b init``)."""
+    """Return a starter YAML config for ``bundle`` (used by ``bliser init``)."""
     bundle = Path(bundle)
     manifest = json.loads((bundle / "scene.json").read_text())
     lines = [

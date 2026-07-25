@@ -9,7 +9,7 @@ The bundle is a directory::
             paper.npz           raw vertex/face/point arrays
 
 ``scene.json`` is the contract between this module (which needs viser) and
-:mod:`viser2blender.blender_import` (which needs bpy). Neither imports the
+:mod:`bliser.blender_import` (which needs bpy). Neither imports the
 other.
 """
 
@@ -245,7 +245,7 @@ def export_scene(
         nodes.append(node)
 
     manifest = {
-        "format": "viser2blender",
+        "format": "bliser",
         "version": 1,
         "up_direction": "+z",
         "nodes": nodes,
@@ -255,9 +255,9 @@ def export_scene(
     }
     (out_dir / "scene.json").write_text(json.dumps(manifest, indent=1))
 
-    print(f"[viser2blender] wrote {len(nodes)} nodes -> {out_dir}")
+    print(f"[bliser] wrote {len(nodes)} nodes -> {out_dir}")
     if skipped:
-        print(f"[viser2blender] no Blender equivalent, skipped: {', '.join(skipped)}")
+        print(f"[bliser] no Blender equivalent, skipped: {', '.join(skipped)}")
     return out_dir
 
 
@@ -274,14 +274,14 @@ def add_export_button(
     Everything after ``label`` is forwarded to :func:`export_scene`, so the
     button inherits the same filtering options::
 
-        import viser2blender
-        viser2blender.add_export_button(server, out_dir="renders/pen_grip",
+        import bliser
+        bliser.add_export_button(server, out_dir="renders/pen_grip",
                                         environment_map="city")
 
     Any keyword may instead be a *zero-argument* callable, evaluated on click.
     Use it to read GUI state that changes after the button is created::
 
-        viser2blender.add_export_button(
+        bliser.add_export_button(
             server, environment_map=lambda: gui_env.value)
 
     Callables that require arguments are passed through untouched, so an

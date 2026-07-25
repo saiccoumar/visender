@@ -1,7 +1,7 @@
 # Render config for examples/panda_desk.py.
 #
-#   v2b render examples/panda_desk.yaml --profile draft
-#   v2b render examples/panda_desk.yaml --profile final
+#   bliser render examples/panda_desk.yaml --profile draft
+#   bliser render examples/panda_desk.yaml --profile final
 #
 # Every path here resolves relative to this file, not your shell's CWD.
 
@@ -32,7 +32,7 @@ lighting:
   key: {az: -40, el: 35, energy: 4.0, angle: 12.0}
 
 # The URDF's node paths are deep (`/robot/visual/panda_link1/.../link6.obj`),
-# so name them once here and use `{alias}` in the rules below. `v2b list-nodes
+# so name them once here and use `{alias}` in the rules below. `bliser list-nodes
 # <bundle>` prints the exact paths.
 aliases:
   arm: /robot/visual

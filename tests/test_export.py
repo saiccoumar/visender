@@ -16,7 +16,7 @@ from typing import Any
 import numpy as np
 import pytest
 
-from viser2blender import _export
+from bliser import _export
 
 
 # --------------------------------------------------------------------------- #
@@ -264,7 +264,7 @@ def test_manifest_header_is_the_contract(tmp_path):
     server = FakeServer({"/m": FakeHandle(simple_mesh_props())}, camera=FakeCamera())
     manifest = read(_export.export_scene(server, tmp_path / "b",
                                          environment_map="city", extras={"seed": 3}))
-    assert manifest["format"] == "viser2blender"
+    assert manifest["format"] == "bliser"
     assert manifest["version"] == 1
     assert manifest["up_direction"] == "+z"
     assert manifest["environment_map"] == "city"

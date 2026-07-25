@@ -3,7 +3,7 @@ requires = ["setuptools>=61"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "viser2blender"
+name = "bliser"
 version = "0.1.0"
 description = "Snapshot a live viser scene and rebuild it in Blender for high-quality rendering."
 requires-python = ">=3.9"
@@ -13,14 +13,14 @@ dependencies = ["numpy"]
 # two never run in the same interpreter, so neither is a hard dependency.
 [project.optional-dependencies]
 export = ["viser>=1.0"]
-# pyyaml is needed only by the solver-side config/CLI wrapper (the ``v2b``
+# pyyaml is needed only by the solver-side config/CLI wrapper (the ``bliser``
 # entry point). It must never become a base dependency: Blender's bundled Python
 # has no yaml, and the import half must run there. Install as
-# ``viser2blender[cli]``; ``v2b`` says so itself if yaml is missing.
+# ``bliser[cli]``; ``bliser`` says so itself if yaml is missing.
 cli = ["pyyaml>=6.0"]
 
 [project.scripts]
-v2b = "viser2blender.cli:main"
+bliser = "bliser.cli:main"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
@@ -31,7 +31,7 @@ markers = [
 ]
 
 [tool.setuptools]
-packages = ["viser2blender"]
+packages = ["bliser"]
 
 [dependency-groups]
 dev = [

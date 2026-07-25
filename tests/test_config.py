@@ -7,7 +7,7 @@ from pathlib import Path
 
 import pytest
 
-from viser2blender import config as cfg
+from bliser import config as cfg
 
 
 def write(tmp_path: Path, text: str, name: str = "scene.yaml") -> Path:
@@ -325,5 +325,5 @@ def test_scaffold_round_trips_through_resolve(tmp_path, make_bundle):
 def test_load_manifest_reads_scene_json(make_bundle):
     bundle = make_bundle()
     manifest = cfg.load_manifest(bundle)
-    assert manifest["format"] == "viser2blender"
+    assert manifest["format"] == "bliser"
     assert manifest == json.loads((bundle / "scene.json").read_text())

@@ -1,8 +1,8 @@
-"""``v2b`` command-line wrapper. Runs in the *solver* env (may import yaml).
+"""``bliser`` command-line wrapper. Runs in the *solver* env (may import yaml).
 
-    v2b render pen_grip.yaml --profile final [--output cover.png] [blender flags...]
-    v2b list-nodes <bundle>
-    v2b init <bundle> > pen_grip.yaml
+    bliser render pen_grip.yaml --profile final [--output cover.png] [blender flags...]
+    bliser list-nodes <bundle>
+    bliser init <bundle> > pen_grip.yaml
 
 The wrapper resolves a YAML config to a flat JSON dict and hands it to Blender
 via ``blender_import.py --config``. It never imports ``blender_import`` (that
@@ -30,7 +30,7 @@ except ModuleNotFoundError as exc:  # pragma: no cover - install-shape guard
     if exc.name != "yaml":
         raise
     raise SystemExit(
-        "v2b needs pyyaml to read a config file: pip install 'viser2blender[cli]' "
+        "bliser needs pyyaml to read a config file: pip install 'bliser[cli]' "
         "(or pip install pyyaml). Blender's own Python does not need it -- "
         "blender_import.py never imports yaml."
     ) from exc
@@ -70,7 +70,7 @@ def locate_blender(explicit: str | None, config_value: str | None) -> str:
 
 
 def cmd_render(argv: list[str]) -> int:
-    p = argparse.ArgumentParser(prog="v2b render")
+    p = argparse.ArgumentParser(prog="bliser render")
     p.add_argument("config", help="YAML config file")
     p.add_argument("--profile", default=None)
     p.add_argument("--quality", choices=sorted(QUALITY), default=None,
@@ -95,13 +95,13 @@ def cmd_render(argv: list[str]) -> int:
 
     blender = locate_blender(args.blender, cfg_blender)
 
-    with tempfile.NamedTemporaryFile("w", suffix=".v2b.json", delete=False) as fh:
+    with tempfile.NamedTemporaryFile("w", suffix=".bliser.json", delete=False) as fh:
         json.dump(resolved, fh)
         json_path = fh.name
 
     cmd = [blender, "-b", "--python", _blender_import_path(), "--",
            "--config", json_path, *passthrough]
-    print(f"[v2b] {' '.join(cmd)}", flush=True)
+    print(f"[bliser] {' '.join(cmd)}", flush=True)
     try:
         return subprocess.run(cmd).returncode
     finally:
@@ -112,7 +112,7 @@ def cmd_render(argv: list[str]) -> int:
 
 
 def cmd_list_nodes(argv: list[str]) -> int:
-    p = argparse.ArgumentParser(prog="v2b list-nodes")
+    p = argparse.ArgumentParser(prog="bliser list-nodes")
     p.add_argument("bundle")
     args = p.parse_args(argv)
     bundle = Path(args.bundle)
@@ -140,7 +140,7 @@ def _node_count(bundle: Path, node: dict) -> str:
 
 
 def cmd_init(argv: list[str]) -> int:
-    p = argparse.ArgumentParser(prog="v2b init")
+    p = argparse.ArgumentParser(prog="bliser init")
     p.add_argument("bundle")
     args = p.parse_args(argv)
     sys.stdout.write(_config.scaffold(args.bundle))
@@ -150,7 +150,7 @@ def cmd_init(argv: list[str]) -> int:
 def main(argv: list[str] | None = None) -> int:
     argv = list(sys.argv[1:] if argv is None else argv)
     if not argv or argv[0] in ("-h", "--help"):
-        print("usage: v2b {render|list-nodes|init} ...", file=sys.stderr)
+        print("usage: bliser {render|list-nodes|init} ...", file=sys.stderr)
         return 0 if argv else 2
     cmd, rest = argv[0], argv[1:]
     dispatch = {"render": cmd_render, "list-nodes": cmd_list_nodes, "init": cmd_init}

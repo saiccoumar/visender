@@ -1,4 +1,4 @@
-"""Regression tests for the ``v2b`` wrapper.
+"""Regression tests for the ``bliser`` wrapper.
 
 The wrapper's whole job is to build one Blender command line, so these tests
 capture ``subprocess.run`` and assert on the command and the resolved JSON it
@@ -13,7 +13,7 @@ from pathlib import Path
 
 import pytest
 
-from viser2blender import cli
+from bliser import cli
 
 
 @pytest.fixture
@@ -216,6 +216,6 @@ def test_main_with_no_args_exits_nonzero(capsys):
 
 def test_quality_table_keys_are_settings_fields():
     """A shorthand that names a non-field would be silently dropped."""
-    from viser2blender import config as cfg
+    from bliser import config as cfg
     for name, table in cli.QUALITY.items():
         assert set(table) <= cfg.SETTINGS_FIELDS, name

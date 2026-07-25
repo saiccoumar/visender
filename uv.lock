@@ -2630,7 +2630,7 @@ wheels = [
 ]
 
 [[package]]
-name = "viser2blender"
+name = "bliser"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [

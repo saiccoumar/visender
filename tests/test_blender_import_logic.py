@@ -119,7 +119,7 @@ def test_fit_rejects_an_unknown_policy(bi):
         bi.parse_args(["--bundle", "b", "--fit", "stretch"])
 
 
-def test_load_config_reads_the_json_written_by_v2b(bi, tmp_path):
+def test_load_config_reads_the_json_written_by_bliser(bi, tmp_path):
     path = tmp_path / "c.json"
     path.write_text(json.dumps({"samples": 9}))
     assert bi.load_config(str(path)) == {"samples": 9}
@@ -255,7 +255,7 @@ def test_compile_where_binds_each_axis_separately(bi):
 # --------------------------------------------------------------------------- #
 
 def test_check_bundle_version_accepts_the_current_format(bi):
-    bi.check_bundle_version({"format": "viser2blender", "version": 1}, Path("b"))
+    bi.check_bundle_version({"format": "bliser", "version": 1}, Path("b"))
 
 
 def test_check_bundle_version_rejects_a_foreign_directory(bi):
@@ -265,13 +265,13 @@ def test_check_bundle_version_rejects_a_foreign_directory(bi):
 
 def test_check_bundle_version_rejects_a_newer_bundle(bi):
     with pytest.raises(SystemExit) as exc:
-        bi.check_bundle_version({"format": "viser2blender", "version": 99}, Path("b"))
-    assert "Update viser2blender" in str(exc.value)
+        bi.check_bundle_version({"format": "bliser", "version": 99}, Path("b"))
+    assert "Update bliser" in str(exc.value)
 
 
 def test_check_bundle_version_warns_on_an_older_bundle(bi, capsys, monkeypatch):
     monkeypatch.setattr(bi, "SUPPORTED_BUNDLE_VERSION", 2)
-    bi.check_bundle_version({"format": "viser2blender", "version": 1}, Path("b"))
+    bi.check_bundle_version({"format": "bliser", "version": 1}, Path("b"))
     assert "WARNING" in capsys.readouterr().out
 
 

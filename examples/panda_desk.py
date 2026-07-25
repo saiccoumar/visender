@@ -1,9 +1,9 @@
-"""viser2blender example: a Panda on a desk, with draggable props and lights.
+"""bliser example: a Panda on a desk, with draggable props and lights.
 
     python examples/panda_desk.py [--urdf /path/to/panda.urdf]
 
 Frame it in the browser, click **Export to Blender**, then render the bundle
-with `v2b render examples/panda_desk.yaml`. The scene is *posable*: joint
+with `bliser render examples/panda_desk.yaml`. The scene is *posable*: joint
 sliders drive the URDF, and four transform gizmos let you drag two props and
 aim the lights before exporting.
 
@@ -29,7 +29,7 @@ import numpy as np
 import viser
 from viser.extras import ViserUrdf
 
-import viser2blender
+import bliser
 
 # A Panda that ships with the vamp resources in this monorepo. Override with
 # --urdf; any URDF whose meshes resolve will do.
@@ -137,7 +137,7 @@ def build_scene(server: viser.ViserServer, urdf_path: Path = DEFAULT_URDF) -> No
                                color=(200, 220, 255))
 
     # ------------------------------------------------------------------ export
-    viser2blender.add_export_button(
+    bliser.add_export_button(
         server,
         out_dir=Path(__file__).parent / "out/panda_desk",
         node_filter=lambda name: not name.endswith("/bulb"),
