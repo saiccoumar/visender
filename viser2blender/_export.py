@@ -278,11 +278,15 @@ def add_export_button(
         viser2blender.add_export_button(server, out_dir="renders/pen_grip",
                                         environment_map="city")
 
-    Any keyword may instead be a zero-argument callable, evaluated on click.
+    Any keyword may instead be a *zero-argument* callable, evaluated on click.
     Use it to read GUI state that changes after the button is created::
 
         viser2blender.add_export_button(
             server, environment_map=lambda: gui_env.value)
+
+    Callables that require arguments are passed through untouched, so an
+    option that is itself a function — ``node_filter=lambda name: ...`` —
+    still works.
 
     Args:
         timestamp: Suffix each export with ``_<HHMMSS>`` so repeated clicks
@@ -301,9 +305,7 @@ def add_export_button(
         target = Path(out_dir)
         if timestamp:
             target = target.with_name(f"{target.name}_{time.strftime('%H%M%S')}")
-        resolved = {
-            k: (v() if callable(v) else v) for k, v in export_kwargs.items()
-        }
+        resolved = {k: _thunk(v) for k, v in export_kwargs.items()}
         button.disabled = True
         try:
             export_scene(server, target, **resolved)
@@ -315,6 +317,23 @@ def add_export_button(
             button.disabled = False
 
     return button
+
+
+def _thunk(value):
+    """Evaluate ``value`` if it is a zero-argument callable, else return it.
+
+    ``node_filter`` is itself a callable, so "callable means deferred value"
+    is not enough — only something callable with *no* arguments is a thunk.
+    """
+    if not callable(value):
+        return value
+    import inspect
+
+    try:
+        inspect.signature(value).bind()
+    except (TypeError, ValueError):
+        return value
+    return value()
 
 
 def _icon():

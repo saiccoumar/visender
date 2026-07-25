@@ -1,0 +1,1713 @@
+{
+ "format": "viser2blender",
+ "version": 1,
+ "up_direction": "+z",
+ "nodes": [
+  {
+   "name": "/ctrl/ball/mesh",
+   "kind": "IcosphereProps",
+   "matrix": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     0.42
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     -0.24
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     0.04
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "radius": 0.04,
+    "subdivisions": 3,
+    "color": [
+     70,
+     130,
+     200
+    ],
+    "wireframe": false,
+    "opacity": null,
+    "flat_shading": false,
+    "side": "front",
+    "material": "standard",
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   }
+  },
+  {
+   "name": "/ctrl/cube/mesh",
+   "kind": "BoxProps",
+   "matrix": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     0.45
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     0.22
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     0.03
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "dimensions": [
+     0.06,
+     0.06,
+     0.06
+    ],
+    "color": [
+     214,
+     108,
+     42
+    ],
+    "wireframe": false,
+    "opacity": null,
+    "flat_shading": true,
+    "side": "front",
+    "material": "standard",
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   }
+  },
+  {
+   "name": "/ctrl/fill/light",
+   "kind": "PointLightProps",
+   "matrix": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     -0.35
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     0.55
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     0.75
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "color": [
+     200,
+     220,
+     255
+    ],
+    "intensity": 8.0,
+    "distance": 0.0,
+    "decay": 2.0,
+    "cast_shadow": false
+   }
+  },
+  {
+   "name": "/ctrl/key/light",
+   "kind": "DirectionalLightProps",
+   "matrix": [
+    [
+     0.7289383400354371,
+     -0.42456208274456897,
+     0.5370250779265109,
+     0.9
+    ],
+    [
+     -0.07661437030789689,
+     0.7289383400354371,
+     0.6802787183858581,
+     -0.7
+    ],
+    [
+     -0.6802787183858581,
+     -0.5370250779265109,
+     0.49882354694753417,
+     1.1
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "color": [
+     255,
+     255,
+     255
+    ],
+    "intensity": 2.2,
+    "cast_shadow": false
+   }
+  },
+  {
+   "name": "/desk",
+   "kind": "BoxProps",
+   "matrix": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     0.15
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     -0.02
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "dimensions": [
+     1.6,
+     1.1,
+     0.04
+    ],
+    "color": [
+     58,
+     60,
+     66
+    ],
+    "wireframe": false,
+    "opacity": null,
+    "flat_shading": true,
+    "side": "front",
+    "material": "standard",
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   }
+  },
+  {
+   "name": "/robot/visual/link0.obj",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__link0.obj.glb"
+  },
+  {
+   "name": "/robot/visual/panda_link1/link1.obj",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     0.333
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__panda_link1__link1.obj.glb"
+  },
+  {
+   "name": "/robot/visual/panda_link1/panda_link2/link2.obj",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     0.7073882691671997,
+     0.7068251811053661,
+     5.551115123125783e-17,
+     0.0
+    ],
+    [
+     -3.4610647681176943e-12,
+     3.4634517476206383e-12,
+     1.0000000000000002,
+     0.0
+    ],
+    [
+     0.7068251811053661,
+     -0.7073882691671998,
+     4.896305583201865e-12,
+     0.333
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__panda_link1__panda_link2__link2.obj.glb"
+  },
+  {
+   "name": "/robot/visual/panda_link1/panda_link2/panda_link3/link3.obj",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     0.7073882691671997,
+     3.4608875917451047e-12,
+     -0.7068251811053662,
+     -0.22335675722929568
+    ],
+    [
+     -3.4610647681176943e-12,
+     1.0000000000000004,
+     1.4328538355812272e-12,
+     -1.0944507522481217e-12
+    ],
+    [
+     0.7068251811053661,
+     1.4327164513870023e-12,
+     0.7073882691671999,
+     0.5565346930568351
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__panda_link1__panda_link2__panda_link3__link3.obj.glb"
+  },
+  {
+   "name": "/robot/visual/panda_link1/panda_link2/panda_link3/link3.obj_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     0.7073882691671997,
+     3.4608875917451047e-12,
+     -0.7068251811053662,
+     -0.22335675722929568
+    ],
+    [
+     -3.4610647681176943e-12,
+     1.0000000000000004,
+     1.4328538355812272e-12,
+     -1.0944507522481217e-12
+    ],
+    [
+     0.7068251811053661,
+     1.4327164513870023e-12,
+     0.7073882691671999,
+     0.5565346930568351
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__panda_link1__panda_link2__panda_link3__link3.obj_1.glb"
+  },
+  {
+   "name": "/robot/visual/panda_link1/panda_link2/panda_link3/link3.obj_2",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     0.7073882691671997,
+     3.4608875917451047e-12,
+     -0.7068251811053662,
+     -0.22335675722929568
+    ],
+    [
+     -3.4610647681176943e-12,
+     1.0000000000000004,
+     1.4328538355812272e-12,
+     -1.0944507522481217e-12
+    ],
+    [
+     0.7068251811053661,
+     1.4327164513870023e-12,
+     0.7073882691671999,
+     0.5565346930568351
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__panda_link1__panda_link2__panda_link3__link3.obj_2.glb"
+  },
+  {
+   "name": "/robot/visual/panda_link1/panda_link2/panda_link3/link3.obj_3",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     0.7073882691671997,
+     3.4608875917451047e-12,
+     -0.7068251811053662,
+     -0.22335675722929568
+    ],
+    [
+     -3.4610647681176943e-12,
+     1.0000000000000004,
+     1.4328538355812272e-12,
+     -1.0944507522481217e-12
+    ],
+    [
+     0.7068251811053661,
+     1.4327164513870023e-12,
+     0.7073882691671999,
+     0.5565346930568351
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__panda_link1__panda_link2__panda_link3__link3.obj_3.glb"
+  },
+  {
+   "name": "/robot/visual/panda_link1/panda_link2/panda_link3/panda_link4/link4.obj",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.00020367320369498658,
+     0.9999999792586132,
+     -6.9219158869942575e-12,
+     -0.1649972250230017
+    ],
+    [
+     -2.029685552701587e-12,
+     -6.922699331570969e-12,
+     -1.0000000000000004,
+     -1.3799885956178314e-12
+    ],
+    [
+     -0.9999999792586132,
+     -0.00020367320369512603,
+     2.0309905154970958e-12,
+     0.6148477704980279
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__panda_link1__panda_link2__panda_link3__panda_link4__link4.obj.glb"
+  },
+  {
+   "name": "/robot/visual/panda_link1/panda_link2/panda_link3/panda_link4/link4.obj_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.00020367320369498658,
+     0.9999999792586132,
+     -6.9219158869942575e-12,
+     -0.1649972250230017
+    ],
+    [
+     -2.029685552701587e-12,
+     -6.922699331570969e-12,
+     -1.0000000000000004,
+     -1.3799885956178314e-12
+    ],
+    [
+     -0.9999999792586132,
+     -0.00020367320369512603,
+     2.0309905154970958e-12,
+     0.6148477704980279
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__panda_link1__panda_link2__panda_link3__panda_link4__link4.obj_1.glb"
+  },
+  {
+   "name": "/robot/visual/panda_link1/panda_link2/panda_link3/panda_link4/link4.obj_2",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.00020367320369498658,
+     0.9999999792586132,
+     -6.9219158869942575e-12,
+     -0.1649972250230017
+    ],
+    [
+     -2.029685552701587e-12,
+     -6.922699331570969e-12,
+     -1.0000000000000004,
+     -1.3799885956178314e-12
+    ],
+    [
+     -0.9999999792586132,
+     -0.00020367320369512603,
+     2.0309905154970958e-12,
+     0.6148477704980279
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__panda_link1__panda_link2__panda_link3__panda_link4__link4.obj_2.glb"
+  },
+  {
+   "name": "/robot/visual/panda_link1/panda_link2/panda_link3/panda_link4/link4.obj_3",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.00020367320369498658,
+     0.9999999792586132,
+     -6.9219158869942575e-12,
+     -0.1649972250230017
+    ],
+    [
+     -2.029685552701587e-12,
+     -6.922699331570969e-12,
+     -1.0000000000000004,
+     -1.3799885956178314e-12
+    ],
+    [
+     -0.9999999792586132,
+     -0.00020367320369512603,
+     2.0309905154970958e-12,
+     0.6148477704980279
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__panda_link1__panda_link2__panda_link3__panda_link4__link4.obj_3.glb"
+  },
+  {
+   "name": "/robot/visual/panda_link1/panda_link2/panda_link3/panda_link4/panda_link5/link5.obj",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.00020367320369498658,
+     1.1818221368639956e-11,
+     0.9999999792586134,
+     0.21901957005161057
+    ],
+    [
+     -2.029685552701587e-12,
+     1.0000000000000007,
+     -1.1819004914772838e-11,
+     -3.870856080843203e-12
+    ],
+    [
+     -0.9999999792586132,
+     -2.0319877617414972e-12,
+     -0.0002036732036951261,
+     0.6972695582766445
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__panda_link1__panda_link2__panda_link3__panda_link4__panda_link5__link5.obj.glb"
+  },
+  {
+   "name": "/robot/visual/panda_link1/panda_link2/panda_link3/panda_link4/panda_link5/link5.obj_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.00020367320369498658,
+     1.1818221368639956e-11,
+     0.9999999792586134,
+     0.21901957005161057
+    ],
+    [
+     -2.029685552701587e-12,
+     1.0000000000000007,
+     -1.1819004914772838e-11,
+     -3.870856080843203e-12
+    ],
+    [
+     -0.9999999792586132,
+     -2.0319877617414972e-12,
+     -0.0002036732036951261,
+     0.6972695582766445
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__panda_link1__panda_link2__panda_link3__panda_link4__panda_link5__link5.obj_1.glb"
+  },
+  {
+   "name": "/robot/visual/panda_link1/panda_link2/panda_link3/panda_link4/panda_link5/link5.obj_2",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.00020367320369498658,
+     1.1818221368639956e-11,
+     0.9999999792586134,
+     0.21901957005161057
+    ],
+    [
+     -2.029685552701587e-12,
+     1.0000000000000007,
+     -1.1819004914772838e-11,
+     -3.870856080843203e-12
+    ],
+    [
+     -0.9999999792586132,
+     -2.0319877617414972e-12,
+     -0.0002036732036951261,
+     0.6972695582766445
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__panda_link1__panda_link2__panda_link3__panda_link4__panda_link5__link5.obj_2.glb"
+  },
+  {
+   "name": "/robot/visual/panda_link1/panda_link2/panda_link3/panda_link4/panda_link5/panda_link6/link6.obj",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     1.0000000000000007,
+     -2.006357481767457e-16,
+     -6.921915875688127e-12,
+     0.21901957005161057
+    ],
+    [
+     -6.922063649264476e-12,
+     2.0309825021739495e-12,
+     -1.0000000000000009,
+     -3.870856080843203e-12
+    ],
+    [
+     2.8314439382881805e-16,
+     1.0000000000000007,
+     2.0310460266471763e-12,
+     0.6972695582766445
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__panda_link1__panda_link2__panda_link3__panda_link4__panda_link5__panda_link6__link6.obj.glb"
+  },
+  {
+   "name": "/robot/visual/panda_link1/panda_link2/panda_link3/panda_link4/panda_link5/panda_link6/link6.obj_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     1.0000000000000007,
+     -2.006357481767457e-16,
+     -6.921915875688127e-12,
+     0.21901957005161057
+    ],
+    [
+     -6.922063649264476e-12,
+     2.0309825021739495e-12,
+     -1.0000000000000009,
+     -3.870856080843203e-12
+    ],
+    [
+     2.8314439382881805e-16,
+     1.0000000000000007,
+     2.0310460266471763e-12,
+     0.6972695582766445
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__panda_link1__panda_link2__panda_link3__panda_link4__panda_link5__panda_link6__link6.obj_1.glb"
+  },
+  {
+   "name": "/robot/visual/panda_link1/panda_link2/panda_link3/panda_link4/panda_link5/panda_link6/link6.obj_10",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     1.0000000000000007,
+     -2.006357481767457e-16,
+     -6.921915875688127e-12,
+     0.21901957005161057
+    ],
+    [
+     -6.922063649264476e-12,
+     2.0309825021739495e-12,
+     -1.0000000000000009,
+     -3.870856080843203e-12
+    ],
+    [
+     2.8314439382881805e-16,
+     1.0000000000000007,
+     2.0310460266471763e-12,
+     0.6972695582766445
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__panda_link1__panda_link2__panda_link3__panda_link4__panda_link5__panda_link6__link6.obj_10.glb"
+  },
+  {
+   "name": "/robot/visual/panda_link1/panda_link2/panda_link3/panda_link4/panda_link5/panda_link6/link6.obj_11",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     1.0000000000000007,
+     -2.006357481767457e-16,
+     -6.921915875688127e-12,
+     0.21901957005161057
+    ],
+    [
+     -6.922063649264476e-12,
+     2.0309825021739495e-12,
+     -1.0000000000000009,
+     -3.870856080843203e-12
+    ],
+    [
+     2.8314439382881805e-16,
+     1.0000000000000007,
+     2.0310460266471763e-12,
+     0.6972695582766445
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__panda_link1__panda_link2__panda_link3__panda_link4__panda_link5__panda_link6__link6.obj_11.glb"
+  },
+  {
+   "name": "/robot/visual/panda_link1/panda_link2/panda_link3/panda_link4/panda_link5/panda_link6/link6.obj_12",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     1.0000000000000007,
+     -2.006357481767457e-16,
+     -6.921915875688127e-12,
+     0.21901957005161057
+    ],
+    [
+     -6.922063649264476e-12,
+     2.0309825021739495e-12,
+     -1.0000000000000009,
+     -3.870856080843203e-12
+    ],
+    [
+     2.8314439382881805e-16,
+     1.0000000000000007,
+     2.0310460266471763e-12,
+     0.6972695582766445
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__panda_link1__panda_link2__panda_link3__panda_link4__panda_link5__panda_link6__link6.obj_12.glb"
+  },
+  {
+   "name": "/robot/visual/panda_link1/panda_link2/panda_link3/panda_link4/panda_link5/panda_link6/link6.obj_13",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     1.0000000000000007,
+     -2.006357481767457e-16,
+     -6.921915875688127e-12,
+     0.21901957005161057
+    ],
+    [
+     -6.922063649264476e-12,
+     2.0309825021739495e-12,
+     -1.0000000000000009,
+     -3.870856080843203e-12
+    ],
+    [
+     2.8314439382881805e-16,
+     1.0000000000000007,
+     2.0310460266471763e-12,
+     0.6972695582766445
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__panda_link1__panda_link2__panda_link3__panda_link4__panda_link5__panda_link6__link6.obj_13.glb"
+  },
+  {
+   "name": "/robot/visual/panda_link1/panda_link2/panda_link3/panda_link4/panda_link5/panda_link6/link6.obj_14",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     1.0000000000000007,
+     -2.006357481767457e-16,
+     -6.921915875688127e-12,
+     0.21901957005161057
+    ],
+    [
+     -6.922063649264476e-12,
+     2.0309825021739495e-12,
+     -1.0000000000000009,
+     -3.870856080843203e-12
+    ],
+    [
+     2.8314439382881805e-16,
+     1.0000000000000007,
+     2.0310460266471763e-12,
+     0.6972695582766445
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__panda_link1__panda_link2__panda_link3__panda_link4__panda_link5__panda_link6__link6.obj_14.glb"
+  },
+  {
+   "name": "/robot/visual/panda_link1/panda_link2/panda_link3/panda_link4/panda_link5/panda_link6/link6.obj_15",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     1.0000000000000007,
+     -2.006357481767457e-16,
+     -6.921915875688127e-12,
+     0.21901957005161057
+    ],
+    [
+     -6.922063649264476e-12,
+     2.0309825021739495e-12,
+     -1.0000000000000009,
+     -3.870856080843203e-12
+    ],
+    [
+     2.8314439382881805e-16,
+     1.0000000000000007,
+     2.0310460266471763e-12,
+     0.6972695582766445
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__panda_link1__panda_link2__panda_link3__panda_link4__panda_link5__panda_link6__link6.obj_15.glb"
+  },
+  {
+   "name": "/robot/visual/panda_link1/panda_link2/panda_link3/panda_link4/panda_link5/panda_link6/link6.obj_16",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     1.0000000000000007,
+     -2.006357481767457e-16,
+     -6.921915875688127e-12,
+     0.21901957005161057
+    ],
+    [
+     -6.922063649264476e-12,
+     2.0309825021739495e-12,
+     -1.0000000000000009,
+     -3.870856080843203e-12
+    ],
+    [
+     2.8314439382881805e-16,
+     1.0000000000000007,
+     2.0310460266471763e-12,
+     0.6972695582766445
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__panda_link1__panda_link2__panda_link3__panda_link4__panda_link5__panda_link6__link6.obj_16.glb"
+  },
+  {
+   "name": "/robot/visual/panda_link1/panda_link2/panda_link3/panda_link4/panda_link5/panda_link6/link6.obj_2",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     1.0000000000000007,
+     -2.006357481767457e-16,
+     -6.921915875688127e-12,
+     0.21901957005161057
+    ],
+    [
+     -6.922063649264476e-12,
+     2.0309825021739495e-12,
+     -1.0000000000000009,
+     -3.870856080843203e-12
+    ],
+    [
+     2.8314439382881805e-16,
+     1.0000000000000007,
+     2.0310460266471763e-12,
+     0.6972695582766445
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__panda_link1__panda_link2__panda_link3__panda_link4__panda_link5__panda_link6__link6.obj_2.glb"
+  },
+  {
+   "name": "/robot/visual/panda_link1/panda_link2/panda_link3/panda_link4/panda_link5/panda_link6/link6.obj_3",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     1.0000000000000007,
+     -2.006357481767457e-16,
+     -6.921915875688127e-12,
+     0.21901957005161057
+    ],
+    [
+     -6.922063649264476e-12,
+     2.0309825021739495e-12,
+     -1.0000000000000009,
+     -3.870856080843203e-12
+    ],
+    [
+     2.8314439382881805e-16,
+     1.0000000000000007,
+     2.0310460266471763e-12,
+     0.6972695582766445
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__panda_link1__panda_link2__panda_link3__panda_link4__panda_link5__panda_link6__link6.obj_3.glb"
+  },
+  {
+   "name": "/robot/visual/panda_link1/panda_link2/panda_link3/panda_link4/panda_link5/panda_link6/link6.obj_4",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     1.0000000000000007,
+     -2.006357481767457e-16,
+     -6.921915875688127e-12,
+     0.21901957005161057
+    ],
+    [
+     -6.922063649264476e-12,
+     2.0309825021739495e-12,
+     -1.0000000000000009,
+     -3.870856080843203e-12
+    ],
+    [
+     2.8314439382881805e-16,
+     1.0000000000000007,
+     2.0310460266471763e-12,
+     0.6972695582766445
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__panda_link1__panda_link2__panda_link3__panda_link4__panda_link5__panda_link6__link6.obj_4.glb"
+  },
+  {
+   "name": "/robot/visual/panda_link1/panda_link2/panda_link3/panda_link4/panda_link5/panda_link6/link6.obj_5",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     1.0000000000000007,
+     -2.006357481767457e-16,
+     -6.921915875688127e-12,
+     0.21901957005161057
+    ],
+    [
+     -6.922063649264476e-12,
+     2.0309825021739495e-12,
+     -1.0000000000000009,
+     -3.870856080843203e-12
+    ],
+    [
+     2.8314439382881805e-16,
+     1.0000000000000007,
+     2.0310460266471763e-12,
+     0.6972695582766445
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__panda_link1__panda_link2__panda_link3__panda_link4__panda_link5__panda_link6__link6.obj_5.glb"
+  },
+  {
+   "name": "/robot/visual/panda_link1/panda_link2/panda_link3/panda_link4/panda_link5/panda_link6/link6.obj_6",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     1.0000000000000007,
+     -2.006357481767457e-16,
+     -6.921915875688127e-12,
+     0.21901957005161057
+    ],
+    [
+     -6.922063649264476e-12,
+     2.0309825021739495e-12,
+     -1.0000000000000009,
+     -3.870856080843203e-12
+    ],
+    [
+     2.8314439382881805e-16,
+     1.0000000000000007,
+     2.0310460266471763e-12,
+     0.6972695582766445
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__panda_link1__panda_link2__panda_link3__panda_link4__panda_link5__panda_link6__link6.obj_6.glb"
+  },
+  {
+   "name": "/robot/visual/panda_link1/panda_link2/panda_link3/panda_link4/panda_link5/panda_link6/link6.obj_7",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     1.0000000000000007,
+     -2.006357481767457e-16,
+     -6.921915875688127e-12,
+     0.21901957005161057
+    ],
+    [
+     -6.922063649264476e-12,
+     2.0309825021739495e-12,
+     -1.0000000000000009,
+     -3.870856080843203e-12
+    ],
+    [
+     2.8314439382881805e-16,
+     1.0000000000000007,
+     2.0310460266471763e-12,
+     0.6972695582766445
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__panda_link1__panda_link2__panda_link3__panda_link4__panda_link5__panda_link6__link6.obj_7.glb"
+  },
+  {
+   "name": "/robot/visual/panda_link1/panda_link2/panda_link3/panda_link4/panda_link5/panda_link6/link6.obj_8",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     1.0000000000000007,
+     -2.006357481767457e-16,
+     -6.921915875688127e-12,
+     0.21901957005161057
+    ],
+    [
+     -6.922063649264476e-12,
+     2.0309825021739495e-12,
+     -1.0000000000000009,
+     -3.870856080843203e-12
+    ],
+    [
+     2.8314439382881805e-16,
+     1.0000000000000007,
+     2.0310460266471763e-12,
+     0.6972695582766445
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__panda_link1__panda_link2__panda_link3__panda_link4__panda_link5__panda_link6__link6.obj_8.glb"
+  },
+  {
+   "name": "/robot/visual/panda_link1/panda_link2/panda_link3/panda_link4/panda_link5/panda_link6/link6.obj_9",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     1.0000000000000007,
+     -2.006357481767457e-16,
+     -6.921915875688127e-12,
+     0.21901957005161057
+    ],
+    [
+     -6.922063649264476e-12,
+     2.0309825021739495e-12,
+     -1.0000000000000009,
+     -3.870856080843203e-12
+    ],
+    [
+     2.8314439382881805e-16,
+     1.0000000000000007,
+     2.0310460266471763e-12,
+     0.6972695582766445
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__panda_link1__panda_link2__panda_link3__panda_link4__panda_link5__panda_link6__link6.obj_9.glb"
+  },
+  {
+   "name": "/robot/visual/panda_link1/panda_link2/panda_link3/panda_link4/panda_link5/panda_link6/panda_link7/link7.obj",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     0.7073882691623076,
+     -0.706825181110263,
+     2.561468655161883e-16,
+     0.3070195700516106
+    ],
+    [
+     -0.7068251811102633,
+     -0.7073882691623077,
+     -6.92728808537582e-12,
+     -4.479997681978477e-12
+    ],
+    [
+     4.896859536758596e-12,
+     4.899989747422058e-12,
+     -1.0000000000000009,
+     0.6972695582766445
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__panda_link1__panda_link2__panda_link3__panda_link4__panda_link5__panda_link6__panda_link7__link7.obj.glb"
+  },
+  {
+   "name": "/robot/visual/panda_link1/panda_link2/panda_link3/panda_link4/panda_link5/panda_link6/panda_link7/panda_link8/panda_hand/hand.obj",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     0.9999999207329592,
+     0.00039816337955742037,
+     2.561468655161883e-16,
+     0.3070195700516106
+    ],
+    [
+     0.0003981633795574067,
+     -0.9999999207329594,
+     -6.92728808537582e-12,
+     -5.2212175071136895e-12
+    ],
+    [
+     -2.213393183570954e-15,
+     6.927418563106715e-12,
+     -1.0000000000000009,
+     0.5902695582766444
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__panda_link1__panda_link2__panda_link3__panda_link4__panda_link5__panda_link6__panda_link7__panda_link8__panda_hand__hand.obj.glb"
+  },
+  {
+   "name": "/robot/visual/panda_link1/panda_link2/panda_link3/panda_link4/panda_link5/panda_link6/panda_link7/panda_link8/panda_hand/hand.obj_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     0.9999999207329592,
+     0.00039816337955742037,
+     2.561468655161883e-16,
+     0.3070195700516106
+    ],
+    [
+     0.0003981633795574067,
+     -0.9999999207329594,
+     -6.92728808537582e-12,
+     -5.2212175071136895e-12
+    ],
+    [
+     -2.213393183570954e-15,
+     6.927418563106715e-12,
+     -1.0000000000000009,
+     0.5902695582766444
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__panda_link1__panda_link2__panda_link3__panda_link4__panda_link5__panda_link6__panda_link7__panda_link8__panda_hand__hand.obj_1.glb"
+  },
+  {
+   "name": "/robot/visual/panda_link1/panda_link2/panda_link3/panda_link4/panda_link5/panda_link6/panda_link7/panda_link8/panda_hand/hand.obj_2",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     0.9999999207329592,
+     0.00039816337955742037,
+     2.561468655161883e-16,
+     0.3070195700516106
+    ],
+    [
+     0.0003981633795574067,
+     -0.9999999207329594,
+     -6.92728808537582e-12,
+     -5.2212175071136895e-12
+    ],
+    [
+     -2.213393183570954e-15,
+     6.927418563106715e-12,
+     -1.0000000000000009,
+     0.5902695582766444
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__panda_link1__panda_link2__panda_link3__panda_link4__panda_link5__panda_link6__panda_link7__panda_link8__panda_hand__hand.obj_2.glb"
+  },
+  {
+   "name": "/robot/visual/panda_link1/panda_link2/panda_link3/panda_link4/panda_link5/panda_link6/panda_link7/panda_link8/panda_hand/hand.obj_3",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     0.9999999207329592,
+     0.00039816337955742037,
+     2.561468655161883e-16,
+     0.3070195700516106
+    ],
+    [
+     0.0003981633795574067,
+     -0.9999999207329594,
+     -6.92728808537582e-12,
+     -5.2212175071136895e-12
+    ],
+    [
+     -2.213393183570954e-15,
+     6.927418563106715e-12,
+     -1.0000000000000009,
+     0.5902695582766444
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__panda_link1__panda_link2__panda_link3__panda_link4__panda_link5__panda_link6__panda_link7__panda_link8__panda_hand__hand.obj_3.glb"
+  },
+  {
+   "name": "/robot/visual/panda_link1/panda_link2/panda_link3/panda_link4/panda_link5/panda_link6/panda_link7/panda_link8/panda_hand/hand.obj_4",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     0.9999999207329592,
+     0.00039816337955742037,
+     2.561468655161883e-16,
+     0.3070195700516106
+    ],
+    [
+     0.0003981633795574067,
+     -0.9999999207329594,
+     -6.92728808537582e-12,
+     -5.2212175071136895e-12
+    ],
+    [
+     -2.213393183570954e-15,
+     6.927418563106715e-12,
+     -1.0000000000000009,
+     0.5902695582766444
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__panda_link1__panda_link2__panda_link3__panda_link4__panda_link5__panda_link6__panda_link7__panda_link8__panda_hand__hand.obj_4.glb"
+  },
+  {
+   "name": "/robot/visual/panda_link1/panda_link2/panda_link3/panda_link4/panda_link5/panda_link6/panda_link7/panda_link8/panda_hand/panda_leftfinger/finger.obj",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     0.9999999207329592,
+     0.00039816337955742037,
+     2.561468655161883e-16,
+     0.30704545067128186
+    ],
+    [
+     0.0003981633795574067,
+     -0.9999999207329594,
+     -6.92728808537582e-12,
+     -0.06499999485326813
+    ],
+    [
+     -2.213393183570954e-15,
+     6.927418563106715e-12,
+     -1.0000000000000009,
+     0.5318695582770946
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__panda_link1__panda_link2__panda_link3__panda_link4__panda_link5__panda_link6__panda_link7__panda_link8__panda_hand__panda_leftfinger__finger.obj.glb"
+  },
+  {
+   "name": "/robot/visual/panda_link1/panda_link2/panda_link3/panda_link4/panda_link5/panda_link6/panda_link7/panda_link8/panda_hand/panda_leftfinger/finger.obj_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     0.9999999207329592,
+     0.00039816337955742037,
+     2.561468655161883e-16,
+     0.30704545067128186
+    ],
+    [
+     0.0003981633795574067,
+     -0.9999999207329594,
+     -6.92728808537582e-12,
+     -0.06499999485326813
+    ],
+    [
+     -2.213393183570954e-15,
+     6.927418563106715e-12,
+     -1.0000000000000009,
+     0.5318695582770946
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__panda_link1__panda_link2__panda_link3__panda_link4__panda_link5__panda_link6__panda_link7__panda_link8__panda_hand__panda_leftfinger__finger.obj_1.glb"
+  },
+  {
+   "name": "/robot/visual/panda_link1/panda_link2/panda_link3/panda_link4/panda_link5/panda_link6/panda_link7/panda_link8/panda_hand/panda_rightfinger/finger.obj_2",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     0.9999999207329592,
+     0.00039816337955742037,
+     2.561468655161883e-16,
+     0.3069936894319394
+    ],
+    [
+     0.0003981633795574067,
+     -0.9999999207329594,
+     -6.92728808537582e-12,
+     0.0649999948420166
+    ],
+    [
+     -2.213393183570954e-15,
+     6.927418563106715e-12,
+     -1.0000000000000009,
+     0.5318695582761941
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__panda_link1__panda_link2__panda_link3__panda_link4__panda_link5__panda_link6__panda_link7__panda_link8__panda_hand__panda_rightfinger__finger.obj_2.glb"
+  },
+  {
+   "name": "/robot/visual/panda_link1/panda_link2/panda_link3/panda_link4/panda_link5/panda_link6/panda_link7/panda_link8/panda_hand/panda_rightfinger/finger.obj_3",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     0.9999999207329592,
+     0.00039816337955742037,
+     2.561468655161883e-16,
+     0.3069936894319394
+    ],
+    [
+     0.0003981633795574067,
+     -0.9999999207329594,
+     -6.92728808537582e-12,
+     0.0649999948420166
+    ],
+    [
+     -2.213393183570954e-15,
+     6.927418563106715e-12,
+     -1.0000000000000009,
+     0.5318695582761941
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__panda_link1__panda_link2__panda_link3__panda_link4__panda_link5__panda_link6__panda_link7__panda_link8__panda_hand__panda_rightfinger__finger.obj_3.glb"
+  }
+ ],
+ "camera": null,
+ "environment_map": null,
+ "extras": {}
+}

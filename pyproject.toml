@@ -13,6 +13,28 @@ dependencies = ["numpy"]
 # two never run in the same interpreter, so neither is a hard dependency.
 [project.optional-dependencies]
 export = ["viser>=1.0"]
+# pyyaml is needed only by the solver-side config/CLI wrapper (the ``v2b``
+# entry point). It must never become a base dependency: Blender's bundled Python
+# has no yaml, and the import half must run there. Install as
+# ``viser2blender[cli]``; ``v2b`` says so itself if yaml is missing.
+cli = ["pyyaml>=6.0"]
+
+[project.scripts]
+v2b = "viser2blender.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# So a bare ``pytest`` works from the repo root without installing the package.
+pythonpath = ["."]
+markers = [
+    "slow: needs a real Blender binary (skipped when none is found)",
+]
 
 [tool.setuptools]
 packages = ["viser2blender"]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.2",
+    "yourdfpy>=0.0.60",
+]

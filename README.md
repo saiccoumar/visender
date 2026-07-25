@@ -1,20 +1,36 @@
 # viser2blender
 
-Snapshot a live viser scene — every mesh, pose, light and the camera you framed
-it with — and rebuild it in Blender so cover images can be rendered with Cycles
-instead of three.js.
+Sai Coumar
 
-The two halves never share an interpreter: **export** needs `viser` and runs in
+
+### Overview 
+viser2blender is a codegen tool that lets you snapshot a live viser scene and rebuild it in Blender to create beautiful demonstration renderings with Cycles instead of three.js. It saves a viser scene to an intermediate bundle representation which is then routed into blenderpy for automatic environment regeneration.
+
+
+The two halves never share an interpreter. **Export** needs `viser` and runs in
 your solver env; **import** needs `bpy` and runs inside Blender. They talk only
 through a bundle directory on disk.
 
+A runnable end-to-end example — a Panda on a desk with joint sliders, draggable
+props and lights, a render config and a pre-exported bundle — is in
+[`examples/`](examples/README.md).
+
 ## Install
+As a prerequisite, blender must be installed. Blender 5.2's tar.gz can be downloadeed here: [Blender 5.2 Linux Download](https://www.blender.org/download/release/Blender5.2/blender-5.2.0-linux-x64.tar.xz/)
+
+The path to the blender executable must be set to the $BLENDER variable for v2b to run.
 
 ```bash
-pip install -e external/viser2blender
+pip install -e '.[cli]'
 ```
 
-## Export: add a button to any viser script
+The `cli` extra pulls in `pyyaml`, which the `v2b` wrapper needs to read config
+files. A plain `pip install -e .` is enough for the export half and the raw
+`blender --python` path. Nothing is installed on the Blender side.
+
+## 1. Export from viser
+
+Add a button to any viser script:
 
 ```python
 import viser2blender
@@ -36,7 +52,7 @@ There is a plain function too, if you want to export without a GUI:
 viser2blender.export_scene(server, "renders/take1")
 ```
 
-Useful options (both entry points take them):
+Both entry points take the same options:
 
 | option | default | what it does |
 | --- | --- | --- |
@@ -48,111 +64,64 @@ Useful options (both entry points take them):
 **Gizmos are skipped, but their transforms are never ignored.** A light parented
 to a transform control (`/ctrl/key/light`) keeps the pose you dragged it to —
 world transforms are composed down the full `/a/b/c` path regardless of which
-nodes get emitted.
+nodes get emitted. This is the intended way to art-direct a shot.
 
-## Import: rebuild in Blender
+## 2. Render with `v2b`
 
-Nothing to install on the Blender side. `blender_import.py` imports only `bpy`
-and numpy, both of which ship with Blender, and it is loaded by file path rather
-than as a package — `pip install -e` above only sets up the *export* half.
+The `v2b` command quickly automates the blenderpy environment generation. 
 
-In every form below, the bare `--` is required: Blender consumes the arguments
-before it, and everything after it is passed through to the script.
-
-### Open it in the Blender app
-
-To art-direct the scene by hand — swap materials, add a backdrop, tweak lights:
+`v2b` can be run with the following commands:
 
 ```bash
-blender --python external/viser2blender/viser2blender/blender_import.py \
-        -- --bundle renders/pen_grip_142530
+v2b render renders/pen_grip.yaml --profile final
+v2b render renders/pen_grip.yaml --profile draft --output preview.png
+v2b list-nodes renders/pen_grip_142530            # node paths + vertex/point counts
+v2b init renders/pen_grip_142530 > pen_grip.yaml  # scaffold a starter config
 ```
 
-Blender opens with the scene already built and the camera framed on whatever
-view your browser was showing at export time. Press <kbd>F12</kbd> to render,
-<kbd>Numpad 0</kbd> to look through the imported camera, and save as a normal
-`.blend` when you like it.
+A minimal config:
 
-If `blender` is not on your `$PATH` (a downloaded tarball rather than a distro
-package), call it by full path:
+```yaml
+bundle: renders/pen_grip_142530
+output: renders/out/pen_grip_{profile}.png
+profiles:
+  draft: {engine: EEVEE,  samples: 64,   resolution: [1280, 720]}
+  final: {engine: CYCLES, samples: 8192, resolution: [3840, 2160], gpu: true}
+world:     {studio: true, strength: 0.9}
+backdrop:  {enabled: true, color: [205, 205, 210]}
+lighting:  {dim_authored: 0.15, key: {az: -40, el: 35}}
+save_blend: true
+```
+
+Precedence is **config file < profile < explicit CLI flag** — any raw
+`blender_import.py` flag passed after the config is forwarded straight through
+and wins over the file. Every successful render also writes a `<output>.yaml`
+provenance sidecar: the *effective* settings after overrides, the config file's
+own values, bundle path, viser2blender/Blender versions and render time.
+
+Before a config exists, `--quality draft|preview|final` is a shorthand (mutually
+exclusive with `--profile`):
 
 ```bash
-~/blender-4.5.0-linux-x64/blender --python ... -- --bundle ...
+v2b render pen_grip.yaml --quality draft
 ```
 
-You can also skip the shell entirely: in Blender, open the **Scripting** tab →
-**New**, paste this, and hit **Run Script** (<kbd>Alt</kbd>+<kbd>P</kbd>):
+The full schema — profiles, aliases, per-polygon material splits, camera
+framing, lighting rig — is in [`docs/config.md`](docs/config.md).
 
-```python
-import sys
-sys.path.insert(0, "/abs/path/to/external/viser2blender/viser2blender")
-sys.argv = ["blender", "--", "--bundle", "/abs/path/to/renders/pen_grip_142530"]
+## Rendering without `v2b`
 
-import blender_import
-blender_import.main()
-```
-
-Use absolute paths here — Blender's working directory is not your shell's.
-
-### Render from the CLI
-
-`-b` (background) renders without opening a window, which is what you want on a
-headless box or in a batch:
+`v2b` is a convenience layer over `blender_import.py`, which you can drive
+directly:
 
 ```bash
-blender -b --python external/viser2blender/viser2blender/blender_import.py \
-        -- --bundle renders/pen_grip_142530 \
-           --render cover.png --samples 256
+blender -b --python viser2blender/blender_import.py \
+        -- --bundle renders/pen_grip_142530 --render cover.png --samples 512
 ```
 
-`--render` takes the output path; the image format follows its extension. Cycles
-is the default engine — for a fast preview, EEVEE takes seconds instead of
-minutes:
-
-```bash
-blender -b --python external/viser2blender/viser2blender/blender_import.py \
-        -- --bundle renders/pen_grip_142530 \
-           --render preview.png --engine EEVEE --samples 32
-```
-
-A realistic first cover-image pass, once you have an HDRI to stand in for viser's
-environment map, and with the lights turned up to taste:
-
-```bash
-blender -b --python external/viser2blender/viser2blender/blender_import.py \
-        -- --bundle renders/pen_grip_142530 \
-           --render cover.png --samples 512 \
-           --hdri ~/hdris/studio_small_08_4k.exr \
-           --world-strength 0.8 --sun-scale 2.0
-```
-
-Resolution comes from the browser window the scene was exported from. Override
-it with `--resolution 3840 2160`. Use the script's flag, **not** Blender's own
-`-x`/`-y` — the camera is built after Blender has parsed those, so it overwrites
-them. Vertical FOV is preserved, so a different aspect ratio widens or crops the
-frame horizontally rather than rescaling it.
-
-Background renders are CPU-only unless you pass `--gpu`, which is not implied by
-having selected a GPU in the GUI preferences:
-
-```bash
-blender -b --python external/viser2blender/viser2blender/blender_import.py \
-        -- --bundle renders/pen_grip_142530 \
-           --render cover.png --samples 512 --gpu
-```
-
-| flag | default | what it does |
-| --- | --- | --- |
-| `--bundle` | *required* | Bundle directory from the export step. |
-| `--render PATH` | — | Render straight to an image. |
-| `--engine` | `CYCLES` | `CYCLES` or `EEVEE` (resolved against your Blender's engine list). |
-| `--samples` | `128` | Render samples. |
-| `--resolution W H` | browser size | Override the output resolution. |
-| `--gpu` | off | Render Cycles on the GPU (OPTIX/CUDA/HIP/METAL/ONEAPI, first found). |
-| `--hdri FILE` | — | `.exr`/`.hdr` for the world background. |
-| `--world-strength` | `1.0` | World lighting strength. |
-| `--sun-scale` | `1.0` | viser directional intensity → Blender sun W/m². |
-| `--point-scale` | `4π` | viser point/spot intensity (candela) → Blender watts. |
+Drop the `-b` to open the scene in the Blender GUI instead, already built and
+framed. Every flag is documented in
+[`docs/blender-flags.md`](docs/blender-flags.md).
 
 ## What transfers
 
@@ -160,38 +129,57 @@ blender -b --python external/viser2blender/viser2blender/blender_import.py \
 | --- | --- |
 | `add_mesh_trimesh`, `add_glb` | imported GLB under a posed empty |
 | `add_mesh_simple`, `add_box`, `add_icosphere` | mesh + Principled BSDF |
-| `add_spline_catmull_rom`, `add_spline_cubic_bezier`, `add_line_segments` | beveled curve (a real tube, not a screen-space line) |
+| `add_spline_catmull_rom`, `add_spline_cubic_bezier`, `add_line_segments` | beveled curve (a real tube), per-segment colours preserved via a `Col` attribute |
 | `add_light_directional` / `point` / `spot` / `rect_area` | sun / point / spot / area |
 | `add_light_ambient` / `hemisphere` | folded into the world shader |
+| `add_point_cloud` | geometry-nodes instanced spheres, coloured from the exported per-point `Col` |
 | browser camera | camera with matching position, aim and vertical FOV |
-| `add_point_cloud` | vertex-only mesh (add your own geometry-nodes instancing) |
 
 Anything else is named on stdout and skipped rather than silently dropped.
 
 ## Things worth knowing
 
-- **The camera comes from a connected browser.** Export with the tab open, and
+- **The camera comes from a connected browser.** Export with the tab open and
   Blender opens on the view you framed. With no client attached the bundle has
-  no camera and Blender falls back to its default view.
+  no camera, and Blender falls back to its default view.
 - **Light intensity is not physically portable.** three.js and Cycles disagree
-  about units, so `--sun-scale` / `--point-scale` are the knobs to taste. Poses
+  about units, so `--sun-scale` / `--point-scale` are knobs to taste. Poses
   transfer exactly; brightness is a starting point.
-- **Line widths are pixels in viser, metres in Blender.** Splines are given a
-  tube radius of `line_width * 0.00025`, which reads about right at cover-image
+- **Line widths are pixels in viser, metres in Blender.** Splines get a tube
+  radius of `line_width * 0.00025`, which reads about right at cover-image
   scale. Adjust `bevel_depth` in Blender if not.
-- **Environment maps do not transfer.** viser's presets are three.js built-ins.
-  Pass `--hdri` with your own file to match.
-- **Colours are converted sRGB → linear** (`^2.2`) so Blender matches what the
+- **Environment maps do not transfer.** viser's presets are three.js built-ins;
+  pass `--hdri` with your own file to match.
+- **Colours are converted sRGB → linear** (`^2.2`), so Blender matches what the
   browser showed.
+- **Axes are corrected on import.** Blender's glTF importer bakes a
+  `(x, y, z) → (x, -z, y)` rotation (+90° about X) into imported *vertex data*;
+  the import undoes it so meshes match viser's Z-up frame. Measured against
+  Blender 5.2 by comparing world-space vertex bounds to trimesh ground truth.
+  Relatedly, `matrix_world` is cached, so the depsgraph is updated after
+  re-parenting — without it the transforms silently do not apply.
 
-## Verified behaviour
+## Tests
 
-Two axis/caching subtleties are handled, both confirmed against Blender 5.2 by
-comparing world-space vertex bounds to trimesh ground truth:
+```bash
+pip install pytest                      # plus the [cli] extra for pyyaml
+pytest                                  # everything, ~20 s
+pytest -m "not slow"                    # skip the tests that launch Blender
+BLENDER=/path/to/blender pytest         # pick a specific Blender
+```
 
-- Blender's glTF importer bakes a −90° X rotation into *vertex data* (not object
-  matrices) to convert +Y-up → +Z-up. viser hands GLB bytes to three.js
-  untouched and trimesh writes them Z-up, so that rotation is undone on import —
-  otherwise meshes land on their side.
-- `matrix_world` is cached, so the depsgraph is updated after re-parenting.
-  Without it the transforms silently do not apply.
+Three tiers, in `tests/`:
+
+- **Solver side** (`test_config.py`, `test_cli.py`, `test_export.py`) — config
+  resolution, the `v2b` wrapper (Blender stubbed out) and the bundle format the
+  exporter writes, driven by fakes shaped like viser handles.
+- **Contracts** (`test_contracts.py`) — the invariants that keep the two
+  interpreters in step: `blender_import` imports nothing pip-only,
+  `config.SETTINGS_FIELDS` matches the `Settings` dataclass (checked by parsing
+  the source, not importing it), every CLI flag lands on a field, pyyaml stays
+  out of the base dependencies.
+- **Blender side** (`test_blender_import_logic.py`,
+  `test_blender_integration.py`) — pure logic runs under a stub `bpy`; scene
+  building, materials, lighting, camera and a real EEVEE render run inside
+  Blender via `tests/_scene_probe.py`, which reports the built scene as JSON.
+  Skipped automatically when no Blender binary is found.

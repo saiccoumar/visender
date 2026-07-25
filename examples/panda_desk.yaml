@@ -1,0 +1,53 @@
+# Render config for examples/panda_desk.py.
+#
+#   v2b render examples/panda_desk.yaml --profile draft
+#   v2b render examples/panda_desk.yaml --profile final
+#
+# Every path here resolves relative to this file, not your shell's CWD.
+
+bundle: bundle_panda_desk         # the prebuilt sample bundle shipped here; swap
+                                  # in your own, e.g. out/panda_desk_142530
+
+
+# bundle: out/panda_desk_223026
+output: out/panda_desk_{profile}.png
+
+profiles:
+  draft: {engine: EEVEE,  samples: 64,   resolution: [1280, 720]}
+  final: {engine: CYCLES, samples: 2048, resolution: [2560, 1440], gpu: true}
+
+world:    {studio: true, strength: 0.9}
+backdrop: {enabled: true, color: [205, 205, 210]}
+
+camera:
+  auto: true         # frames the scene when you export with no browser attached;
+  dolly: 0.75        # harmless once a real browser camera is in the bundle
+  orbit: [0, 8]
+
+lighting:
+  # The scene's own key/fill are the ones you dragged in the browser. Knock them
+  # back and add a camera-relative key so the framing drives the light, not the
+  # world axes.
+  dim_authored: 0.35
+  key: {az: -40, el: 35, energy: 4.0, angle: 12.0}
+
+# The URDF's node paths are deep (`/robot/visual/panda_link1/.../link6.obj`),
+# so name them once here and use `{alias}` in the rules below. `v2b list-nodes
+# <bundle>` prints the exact paths.
+aliases:
+  arm: /robot/visual
+  hand: /robot/visual/panda_link1/panda_link2/panda_link3/panda_link4/panda_link5/panda_link6/panda_link7/panda_link8/panda_hand
+
+materials:
+  library:
+    panda_white: {base_color: [232, 233, 236], metallic: 0.0, roughness: 0.4}
+    panda_dark:  {base_color: [30, 32, 36],    metallic: 0.1, roughness: 0.5}
+  rules:
+    - node: "{arm}/*"          # trailing /* matches the whole subtree
+      use: panda_white
+    - node: "{hand}/*"         # later rules win — the gripper goes dark
+      use: panda_dark
+    - node: /ctrl/cube/mesh    # gizmos are dropped on export; the props they
+      use: matte_black         # carried keep their dragged pose and their paths
+    - node: /ctrl/ball/mesh
+      use: aluminium
