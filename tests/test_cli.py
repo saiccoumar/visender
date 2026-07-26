@@ -171,6 +171,72 @@ def test_render_output_override_reaches_the_config(cfg_file, fake_run, tmp_path)
 
 
 # --------------------------------------------------------------------------- #
+# export
+# --------------------------------------------------------------------------- #
+
+def _blender(tmp_path):
+    path = tmp_path / "blender"
+    path.write_text("")
+    return str(path)
+
+
+def test_export_from_a_config_saves_a_blend_and_renders_nothing(
+        cfg_file, fake_run, tmp_path):
+    path = cfg_file("output: out/gundam.png\nworld: {studio: true}\n")
+    assert cli.cmd_export([str(path), "--blender", _blender(tmp_path)]) == 0
+    cfg = fake_run["config"]
+    assert "render" not in cfg                          # nothing renders
+    assert cfg["save_blend"].endswith("out/gundam.blend")   # named off the output
+    assert cfg["studio_world"] is True                  # the shot's look survives
+
+
+def test_export_output_override_wins_over_the_derived_name(cfg_file, fake_run, tmp_path):
+    path = cfg_file("output: out/gundam.png\n")
+    cli.cmd_export([str(path), "--blender", _blender(tmp_path),
+                    "-o", str(tmp_path / "hero.blend")])
+    assert fake_run["config"]["save_blend"] == str(tmp_path / "hero.blend")
+
+
+def test_export_from_a_bare_bundle_names_the_blend_after_it(
+        make_bundle, fake_run, tmp_path, monkeypatch):
+    bundle = make_bundle()
+    monkeypatch.chdir(tmp_path)
+    cli.cmd_export([str(bundle), "--blender", _blender(tmp_path)])
+    cfg = fake_run["config"]
+    assert cfg["bundle"] == str(bundle)
+    assert cfg["save_blend"] == str(tmp_path / f"{bundle.name}.blend")
+
+
+def test_export_keys_a_recorded_bundle_by_default(make_bundle, fake_run, tmp_path):
+    bundle = make_bundle()
+    manifest = json.loads((bundle / "scene.json").read_text())
+    manifest["animation"] = {"fps": 24, "frame_count": 2, "nodes": ["/mesh"]}
+    (bundle / "scene.json").write_text(json.dumps(manifest))
+
+    cli.cmd_export([str(bundle), "--blender", _blender(tmp_path),
+                    "-o", str(tmp_path / "a.blend")])
+    assert fake_run["config"]["animation"] is True
+
+    cli.cmd_export([str(bundle), "--blender", _blender(tmp_path), "--still",
+                    "-o", str(tmp_path / "a.blend")])
+    assert fake_run["config"]["animation"] is False
+
+
+def test_export_of_a_still_bundle_is_not_animated(make_bundle, fake_run, tmp_path):
+    cli.cmd_export([str(make_bundle()), "--blender", _blender(tmp_path),
+                    "-o", str(tmp_path / "a.blend")])
+    assert fake_run["config"]["animation"] is False
+
+
+def test_export_without_a_bundle_is_an_error(tmp_path):
+    path = tmp_path / "scene.yaml"
+    path.write_text("output: out.png\n")
+    with pytest.raises(SystemExit) as exc:
+        cli.cmd_export([str(path)])
+    assert "no 'bundle:'" in str(exc.value)
+
+
+# --------------------------------------------------------------------------- #
 # list-nodes / init / dispatch
 # --------------------------------------------------------------------------- #
 

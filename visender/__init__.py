@@ -14,6 +14,7 @@ See :func:`export_scene` for the programmatic entry point.
 """
 
 from ._export import add_export_button, export_scene
+from ._record import Recorder, add_record_button
 
-__all__ = ["add_export_button", "export_scene"]
+__all__ = ["add_export_button", "add_record_button", "export_scene", "Recorder"]
 __version__ = "0.1.0"

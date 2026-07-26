@@ -327,3 +327,21 @@ def test_load_manifest_reads_scene_json(make_bundle):
     manifest = cfg.load_manifest(bundle)
     assert manifest["format"] == "visender"
     assert manifest == json.loads((bundle / "scene.json").read_text())
+
+
+def test_animation_section_flattens_to_settings_fields(tmp_path):
+    path = tmp_path / "v.yaml"
+    path.write_text(
+        "bundle: b\n"
+        "animation: {enabled: true, start: 5, end: 40, step: 2, fps: 30}\n")
+    flat, _ = cfg.resolve(path)
+    assert flat["animation"] is True
+    assert (flat["frame_start"], flat["frame_end"], flat["frame_step"]) == (5, 40, 2)
+    assert flat["fps"] == 30
+
+
+def test_animation_section_rejects_a_misspelled_key(tmp_path):
+    path = tmp_path / "v.yaml"
+    path.write_text("bundle: b\nanimation: {enabld: true}\n")
+    with pytest.raises(cfg.ConfigError):
+        cfg.resolve(path)

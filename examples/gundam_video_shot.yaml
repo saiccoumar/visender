@@ -1,0 +1,438 @@
+# Shot file for examples/gundam_video.py — written from the browser.
+#
+#   python examples/gundam_video.py --shot gundam_video_shot.yaml
+#
+# Angles are radians. Every keyframe is a complete pose: a joint it does not
+# name sits at `base_pose` at that instant. Hand-edit freely, then press
+# 'Reload shot' in the browser.
+
+fps: 60
+base_pose:
+  lleg_crotch_r: -0.05
+  rleg_crotch_r: 0.05
+  torso_waist_p: 0.216
+  torso_waist_p2: 0.144
+  head_neck_p: -0.22
+keyframes:
+- t: 0.0
+  camera:
+    position:
+    - -8.3187
+    - 10.6671
+    - 1.145
+    look_at:
+    - 1.1357
+    - 4.6076
+    - 9.1143
+    up:
+    - 0.0
+    - 0.0
+    - 1.0
+    fov: 1.309
+  joints:
+    torso_waist_y: 0.127
+    larm_shoulder_p: -0.901
+    larm_shoulder_r: 0.199
+    larm_elbow_p: -0.926
+    larm_elbow_p2: -0.509
+    rarm_shoulder_p: 0.301
+    rarm_shoulder_r: -0.001
+    rarm_elbow_p: -0.325
+    rarm_elbow_p2: -0.179
+    lleg_crotch_p: -0.7
+    lleg_crotch_y: -0.06
+    lleg_knee_p: 0.43
+    lleg_knee_p2: 0.365
+    lleg_ankle_p: 0.12
+    rleg_crotch_p: -1.05
+    rleg_crotch_y: 0.08
+    rleg_knee_p: 1.0
+    rleg_knee_p2: 0.85
+- t: 0.15
+  joints:
+    lleg_crotch_p: -0.1
+    lleg_knee_p: -0.01
+    lleg_knee_p2: -0.009
+    lleg_ankle_p: 0.0
+    lleg_crotch_y: 0.0
+    rleg_crotch_p: -1.25
+    rleg_knee_p: 0.75
+    rleg_knee_p2: 0.637
+    rleg_ankle_p: -0.05
+    rleg_crotch_y: 0.1
+    larm_shoulder_p: -1.15
+    larm_elbow_p: -1.047
+    larm_elbow_p2: -0.578
+    larm_shoulder_r: 0.24
+    rarm_shoulder_p: 0.55
+    rarm_elbow_p: -0.2
+    rarm_elbow_p2: -0.11
+    rarm_shoulder_r: 0.04
+    torso_waist_y: 0.18
+- t: 0.3
+  joints:
+    lleg_crotch_p: 0.62
+    lleg_knee_p: 0.035
+    lleg_knee_p2: 0.03
+    lleg_ankle_p: 0.65
+    lleg_crotch_y: 0.06
+    rleg_crotch_p: -1.15
+    rleg_knee_p: 0.45
+    rleg_knee_p2: 0.383
+    rleg_ankle_p: -0.18
+    rleg_crotch_y: 0.09
+    larm_shoulder_p: -0.901
+    larm_elbow_p: -0.926
+    larm_elbow_p2: -0.509
+    larm_shoulder_r: 0.199
+    rarm_shoulder_p: 0.301
+    rarm_elbow_p: -0.325
+    rarm_elbow_p2: -0.179
+    rarm_shoulder_r: -0.001
+    torso_waist_y: 0.127
+- t: 0.45
+  joints:
+    lleg_crotch_p: 0.2
+    lleg_knee_p: 1.047
+    lleg_knee_p2: 0.892
+    lleg_ankle_p: 0.3
+    lleg_crotch_y: 0.06
+    rleg_crotch_p: -0.9
+    rleg_knee_p: 0.32
+    rleg_knee_p2: 0.272
+    rleg_ankle_p: 0.0
+    rleg_crotch_y: 0.07
+    larm_shoulder_p: -0.3
+    larm_elbow_p: -0.625
+    larm_elbow_p2: -0.344
+    larm_shoulder_r: 0.1
+    rarm_shoulder_p: -0.3
+    rarm_elbow_p: -0.625
+    rarm_elbow_p2: -0.344
+    rarm_shoulder_r: -0.1
+    torso_waist_y: 0.0
+- t: 0.6
+  camera:
+    position:
+    - 10.685
+    - 12.6344
+    - 5.4236
+    look_at:
+    - 10.3761
+    - 12.1799
+    - 5.6711
+    up:
+    - 0.0
+    - 0.0
+    - 1.0
+    fov: 1.309
+  joints:
+    torso_waist_y: 0.127
+    larm_shoulder_p: -0.901
+    larm_shoulder_r: 0.199
+    larm_elbow_p: -0.926
+    larm_elbow_p2: -0.509
+    rarm_shoulder_p: 0.301
+    rarm_shoulder_r: -0.001
+    rarm_elbow_p: -0.325
+    rarm_elbow_p2: -0.179
+    lleg_crotch_p: -0.7
+    lleg_crotch_y: -0.06
+    lleg_knee_p: 0.43
+    lleg_knee_p2: 0.365
+    lleg_ankle_p: 0.12
+    rleg_crotch_p: -1.05
+    rleg_crotch_y: 0.08
+    rleg_knee_p: 1.0
+    rleg_knee_p2: 0.85
+- t: 0.75
+  joints:
+    lleg_crotch_p: -1.25
+    lleg_knee_p: 0.75
+    lleg_knee_p2: 0.637
+    lleg_ankle_p: -0.05
+    lleg_crotch_y: -0.1
+    rleg_crotch_p: -0.1
+    rleg_knee_p: -0.01
+    rleg_knee_p2: -0.009
+    rleg_ankle_p: 0.0
+    rleg_crotch_y: 0.0
+    larm_shoulder_p: 0.55
+    larm_elbow_p: -0.2
+    larm_elbow_p2: -0.11
+    larm_shoulder_r: -0.04
+    rarm_shoulder_p: -1.15
+    rarm_elbow_p: -1.047
+    rarm_elbow_p2: -0.578
+    rarm_shoulder_r: -0.24
+    torso_waist_y: -0.18
+- t: 0.9
+  joints:
+    lleg_crotch_p: -1.15
+    lleg_knee_p: 0.45
+    lleg_knee_p2: 0.383
+    lleg_ankle_p: -0.18
+    lleg_crotch_y: -0.09
+    rleg_crotch_p: 0.62
+    rleg_knee_p: 0.035
+    rleg_knee_p2: 0.03
+    rleg_ankle_p: 0.65
+    rleg_crotch_y: -0.06
+    larm_shoulder_p: 0.301
+    larm_elbow_p: -0.325
+    larm_elbow_p2: -0.179
+    larm_shoulder_r: 0.001
+    rarm_shoulder_p: -0.901
+    rarm_elbow_p: -0.926
+    rarm_elbow_p2: -0.509
+    rarm_shoulder_r: -0.199
+    torso_waist_y: -0.127
+- t: 1.05
+  joints:
+    lleg_crotch_p: -0.9
+    lleg_knee_p: 0.32
+    lleg_knee_p2: 0.272
+    lleg_ankle_p: 0.0
+    lleg_crotch_y: -0.07
+    rleg_crotch_p: 0.2
+    rleg_knee_p: 1.047
+    rleg_knee_p2: 0.892
+    rleg_ankle_p: 0.3
+    rleg_crotch_y: -0.06
+    larm_shoulder_p: -0.3
+    larm_elbow_p: -0.625
+    larm_elbow_p2: -0.344
+    larm_shoulder_r: 0.1
+    rarm_shoulder_p: -0.3
+    rarm_elbow_p: -0.625
+    rarm_elbow_p2: -0.344
+    rarm_shoulder_r: -0.1
+    torso_waist_y: 0.0
+- t: 1.2
+  camera:
+    position:
+    - 8.6516
+    - -4.9137
+    - 9.1353
+    look_at:
+    - 3.5987
+    - -1.6955
+    - 12.1694
+    up:
+    - 0.0
+    - 0.0
+    - 1.0
+    fov: 1.309
+  joints:
+    torso_waist_y: 0.127
+    larm_shoulder_p: -0.901
+    larm_shoulder_r: 0.199
+    larm_elbow_p: -0.926
+    larm_elbow_p2: -0.509
+    rarm_shoulder_p: 0.301
+    rarm_shoulder_r: -0.001
+    rarm_elbow_p: -0.325
+    rarm_elbow_p2: -0.179
+    lleg_crotch_p: -0.7
+    lleg_crotch_y: -0.06
+    lleg_knee_p: 0.43
+    lleg_knee_p2: 0.365
+    lleg_ankle_p: 0.12
+    rleg_crotch_p: -1.05
+    rleg_crotch_y: 0.08
+    rleg_knee_p: 1.0
+    rleg_knee_p2: 0.85
+- t: 1.35
+  joints:
+    lleg_crotch_p: -0.1
+    lleg_knee_p: -0.01
+    lleg_knee_p2: -0.009
+    lleg_ankle_p: 0.0
+    lleg_crotch_y: 0.0
+    rleg_crotch_p: -1.25
+    rleg_knee_p: 0.75
+    rleg_knee_p2: 0.637
+    rleg_ankle_p: -0.05
+    rleg_crotch_y: 0.1
+    larm_shoulder_p: -1.15
+    larm_elbow_p: -1.047
+    larm_elbow_p2: -0.578
+    larm_shoulder_r: 0.24
+    rarm_shoulder_p: 0.55
+    rarm_elbow_p: -0.2
+    rarm_elbow_p2: -0.11
+    rarm_shoulder_r: 0.04
+    torso_waist_y: 0.18
+- t: 1.5
+  joints:
+    lleg_crotch_p: 0.62
+    lleg_knee_p: 0.035
+    lleg_knee_p2: 0.03
+    lleg_ankle_p: 0.65
+    lleg_crotch_y: 0.06
+    rleg_crotch_p: -1.15
+    rleg_knee_p: 0.45
+    rleg_knee_p2: 0.383
+    rleg_ankle_p: -0.18
+    rleg_crotch_y: 0.09
+    larm_shoulder_p: -0.901
+    larm_elbow_p: -0.926
+    larm_elbow_p2: -0.509
+    larm_shoulder_r: 0.199
+    rarm_shoulder_p: 0.301
+    rarm_elbow_p: -0.325
+    rarm_elbow_p2: -0.179
+    rarm_shoulder_r: -0.001
+    torso_waist_y: 0.127
+- t: 1.65
+  joints:
+    lleg_crotch_p: 0.2
+    lleg_knee_p: 1.047
+    lleg_knee_p2: 0.892
+    lleg_ankle_p: 0.3
+    lleg_crotch_y: 0.06
+    rleg_crotch_p: -0.9
+    rleg_knee_p: 0.32
+    rleg_knee_p2: 0.272
+    rleg_ankle_p: 0.0
+    rleg_crotch_y: 0.07
+    larm_shoulder_p: -0.3
+    larm_elbow_p: -0.625
+    larm_elbow_p2: -0.344
+    larm_shoulder_r: 0.1
+    rarm_shoulder_p: -0.3
+    rarm_elbow_p: -0.625
+    rarm_elbow_p2: -0.344
+    rarm_shoulder_r: -0.1
+    torso_waist_y: 0.0
+- t: 1.8
+  camera:
+    position:
+    - 4.591
+    - -4.0963
+    - 14.2637
+    look_at:
+    - 3.598
+    - -3.0113
+    - 14.8861
+    up:
+    - 0.0
+    - 0.0
+    - 1.0
+    fov: 1.309
+  joints:
+    torso_waist_y: 0.127
+    larm_shoulder_p: -0.901
+    larm_shoulder_r: 0.199
+    larm_elbow_p: -0.926
+    larm_elbow_p2: -0.509
+    rarm_shoulder_p: 0.301
+    rarm_shoulder_r: -0.001
+    rarm_elbow_p: -0.325
+    rarm_elbow_p2: -0.179
+    lleg_crotch_p: -0.7
+    lleg_crotch_y: -0.06
+    lleg_knee_p: 0.43
+    lleg_knee_p2: 0.365
+    lleg_ankle_p: 0.12
+    rleg_crotch_p: -1.05
+    rleg_crotch_y: 0.08
+    rleg_knee_p: 1.0
+    rleg_knee_p2: 0.85
+- t: 1.95
+  joints:
+    lleg_crotch_p: -1.25
+    lleg_knee_p: 0.75
+    lleg_knee_p2: 0.637
+    lleg_ankle_p: -0.05
+    lleg_crotch_y: -0.1
+    rleg_crotch_p: -0.1
+    rleg_knee_p: -0.01
+    rleg_knee_p2: -0.009
+    rleg_ankle_p: 0.0
+    rleg_crotch_y: 0.0
+    larm_shoulder_p: 0.55
+    larm_elbow_p: -0.2
+    larm_elbow_p2: -0.11
+    larm_shoulder_r: -0.04
+    rarm_shoulder_p: -1.15
+    rarm_elbow_p: -1.047
+    rarm_elbow_p2: -0.578
+    rarm_shoulder_r: -0.24
+    torso_waist_y: -0.18
+- t: 2.1
+  joints:
+    lleg_crotch_p: -1.15
+    lleg_knee_p: 0.45
+    lleg_knee_p2: 0.383
+    lleg_ankle_p: -0.18
+    lleg_crotch_y: -0.09
+    rleg_crotch_p: 0.62
+    rleg_knee_p: 0.035
+    rleg_knee_p2: 0.03
+    rleg_ankle_p: 0.65
+    rleg_crotch_y: -0.06
+    larm_shoulder_p: 0.301
+    larm_elbow_p: -0.325
+    larm_elbow_p2: -0.179
+    larm_shoulder_r: 0.001
+    rarm_shoulder_p: -0.901
+    rarm_elbow_p: -0.926
+    rarm_elbow_p2: -0.509
+    rarm_shoulder_r: -0.199
+    torso_waist_y: -0.127
+- t: 2.25
+  joints:
+    lleg_crotch_p: -0.9
+    lleg_knee_p: 0.32
+    lleg_knee_p2: 0.272
+    lleg_ankle_p: 0.0
+    lleg_crotch_y: -0.07
+    rleg_crotch_p: 0.2
+    rleg_knee_p: 1.047
+    rleg_knee_p2: 0.892
+    rleg_ankle_p: 0.3
+    rleg_crotch_y: -0.06
+    larm_shoulder_p: -0.3
+    larm_elbow_p: -0.625
+    larm_elbow_p2: -0.344
+    larm_shoulder_r: 0.1
+    rarm_shoulder_p: -0.3
+    rarm_elbow_p: -0.625
+    rarm_elbow_p2: -0.344
+    rarm_shoulder_r: -0.1
+    torso_waist_y: 0.0
+- t: 2.4
+  camera:
+    position:
+    - -3.4053
+    - -5.1166
+    - 16.7715
+    look_at:
+    - 2.9215
+    - -1.6831
+    - 14.8878
+    up:
+    - 0.0
+    - 0.0
+    - 1.0
+    fov: 1.309
+  joints:
+    torso_waist_y: 0.127
+    larm_shoulder_p: -0.901
+    larm_shoulder_r: 0.199
+    larm_elbow_p: -0.926
+    larm_elbow_p2: -0.509
+    rarm_shoulder_p: 0.301
+    rarm_shoulder_r: -0.001
+    rarm_elbow_p: -0.325
+    rarm_elbow_p2: -0.179
+    lleg_crotch_p: -0.7
+    lleg_crotch_y: -0.06
+    lleg_knee_p: 0.43
+    lleg_knee_p2: 0.365
+    lleg_ankle_p: 0.12
+    rleg_crotch_p: -1.05
+    rleg_crotch_y: 0.08
+    rleg_knee_p: 1.0
+    rleg_knee_p2: 0.85

@@ -25,6 +25,7 @@ import yaml
 TOP_LEVEL_KEYS = {
     "bundle", "blender", "output", "aliases", "profiles",
     "world", "camera", "film", "backdrop", "lighting", "materials", "save_blend",
+    "animation",
 }
 
 # Recognised keys inside each nested section, validated the same way as the top
@@ -36,6 +37,7 @@ SECTION_KEYS: dict[str, set[str]] = {
     "backdrop": {"enabled", "color", "shadow_catcher"},
     "lighting": {"sun_scale", "point_scale", "dim_authored", "three_point", "auto", "key"},
     "materials": {"library", "rules"},
+    "animation": {"enabled", "start", "end", "step", "fps"},
 }
 _KEY_SECTION_KEYS = {"az", "el", "energy", "angle", "color"}
 
@@ -54,6 +56,7 @@ SETTINGS_FIELDS = {
     "dolly", "dof", "fstop", "scale", "save_blend", "transparent",
     "shadow_catcher", "look", "point_size", "point_color", "line_scale",
     "material_rules", "material_library",
+    "animation", "frame_start", "frame_end", "frame_step", "fps",
 }
 
 # Path-valued keys are resolved relative to the config file's directory.
@@ -161,6 +164,13 @@ def resolve(config_path: str | Path, *, profile: str | None = None,
         flat["material_library"] = mats["library"]
     if mats.get("rules"):
         flat["material_rules"] = _expand_rule_aliases(mats["rules"], aliases)
+
+    anim = raw.get("animation", {}) or {}
+    _put(flat, "animation", anim.get("enabled"))
+    _put(flat, "frame_start", anim.get("start"))
+    _put(flat, "frame_end", anim.get("end"))
+    _put(flat, "frame_step", anim.get("step"))
+    _put(flat, "fps", anim.get("fps"))
 
     _put(flat, "save_blend", raw.get("save_blend"))
 

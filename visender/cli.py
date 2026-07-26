@@ -1,7 +1,10 @@
 """``visender`` command-line wrapper. Runs in the *solver* env (may import yaml).
 
     visender render pen_grip.yaml --profile final [--output cover.png] [blender flags...]
+    visender export pen_grip.yaml [-o pen_grip.blend]   # build a .blend, no render
+    visender export <bundle> [-o scene.blend]
     visender list-nodes <bundle>
+    visender inspect <bundle>            # node/camera/recording summary
     visender init <bundle> > pen_grip.yaml
 
 The wrapper resolves a YAML config to a flat JSON dict and hands it to Blender
@@ -94,7 +97,11 @@ def cmd_render(argv: list[str]) -> int:
         raise SystemExit(f"{args.config}: no 'bundle:' set.")
 
     blender = locate_blender(args.blender, cfg_blender)
+    return _run_blender(blender, resolved, passthrough)
 
+
+def _run_blender(blender: str, resolved: dict, passthrough: list[str]) -> int:
+    """Hand a resolved flat settings dict to blender_import via a temp JSON."""
     with tempfile.NamedTemporaryFile("w", suffix=".visender.json", delete=False) as fh:
         json.dump(resolved, fh)
         json_path = fh.name
@@ -109,6 +116,58 @@ def cmd_render(argv: list[str]) -> int:
             os.unlink(json_path)
         except OSError:
             pass
+
+
+def cmd_export(argv: list[str]) -> int:
+    """Build the scene in Blender and save a .blend, without rendering.
+
+    Takes the same YAML a render takes -- so the shot keeps its materials,
+    lighting and camera -- or a bare bundle directory for the raw scene.
+    """
+    p = argparse.ArgumentParser(prog="visender export")
+    p.add_argument("target", help="YAML config file, or a bundle directory.")
+    p.add_argument("-o", "--output", default=None,
+                   help="Path of the .blend to write (default: beside the "
+                        "config's output image, else <bundle>.blend here).")
+    p.add_argument("--profile", default=None,
+                   help="Config profile, for the settings that affect the scene.")
+    p.add_argument("--animation", dest="animation", action="store_true", default=None,
+                   help="Key the recording onto the timeline (default when the "
+                        "bundle holds one).")
+    p.add_argument("--still", dest="animation", action="store_false",
+                   help="Ignore any recording and save the first frame's pose.")
+    p.add_argument("--blender", default=None, help="Path to the Blender binary.")
+    args, passthrough = p.parse_known_args(argv)
+
+    target = Path(args.target)
+    if target.is_dir():
+        resolved, cfg_blender = {"bundle": str(target.resolve())}, None
+    else:
+        resolved, cfg_blender = _config.resolve(args.target, profile=args.profile)
+
+    if "bundle" not in resolved:
+        raise SystemExit(f"{args.target}: no 'bundle:' set.")
+
+    # A render output is only a naming hint here -- drop it so nothing renders.
+    render_out = resolved.pop("render", None)
+    if args.output:
+        blend = Path(args.output).resolve()
+    elif render_out:
+        blend = Path(render_out).with_suffix(".blend")
+    else:
+        blend = Path.cwd() / (Path(resolved["bundle"]).name + ".blend")
+    resolved["save_blend"] = str(blend)
+
+    # A recorded bundle exports with its whole timeline by default; the Blender
+    # side would otherwise keep only frame 1.
+    if args.animation is None:
+        manifest = _config.load_manifest(Path(resolved["bundle"]))
+        resolved["animation"] = bool(manifest.get("animation"))
+    else:
+        resolved["animation"] = args.animation
+
+    blender = locate_blender(args.blender, cfg_blender)
+    return _run_blender(blender, resolved, passthrough)
 
 
 def cmd_list_nodes(argv: list[str]) -> int:
@@ -139,6 +198,35 @@ def _node_count(bundle: Path, node: dict) -> str:
     return ""
 
 
+def cmd_inspect(argv: list[str]) -> int:
+    """Summarise a bundle without launching Blender -- mainly: what got recorded."""
+    p = argparse.ArgumentParser(prog="visender inspect")
+    p.add_argument("bundle")
+    args = p.parse_args(argv)
+    bundle = Path(args.bundle)
+    manifest = _config.load_manifest(bundle)
+
+    print(f"bundle:  {bundle}")
+    print(f"nodes:   {len(manifest['nodes'])}")
+    cam = manifest.get("camera")
+    print(f"camera:  {'yes' if cam else 'none (no browser was connected)'}")
+
+    anim = manifest.get("animation")
+    if not anim:
+        print("recording: none (still bundle)")
+        return 0
+    fps, count = float(anim["fps"]), int(anim["frame_count"])
+    print(f"recording: {count} frames @ {fps:g} fps = {count / fps:.2f}s, "
+          f"blender frames 1..{count}")
+    print(f"           {len(anim['nodes'])} animated nodes, "
+          f"camera {'animated' if anim.get('has_camera') else 'static'}")
+    for name in anim["nodes"][:20]:
+        print(f"           {name}")
+    if len(anim["nodes"]) > 20:
+        print(f"           ... and {len(anim['nodes']) - 20} more")
+    return 0
+
+
 def cmd_init(argv: list[str]) -> int:
     p = argparse.ArgumentParser(prog="visender init")
     p.add_argument("bundle")
@@ -150,10 +238,11 @@ def cmd_init(argv: list[str]) -> int:
 def main(argv: list[str] | None = None) -> int:
     argv = list(sys.argv[1:] if argv is None else argv)
     if not argv or argv[0] in ("-h", "--help"):
-        print("usage: visender {render|list-nodes|init} ...", file=sys.stderr)
+        print("usage: visender {render|export|list-nodes|inspect|init} ...", file=sys.stderr)
         return 0 if argv else 2
     cmd, rest = argv[0], argv[1:]
-    dispatch = {"render": cmd_render, "list-nodes": cmd_list_nodes, "init": cmd_init}
+    dispatch = {"render": cmd_render, "export": cmd_export,
+                "list-nodes": cmd_list_nodes, "inspect": cmd_inspect, "init": cmd_init}
     if cmd not in dispatch:
         print(f"unknown subcommand {cmd!r}; expected one of {sorted(dispatch)}", file=sys.stderr)
         return 2

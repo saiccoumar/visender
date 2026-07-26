@@ -9,6 +9,7 @@ the only thing the Blender side ever sees.
 from __future__ import annotations
 
 import dataclasses
+import hashlib
 import json
 import math
 from typing import Any
@@ -106,6 +107,17 @@ def test_slug_and_ancestors():
     assert _export._slug("/") == "root"
     assert _export._ancestors("/a/b/c") == ["/a", "/a/b"]
     assert _export._ancestors("/a") == []
+
+
+def test_slug_of_a_deep_node_path_stays_a_legal_filename():
+    # Deep URDFs (a foot ten links down) produce node paths far past the
+    # 255-byte limit on a single path component.
+    deep = "/robot/visual/" + "/".join(f"long_link_name_{i:03d}" for i in range(20))
+    slug = _export._slug(deep)
+    assert len(slug.encode()) <= 120
+    assert slug.endswith(f"__{hashlib.sha1(deep.encode()).hexdigest()[:8]}")
+    # Distinct paths that share a tail must not collide.
+    assert _export._slug(deep) != _export._slug(deep.replace("_000", "_999"))
 
 
 def test_world_matrix_composes_the_ancestor_chain(tmp_path):

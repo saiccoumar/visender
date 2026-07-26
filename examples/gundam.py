@@ -141,6 +141,9 @@ def add_joint_picker(server, urdf, viser_urdf, cfg: np.ndarray, container=None) 
     ``cfg`` is the live configuration vector: the slider writes into it, so the
     pose survives selecting a different joint, and `Reset pose` restores the
     home configuration it was seeded with.
+
+    Returns a ``refresh()`` callable that pushes ``cfg`` back into the viewport
+    and the open slider, for callers that write the vector themselves.
     """
     home = cfg.copy()
     joint_index = {name: i for i, name in enumerate(urdf.actuated_joint_names)}
@@ -273,13 +276,24 @@ def add_joint_picker(server, urdf, viser_urdf, cfg: np.ndarray, container=None) 
     with panel:
         reset = server.gui.add_button("Reset pose")
 
+    def refresh() -> None:
+        """Re-read ``cfg`` into the viewport and the open slider.
+
+        Anything that writes ``cfg`` from outside this panel -- a timeline
+        scrub in ``gundam_video.py``, say -- must call this, or the slider goes
+        on displaying the value it was created with while driving a joint that
+        has since moved.
+        """
+        viser_urdf.update_cfg(cfg)
+        if selected is not None:
+            widgets[0].value = float(cfg[joint_index[selected]])
+
     @reset.on_click
     def _(_) -> None:
         cfg[:] = home
-        viser_urdf.update_cfg(cfg)
-        if selected is not None:
-            # Keep the open slider honest about the value it now drives.
-            widgets[0].value = float(cfg[joint_index[selected]])
+        refresh()
+
+    return refresh
 
 
 # Sensible starting energies per light kind at this scale. Point-light falloff

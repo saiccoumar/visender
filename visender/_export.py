@@ -16,6 +16,7 @@ other.
 from __future__ import annotations
 
 import dataclasses
+import hashlib
 import json
 import shutil
 from pathlib import Path
@@ -70,8 +71,18 @@ def _local_matrix(handle) -> np.ndarray:
     return m
 
 
+# Most filesystems cap a single path component at 255 bytes. Deep URDFs blow
+# through that easily — a foot mesh ten links down is a 300-character node path
+# — so long slugs keep their distinctive tail plus a digest of the full name.
+_MAX_SLUG = 120
+
+
 def _slug(name: str) -> str:
-    return name.strip("/").replace("/", "__") or "root"
+    slug = name.strip("/").replace("/", "__") or "root"
+    if len(slug) <= _MAX_SLUG:
+        return slug
+    digest = hashlib.sha1(name.encode()).hexdigest()[:8]
+    return slug[-(_MAX_SLUG - len(digest) - 2) :] + "__" + digest
 
 
 def _ancestors(name: str) -> list[str]:
@@ -132,6 +143,7 @@ def export_scene(
     node_filter: Callable[[str], bool] | None = None,
     environment_map: str | None = None,
     extras: dict | None = None,
+    animation: dict | None = None,
 ) -> Path:
     """Write every asset and pose in ``server``'s scene to ``out_dir``.
 
@@ -148,6 +160,10 @@ def export_scene(
             ``scene.configure_environment_map``. viser does not retain it, so
             pass it here if you want Blender's world to match.
         extras: Arbitrary JSON-safe dict stored under ``"extras"``.
+        animation: A pose track, as produced by :meth:`visender.Recorder.payload`
+            -- ``{"fps": f, "frames": [{"matrices": {name: 4x4}, "camera": ...}]}``.
+            The assets and the node list still come from the scene as it stands
+            *now*; the track only supplies per-frame transforms.
 
     Returns:
         Path to the bundle directory.
@@ -253,12 +269,86 @@ def export_scene(
         "environment_map": environment_map,
         "extras": extras or {},
     }
+    if animation is not None:
+        manifest["animation"] = _write_animation(
+            animation, {n["name"] for n in nodes}, out_dir)
     (out_dir / "scene.json").write_text(json.dumps(manifest, indent=1))
 
     print(f"[visender] wrote {len(nodes)} nodes -> {out_dir}")
+    if animation is not None:
+        anim = manifest["animation"]
+        print(f"[visender] animation: {anim['frame_count']} frames @ "
+              f"{anim['fps']:g} fps, {len(anim['nodes'])} moving nodes"
+              + (", camera" if anim["has_camera"] else ""))
     if skipped:
         print(f"[visender] no Blender equivalent, skipped: {', '.join(skipped)}")
     return out_dir
+
+
+# A node whose world matrix never moves by more than this over the whole take is
+# not worth a track: its static matrix in ``scene.json`` already says everything.
+# Well below anything visible at millimetre scale, well above float32 noise.
+_STATIC_EPS = 1e-9
+
+
+def _write_animation(animation: dict, emitted: set[str], out_dir: Path) -> dict:
+    """Stack a recorder's frames into ``assets/animation.npz`` + a manifest block.
+
+    Only nodes that were actually emitted *and* actually move get a track, so a
+    URDF with 300 welded shells and 20 moving links stores 20.
+    """
+    frames = list(animation.get("frames", []))
+    if not frames:
+        raise ValueError("animation has no frames")
+    fps = float(animation.get("fps", 24.0))
+
+    # A node is trackable only if every frame saw it: a node added halfway
+    # through a take has no pose for the first half, and guessing one would
+    # silently teleport it.
+    names = set(emitted)
+    for frame in frames:
+        names &= set(frame["matrices"])
+    names = sorted(names)
+
+    matrices = np.array(
+        [[np.asarray(frame["matrices"][n], np.float64) for n in names]
+         for frame in frames], dtype=np.float64)  # (F, T, 4, 4)
+
+    if names:
+        moved = np.abs(matrices - matrices[0]).max(axis=(0, 2, 3)) > _STATIC_EPS
+        names = [n for n, m in zip(names, moved) if m]
+        matrices = matrices[:, moved]
+
+    arrays: dict[str, np.ndarray] = {"matrices": matrices.astype(np.float32)}
+
+    cams = [f.get("camera") for f in frames]
+    has_camera = all(c is not None for c in cams)
+    if has_camera:
+        for key, field in (("camera_position", "position"),
+                           ("camera_look_at", "look_at"),
+                           ("camera_up", "up")):
+            arrays[key] = np.array([c[field] for c in cams], np.float32)
+        arrays["camera_fov"] = np.array([c["fov"] for c in cams], np.float32)
+    elif any(c is not None for c in cams):
+        # Partial camera coverage means the browser disconnected mid-take.
+        print("[visender] camera missing on some frames; not animating the camera.")
+
+    asset = out_dir / "assets" / "animation.npz"
+    np.savez_compressed(asset, **arrays)
+
+    block = {
+        "fps": fps,
+        "frame_count": len(frames),
+        "asset": asset.relative_to(out_dir).as_posix(),
+        "nodes": names,
+        "has_camera": has_camera,
+    }
+    if has_camera:
+        # Everything but the pose is constant over a take; keep the last frame's
+        # intrinsics so the still-image path and the animation path agree.
+        block["camera_static"] = {k: v for k, v in cams[-1].items()
+                                  if k not in ("position", "look_at", "up", "fov")}
+    return block
 
 
 def add_export_button(

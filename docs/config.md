@@ -93,8 +93,25 @@ materials:
         - default: true
           use: my_metal
 
+animation:                      # -> --animation / --frame-start / --frame-end ...
+  enabled: true                 # render the recorded frame range, not one still
+  start: 1                      # first frame (1-based; default the first recorded)
+  end: null                     # last frame (default the last recorded)
+  step: 1                       # render every Nth frame -- a cheap long-take preview
+                                # (playback rate divides to match, so timing is kept)
+  fps: null                     # override the playback rate stored in the bundle
+
 save_blend: true                # save a .blend beside the output before rendering
 ```
+
+### Animation
+
+`animation.enabled` only means anything for a bundle recorded with
+`visender.Recorder` (see [`docs/animation.md`](animation.md)). The **output
+suffix picks the container**: `.mp4`/`.mkv`/`.mov`/`.webm` encode a movie,
+anything else writes a numbered PNG sequence (`out/gundam_0001.png`, …). A
+still bundle rendered with `animation.enabled` is an error, and an animated
+bundle rendered *without* it renders frame 1 as a still and says so.
 
 ### Built-in materials
 
@@ -140,6 +157,7 @@ what the command line changed.
 ```
 visender render config.yaml --profile final [--output cover.png] [--quality draft] [blender flags]
 visender list-nodes <bundle>      # node path / kind / vertex-or-point count
+visender inspect <bundle>         # nodes, camera, and what (if anything) was recorded
 visender init <bundle> > cfg.yaml # scaffold a starter config from a bundle
 ```
 

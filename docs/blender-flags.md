@@ -113,6 +113,22 @@ Two things that catch people out:
 | `--point-size` / `--point-color` | auto / — | Point-cloud instance radius (m) / forced flat colour. |
 | `--line-scale` | `1.0` | Scale spline/line tube radius. |
 
+## Animation
+
+Only for a bundle recorded with `visender.Recorder` — see
+[`animation.md`](animation.md).
+
+| flag | default | what it does |
+| --- | --- | --- |
+| `--animation` | off | Render the recorded frame range instead of a single still. An animated bundle rendered without it renders frame 1 and says so; a still bundle rendered *with* it is an error. |
+| `--frame-start` / `--frame-end` | whole take | Trim, in 1-based Blender frames. Clamped to what was recorded. |
+| `--frame-step` | `1` | Render every Nth frame — a cheap way to judge timing on a long take. The movie's playback rate is divided to match, so a stepped draft is choppier but lasts exactly as long as the recording. |
+| `--fps` | recorded | Override the playback rate stored in the bundle (retimes the take). |
+
+The output path's suffix picks the container: `.mp4` / `.mkv` / `.mov` /
+`.webm` encode a movie (H.264, or VP9 for webm), anything else writes a
+numbered PNG sequence from the stem (`out/take_0001.png`).
+
 Under EEVEE the render path also turns on ray-traced GI/AO/reflections
 (`use_raytracing`), which the legacy flat look leaves off — the single biggest
 quality win short of Cycles.

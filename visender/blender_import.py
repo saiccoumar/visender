@@ -118,6 +118,13 @@ class Settings:
     shadow_catcher: bool = False
     look: str | None = None
 
+    # Phase 8 -- animation (bundles recorded with visender.Recorder)
+    animation: bool = False               # render the frame range, not one still
+    frame_start: int | None = None
+    frame_end: int | None = None
+    frame_step: int = 1
+    fps: float | None = None              # override the recorded playback rate
+
     # Phase 7 -- point clouds / splines
     point_size: float | None = None
     point_color: str | None = None
@@ -265,6 +272,21 @@ def _add_arguments(p: argparse.ArgumentParser) -> None:
     p.add_argument("--look", default=None,
                    help="Colour-management look, e.g. 'AGX - Punchy'. Validated against the "
                    "live enum.")
+
+    # Phase 8 -- animation -------------------------------------------------- #
+    p.add_argument("--animation", action="store_true",
+                   help="Render the recorded frame range instead of a single still. "
+                   "Needs a bundle written by visender.Recorder. The output path decides "
+                   "the container: .mp4/.mkv/.mov/.webm encode a movie, anything else "
+                   "writes a numbered image sequence.")
+    p.add_argument("--frame-start", type=int, default=None,
+                   help="First frame to render (1-based; default 1).")
+    p.add_argument("--frame-end", type=int, default=None,
+                   help="Last frame to render (default the last recorded frame).")
+    p.add_argument("--frame-step", type=int, default=1,
+                   help="Render every Nth frame (a cheap way to preview a long take).")
+    p.add_argument("--fps", type=float, default=None,
+                   help="Override the playback rate recorded in the bundle.")
 
     # Phase 7 -- point clouds / splines ------------------------------------ #
     p.add_argument("--point-size", type=float, default=None,
@@ -685,7 +707,9 @@ def import_glb(node: dict, bundle: Path, matrix: Matrix):
     return holder
 
 
-def add_light(node: dict, matrix: Matrix, settings) -> None:
+def add_light(node: dict, matrix: Matrix, settings):
+    """Create the Blender light for a node, or None for ambient/hemisphere
+    (which are folded into the world shader instead of becoming objects)."""
     kind = node["kind"]
     props = node["props"]
     name = _short(node["name"])
@@ -715,7 +739,7 @@ def add_light(node: dict, matrix: Matrix, settings) -> None:
         light.size_y = float(props.get("height", 1.0))
         light.energy = intensity * settings.point_scale
     else:
-        return  # Ambient/hemisphere are folded into the world, not objects.
+        return None  # Ambient/hemisphere are folded into the world, not objects.
 
     color = props.get("color") or (255, 255, 255)
     light.color = _srgb_to_linear(color)
@@ -727,6 +751,7 @@ def add_light(node: dict, matrix: Matrix, settings) -> None:
     # Both three.js and Blender aim lights down local -Z, so the pose transfers
     # with no correction.
     obj.matrix_world = matrix
+    return obj
 
 
 def add_curve(node: dict, bundle: Path, matrix: Matrix, settings) -> list:
@@ -1291,8 +1316,18 @@ def _short(name: str) -> str:
 # Build
 # --------------------------------------------------------------------------- #
 
-def build(manifest: dict, bundle: Path, settings) -> dict[str, list]:
-    """Build every node and return a map of viser node path -> created objects."""
+def build(manifest: dict, bundle: Path, settings,
+          posed: dict[str, tuple[list, Matrix]] | None = None) -> dict[str, list]:
+    """Build every node and return a map of viser node path -> created objects.
+
+    ``posed``, if given, is filled with ``name -> (objects, offset)``: the
+    objects whose ``matrix_world`` *is* the node's world matrix (post-multiplied
+    by ``offset``, which is identity for everything but GLB payloads, where it
+    absorbs the glTF axis fix and the node's scale). That is what
+    :func:`apply_animation` re-keys per frame; ``created_map`` cannot serve --
+    for a GLB it holds the mesh *children*, which inherit their pose from a
+    holder empty and must not be keyed themselves.
+    """
     overrides = parse_material_overrides(getattr(settings, "material", []))
     library = getattr(settings, "material_library", {}) or {}
     created_map: dict[str, list] = {}
@@ -1301,9 +1336,12 @@ def build(manifest: dict, bundle: Path, settings) -> dict[str, list]:
         matrix = Matrix([list(row) for row in node["matrix"]])
         kind = node["kind"]
         created = None
+        pose_targets: tuple[list, Matrix] | None = None
         if kind in ("GlbProps", "BatchedGlbProps"):
             holder = import_glb(node, bundle, matrix)
             created = [o for o in holder.children_recursive if o.type == "MESH"]
+            scale = float(node["props"].get("scale", 1.0))
+            pose_targets = ([holder], GLTF_UNROTATE @ Matrix.Scale(scale, 4))
         elif kind in ("MeshProps", "SkinnedMeshProps", "BatchedMeshesProps"):
             data = np.load(bundle / node["asset"])
             created = [add_mesh_object(
@@ -1318,9 +1356,17 @@ def build(manifest: dict, bundle: Path, settings) -> dict[str, list]:
         elif kind.endswith("SplineProps") or kind == "LineSegmentsProps":
             created = add_curve(node, bundle, matrix, settings)
         elif kind.endswith("LightProps"):
-            add_light(node, matrix, settings)
+            light_obj = add_light(node, matrix, settings)
+            if light_obj is not None:
+                pose_targets = ([light_obj], Matrix.Identity(4))
         else:
             print(f"[visender] unhandled node kind: {kind} ({node['name']})")
+
+        if posed is not None:
+            if pose_targets is None and created:
+                pose_targets = (list(created), Matrix.Identity(4))
+            if pose_targets is not None:
+                posed[node["name"]] = pose_targets
 
         if created:
             created_map[node["name"]] = created
@@ -1362,6 +1408,181 @@ def _rule_targets(created_map: dict[str, list], node: str) -> list:
                 objs.extend(created)
         return objs
     return created_map.get(node, [])
+
+
+# --------------------------------------------------------------------------- #
+# Animation
+# --------------------------------------------------------------------------- #
+
+# Recorded frame i (0-based) becomes Blender frame i + FRAME_ORIGIN, so a take
+# starts on frame 1 like every other Blender scene.
+FRAME_ORIGIN = 1
+
+MOVIE_SUFFIXES = {".mp4": "MPEG4", ".mkv": "MKV", ".mov": "QUICKTIME",
+                  ".webm": "WEBM", ".avi": "AVI"}
+
+
+def _matrix(rows) -> Matrix:
+    """4x4 ``Matrix`` from any nested sequence.
+
+    The tracks come out of an npz as float32, and ``Matrix`` rejects numpy
+    scalars outright, so the cast is not cosmetic.
+    """
+    return Matrix([[float(v) for v in row] for row in rows])
+
+
+def _action_fcurves(action):
+    """This action's F-curves, across Blender's old and new action layouts.
+
+    Blender 4.4 moved F-curves under layers/strips/slots and kept ``fcurves``
+    only as a legacy view that is empty for slotted actions -- so try the new
+    layout too rather than silently keying with Bezier interpolation.
+    """
+    curves = list(getattr(action, "fcurves", []) or [])
+    if curves:
+        return curves
+    for layer in getattr(action, "layers", []) or []:
+        for strip in getattr(layer, "strips", []) or []:
+            for bag in getattr(strip, "channelbags", []) or []:
+                curves.extend(bag.fcurves)
+    return curves
+
+
+def _linearise(obj) -> None:
+    """Straight lines between keys.
+
+    Every frame is baked, so Bezier easing between adjacent keys is not smoothing
+    -- it is overshoot invented between two samples that were already correct.
+    """
+    action = getattr(getattr(obj, "animation_data", None), "action", None)
+    if action is None:
+        return
+    for curve in _action_fcurves(action):
+        for point in curve.keyframe_points:
+            point.interpolation = "LINEAR"
+
+
+def _key_matrix(obj, frame: int, matrix: Matrix, prev_quat: dict) -> None:
+    """Key ``obj``'s full transform on ``frame``, keeping quaternions continuous."""
+    loc, quat, scale = matrix.decompose()
+    # Two adjacent samples can decompose to q and -q, which is the same
+    # orientation but interpolates the long way round: a link that turned 2 deg
+    # spins 358. Flip into the same hemisphere as the previous key.
+    last = prev_quat.get(obj.name)
+    if last is not None and quat.dot(last) < 0.0:
+        quat = Quaternion((-quat.w, -quat.x, -quat.y, -quat.z))
+    prev_quat[obj.name] = quat
+
+    obj.rotation_mode = "QUATERNION"
+    obj.location = loc
+    obj.rotation_quaternion = quat
+    obj.scale = scale
+    for path in ("location", "rotation_quaternion", "scale"):
+        obj.keyframe_insert(data_path=path, frame=frame)
+
+
+def stepped_fps_base(fps_base: float, step: int) -> float:
+    """Playback base for a stepped render (effective rate is ``fps / fps_base``).
+
+    ``--frame-step 2`` renders half the frames. Encoding those at the full rate
+    would play the take back at double speed, which is the opposite of what a
+    step is for: it renders a long take cheaply so you can still judge its
+    *timing*. Slowing the rate to match keeps the movie exactly as long as the
+    recording -- a draft is choppier, never faster.
+    """
+    return float(fps_base) * max(1, int(step))
+
+
+def animation_range(anim: dict, settings) -> tuple[int, int, int]:
+    """(start, end, step) in Blender frame numbers, clamped to what was recorded."""
+    first, last = FRAME_ORIGIN, FRAME_ORIGIN + int(anim["frame_count"]) - 1
+    start = first if settings.frame_start is None else max(first, int(settings.frame_start))
+    end = last if settings.frame_end is None else min(last, int(settings.frame_end))
+    if end < start:
+        raise SystemExit(f"empty frame range: {start}..{end} "
+                         f"(bundle has {first}..{last}).")
+    return start, end, max(1, int(settings.frame_step))
+
+
+def apply_animation(manifest: dict, bundle: Path, posed: dict, settings) -> dict | None:
+    """Key every recorded node (and the camera) onto the Blender timeline.
+
+    Returns the manifest's animation block, or None if the bundle is a still.
+    Nodes whose pose never changed carry no track -- they were already placed
+    once from ``scene.json`` -- so this only touches what actually moves.
+    """
+    anim = manifest.get("animation")
+    if not anim:
+        return None
+
+    data = np.load(bundle / anim["asset"])
+    matrices = data["matrices"]  # (F, T, 4, 4)
+    start, end, _ = animation_range(anim, settings)
+
+    scene = bpy.context.scene
+    fps = float(settings.fps or anim["fps"])
+    scene.render.fps = max(1, int(round(fps)))
+    scene.render.fps_base = scene.render.fps / fps
+    scene.frame_start, scene.frame_end = start, end
+
+    prev_quat: dict[str, Quaternion] = {}
+    missing: list[str] = []
+    keyed = 0
+    for track, name in enumerate(anim["nodes"]):
+        target = posed.get(name)
+        if target is None:
+            missing.append(name)
+            continue
+        objs, offset = target
+        for i in range(start - FRAME_ORIGIN, end - FRAME_ORIGIN + 1):
+            world = _matrix(matrices[i, track]) @ offset
+            for obj in objs:
+                _key_matrix(obj, i + FRAME_ORIGIN, world, prev_quat)
+        for obj in objs:
+            _linearise(obj)
+        keyed += 1
+
+    if anim.get("has_camera") and manifest.get("camera"):
+        _animate_camera(anim, data, manifest, settings, start, end)
+
+    print(f"[visender] animation: keyed {keyed} nodes over frames {start}..{end} "
+          f"@ {fps:g} fps")
+    if missing:
+        print(f"[visender] animation: {len(missing)} recorded nodes were not built "
+              f"(e.g. {missing[0]}); they stay static.")
+    return anim
+
+
+def _animate_camera(anim: dict, data, manifest: dict, settings,
+                    start: int, end: int) -> None:
+    """Key the render camera along the recorded browser camera path."""
+    obj = bpy.context.scene.camera
+    if obj is None:
+        print("[visender] animation: no camera object to key.")
+        return
+
+    prev_quat: dict[str, Quaternion] = {}
+    for i in range(start - FRAME_ORIGIN, end - FRAME_ORIGIN + 1):
+        cam = dict(manifest["camera"])
+        cam["position"] = [float(v) for v in data["camera_position"][i]]
+        cam["look_at"] = [float(v) for v in data["camera_look_at"][i]]
+        cam["up"] = [float(v) for v in data["camera_up"][i]]
+        # --orbit/--dolly are re-applied per frame, so an art-directed offset
+        # rides along with the recorded move instead of being lost by it.
+        cam = effective_camera(cam, settings)
+
+        eye, forward, right, true_up = camera_basis(cam)
+        rot = Matrix((right, true_up, -forward)).transposed().to_4x4()
+        _key_matrix(obj, i + FRAME_ORIGIN, Matrix.Translation(eye) @ rot, prev_quat)
+
+        # ``angle_y`` is a derived property and cannot be keyed; assigning it
+        # writes ``lens``, which can. Zooming in the browser therefore renders
+        # as a zoom rather than snapping to the last frame's focal length.
+        obj.data.angle_y = float(data["camera_fov"][i])
+        obj.data.keyframe_insert(data_path="lens", frame=i + FRAME_ORIGIN)
+
+    _linearise(obj)
+    _linearise(obj.data)
 
 
 # --------------------------------------------------------------------------- #
@@ -1436,7 +1657,9 @@ def _apply_look(scene, look: str) -> None:
     raise SystemExit(f"look {look!r} unavailable; valid looks: {valid}")
 
 
-def render(path: str, settings) -> None:
+def configure_render(settings):
+    """Engine, sampling, colour management and film -- everything a render needs
+    except where the pixels go. Shared by the still and animation paths."""
     scene = bpy.context.scene
     engine = set_render_engine(scene, settings.engine)
     if engine == "CYCLES":
@@ -1472,12 +1695,66 @@ def render(path: str, settings) -> None:
     scene.render.film_transparent = transparent
     if transparent:
         scene.render.image_settings.color_mode = "RGBA"
+    return scene
 
+
+def render(path: str, settings) -> None:
+    scene = configure_render(settings)
     out = Path(path).absolute()
     out.parent.mkdir(parents=True, exist_ok=True)
     scene.render.filepath = str(out)
     bpy.ops.render.render(write_still=True)
     print(f"[visender] rendered -> {path}")
+
+
+def render_sequence(path: str, settings, anim: dict) -> None:
+    """Render the frame range to a movie file or a numbered image sequence.
+
+    The output suffix decides which: ``.mp4`` and friends encode a movie,
+    anything else is treated as a stem for ``name_0001.png``. A movie is one
+    file to review, but a sequence survives an interrupted render -- the frames
+    already on disk stay usable.
+    """
+    scene = configure_render(settings)
+    start, end, step = animation_range(anim, settings)
+    scene.frame_start, scene.frame_end, scene.frame_step = start, end, step
+
+    scene.render.fps_base = stepped_fps_base(scene.render.fps_base, step)
+
+    out = Path(path).absolute()
+    out.parent.mkdir(parents=True, exist_ok=True)
+    container = MOVIE_SUFFIXES.get(out.suffix.lower())
+    image_settings = scene.render.image_settings
+    if container:
+        # Blender 5 gates the movie formats behind media_type; on 4.x FFMPEG is
+        # simply one of the file formats and there is no media_type at all.
+        if hasattr(image_settings, "media_type"):
+            image_settings.media_type = "VIDEO"
+        image_settings.file_format = "FFMPEG"
+        ff = scene.render.ffmpeg
+        ff.format = container
+        ff.codec = "VP9" if container == "WEBM" else "H264"
+        ff.constant_rate_factor = "HIGH"
+        ff.ffmpeg_preset = "GOOD"
+        ff.audio_codec = "NONE"
+        if scene.render.film_transparent and container != "WEBM":
+            print(f"[visender] WARNING: {out.suffix} cannot carry alpha; "
+                  "--transparent will be flattened. Use .webm or an image sequence.")
+        # Blender appends the frame range to a movie path unless it is exact.
+        scene.render.filepath = str(out)
+    else:
+        # PNG sequence: Blender appends ####.png to the stem we hand it.
+        if hasattr(image_settings, "media_type"):
+            image_settings.media_type = "IMAGE"
+        image_settings.file_format = "PNG"
+        scene.render.filepath = str(out.with_suffix("")) + "_"
+
+    frames = len(range(start, end + 1, step))
+    rate = scene.render.fps / scene.render.fps_base
+    print(f"[visender] rendering {frames} frames ({start}..{end} step {step}) "
+          f"@ {rate:g} fps = {frames / rate:.2f}s -> {path}")
+    bpy.ops.render.render(animation=True)
+    print(f"[visender] rendered -> {scene.render.filepath}")
 
 
 # --------------------------------------------------------------------------- #
@@ -1595,7 +1872,8 @@ class Pipeline:
     Stage order::
 
         clear -> build -> after_build -> plan_camera -> backdrop -> lighting
-              -> before_world -> world -> camera -> before_render -> render
+              -> before_world -> world -> camera -> animate -> before_render
+              -> render
 
     ``plan_camera`` only resolves ``--auto-camera`` into ``self.manifest`` so
     that later stages can read the view; the camera object itself is created in
@@ -1614,6 +1892,8 @@ class Pipeline:
         self.manifest = json.loads((self.bundle / "scene.json").read_text())
         check_bundle_version(self.manifest, self.bundle)
         self.created: dict[str, list] = {}
+        self.posed: dict[str, tuple[list, Matrix]] = {}
+        self.anim: dict | None = None
         self._cb = {
             "after_build": after_build,
             "before_world": before_world,
@@ -1638,7 +1918,24 @@ class Pipeline:
         clear_scene(self.settings.keep_default_cube)
 
     def build(self) -> None:
-        self.created = build(self.manifest, self.bundle, self.settings)
+        self.posed = {}
+        self.created = build(self.manifest, self.bundle, self.settings, self.posed)
+
+    def animate(self) -> None:
+        """Key the recorded track onto the timeline (no-op for a still bundle).
+
+        Runs after ``camera`` so the camera object exists to key; the pose
+        tracks themselves only need ``build``.
+        """
+        if self.manifest.get("animation") and not self.settings.animation:
+            print("[visender] bundle has a recording; pass --animation "
+                  "(or 'animation: {enabled: true}') to render it as a sequence. "
+                  "Rendering frame 1 as a still.")
+            return
+        self.anim = apply_animation(self.manifest, self.bundle, self.posed, self.settings)
+        if self.settings.animation and self.anim is None:
+            raise SystemExit(f"--animation, but {self.bundle} holds no recording. "
+                             "Record one with visender.Recorder / add_record_button.")
 
     def plan_camera(self) -> None:
         """Resolve --auto-camera into ``self.manifest['camera']``.
@@ -1684,7 +1981,10 @@ class Pipeline:
         if not self.settings.render:
             return
         start = time.time()
-        render(self.settings.render, self.settings)
+        if self.anim is not None and self.settings.animation:
+            render_sequence(self.settings.render, self.settings, self.anim)
+        else:
+            render(self.settings.render, self.settings)
         write_sidecar(self.settings.render, self.settings, self.bundle,
                       self.manifest, time.time() - start)
 
@@ -1699,6 +1999,7 @@ class Pipeline:
         self.before_world()
         self.world()
         self.camera()
+        self.animate()
         self.before_render()
         self.render()
         print(f"[visender] built {len(self.manifest['nodes'])} nodes from {self.bundle}")

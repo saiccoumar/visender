@@ -1,0 +1,61 @@
+# Render config for examples/gundam_video.py — an animated bundle, not a still.
+#
+#   visender inspect examples/out/gundam_video_142530          # what got recorded
+#   visender render examples/gundam_video.yaml --profile draft # ~5s mp4, EEVEE
+#   visender render examples/gundam_video.yaml --profile final # Cycles, 4K
+#
+# Every path here resolves relative to this file, not your shell's CWD.
+
+bundle: bundle_gundam_video          # point this at the take you want: each press
+                                  # of "Record shot" writes a timestamped dir
+                                  # like out/gundam_video_142530.
+
+# The suffix picks the container: .mp4 encodes a movie, .png writes a numbered
+# sequence (out/gundam_video_draft_0001.png, ...) that survives an interrupted
+# render and can be re-encoded by hand.
+output: out/gundam_video_{profile}.mp4
+
+profiles:
+  # A draft is for judging *timing*, not pixels: EEVEE, 720p, and every second
+  # frame -- encoded at half the rate, so it is choppier but lasts exactly as
+  # long as the take. Roughly a second per frame on a workstation GPU.
+  draft: {engine: EEVEE,  samples: 32,  resolution: [1280, 720], frame_step: 2}
+  # One frame of `final` costs about what the still hero frame costs — budget
+  # accordingly before pointing it at 109 of them.
+  final: {engine: CYCLES, samples: 2048, resolution: [3840, 2160], gpu: true,
+          adaptive_threshold: 0.01}
+
+animation:
+  enabled: true      # without this the bundle renders as a single still
+  # start: 1         # trim the take without re-recording it
+  # end: 60
+  # fps: 24          # override the rate the recording was made at (retimes it)
+
+world:    {studio: true, strength: 0.9}
+backdrop: {enabled: true, color: [235, 235, 240]}
+
+camera:
+  auto: true         # used only if you recorded with no browser attached
+  orbit: [0, 10]     # applied per frame, so it rides along with a camera move
+  dolly: 1.0
+  fit: keep_vertical
+
+lighting:
+  # The lights you dragged in the browser, knocked back, plus a camera-relative
+  # key. In a moving shot the key follows the camera, so the robot stays lit
+  # through the whole take rather than only at the framing you exported from.
+  dim_authored: 0.35
+  key: {az: -40, el: 35, energy: 4.0, angle: 12.0}
+
+aliases:
+  body: /robot/visual
+
+materials:
+  library:
+    rx78_gold: {base_color: [125, 125, 125], metallic: 1.0, roughness: 0.18}
+  rules:
+    - node: "{body}/*"
+      use: rx78_gold
+
+save_blend: true     # written before the first frame, so a crashed encode still
+                     # leaves you a scene with the whole animation keyed in it

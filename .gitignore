@@ -41,3 +41,7 @@ examples/out/
 
 # Notebooks
 .ipynb_checkpoints/
+
+# Legacy
+legacy/
+legacy/*

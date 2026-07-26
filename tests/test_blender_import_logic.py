@@ -312,3 +312,64 @@ def test_to_yaml_quotes_strings_that_would_otherwise_be_typed(bi):
     yaml = pytest.importorskip("yaml")
     parsed = yaml.safe_load(bi._to_yaml({"a": "true", "b": "12", "c": "a: b"}))
     assert parsed == {"a": "true", "b": "12", "c": "a: b"}
+
+
+# --------------------------------------------------------------------------- #
+# Animation
+# --------------------------------------------------------------------------- #
+
+def test_animation_range_defaults_to_the_whole_recording(bi):
+    anim = {"frame_count": 100, "fps": 24}
+    assert bi.animation_range(anim, bi.Settings()) == (1, 100, 1)
+
+
+def test_animation_range_clamps_to_what_was_recorded(bi):
+    """A trim that runs off the end of the take must not ask Blender to render
+    frames with no keys on them -- they would silently repeat the last pose."""
+    anim = {"frame_count": 100, "fps": 24}
+    s = bi.Settings(frame_start=-5, frame_end=500, frame_step=3)
+    assert bi.animation_range(anim, s) == (1, 100, 3)
+
+
+def test_animation_range_rejects_an_empty_range(bi):
+    with pytest.raises(SystemExit):
+        bi.animation_range({"frame_count": 100, "fps": 24},
+                           bi.Settings(frame_start=50, frame_end=10))
+
+
+def test_movie_suffixes_cover_the_containers_the_docs_promise(bi):
+    for suffix in (".mp4", ".mkv", ".mov", ".webm"):
+        assert suffix in bi.MOVIE_SUFFIXES
+    assert ".png" not in bi.MOVIE_SUFFIXES
+
+
+def test_animation_flags_reach_settings(bi):
+    argv = ["--bundle", "b", "--animation", "--frame-start", "5",
+            "--frame-end", "20", "--frame-step", "2", "--fps", "30"]
+    s = bi.Settings.from_args(bi.parse_args(argv), bi._explicit_flags(argv), None)
+    assert (s.animation, s.frame_start, s.frame_end, s.frame_step, s.fps) == (
+        True, 5, 20, 2, 30.0)
+
+
+def test_an_explicit_frame_range_beats_the_config(bi):
+    argv = ["--bundle", "b", "--frame-end", "10"]
+    config = {"animation": True, "frame_start": 3, "frame_end": 999}
+    s = bi.Settings.from_args(bi.parse_args(argv), bi._explicit_flags(argv), config)
+    assert (s.animation, s.frame_start, s.frame_end) == (True, 3, 10)
+
+
+def test_a_frame_step_slows_the_playback_rate_to_match(bi):
+    """Rendering every Nth frame must not play the take back N times too fast.
+
+    A step is for rendering a long take cheaply while still judging its timing,
+    so the movie has to last exactly as long as the recording does.
+    """
+    anim = {"frame_count": 59, "fps": 24.0}
+    for step, expected_rate in ((1, 24.0), (2, 12.0), (3, 8.0)):
+        start, end, actual_step = bi.animation_range(anim, bi.Settings(frame_step=step))
+        assert actual_step == step
+        rate = 24 / bi.stepped_fps_base(1.0, step)
+        assert rate == pytest.approx(expected_rate)
+        # Duration is preserved to within the frames a step cannot represent.
+        frames = len(range(start, end + 1, step))
+        assert frames / rate == pytest.approx(59 / 24.0, abs=step / 24.0)

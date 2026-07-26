@@ -8,13 +8,7 @@ Sai Coumar
 ### Overview 
 visender is a codegen tool that lets you snapshot a live viser scene and rebuild it in Blender to create beautiful demonstration renderings with Cycles instead of three.js. It saves a viser scene to an intermediate bundle representation which is then routed into blenderpy for automatic environment regeneration.
 
-
-The two halves never share an interpreter. **Export** needs `viser` and runs in
-your solver env; **import** needs `bpy` and runs inside Blender. They talk only
-through a bundle directory on disk.
-
-A runnable end-to-end example — a Panda on a desk with joint sliders, draggable
-props and lights, a render config and a pre-exported bundle — is in
+A runnable end-to-end example rendering a Gundam rx78 can be found in 
 [`examples/`](examples/README.md).
 
 ## Quickstart
@@ -80,7 +74,7 @@ Both entry points take the same options:
 | `node_filter` | `None` | `lambda name: ...` — return `False` to drop a node by path. |
 | `environment_map` | `None` | The preset you passed to `configure_environment_map`. viser does not retain it, so repeat it here. |
 
-**Gizmos are skipped, but their transforms are never ignored.** A light parented
+ A light parented
 to a transform control (`/ctrl/key/light`) keeps the pose you dragged it to —
 world transforms are composed down the full `/a/b/c` path regardless of which
 nodes get emitted. This is the intended way to art-direct a shot.
@@ -94,7 +88,9 @@ The `visender` command quickly automates the blenderpy environment generation.
 ```bash
 visender render renders/pen_grip.yaml --profile final
 visender render renders/pen_grip.yaml --profile draft --output preview.png
+visender export renders/pen_grip.yaml                  # build a .blend, render nothing
 visender list-nodes renders/pen_grip_142530            # node paths + vertex/point counts
+visender inspect renders/pen_grip_142530               # nodes, camera, recording
 visender init renders/pen_grip_142530 > pen_grip.yaml  # scaffold a starter config
 ```
 
@@ -142,6 +138,69 @@ Drop the `-b` to open the scene in the Blender GUI instead, already built and
 framed. Every flag is documented in
 [`docs/blender-flags.md`](docs/blender-flags.md).
 
+## Exporting a `.blend`
+
+Sometimes the point is not a PNG but the Blender scene itself — to art-direct by
+hand, hand it to someone else, or keep the shot around for later.
+`visender export` builds the scene exactly as a render would and saves a
+`.blend` **instead of** rendering:
+
+```bash
+visender export renders/pen_grip.yaml                # -> renders/out/pen_grip_default.blend
+visender export renders/pen_grip.yaml --profile final -o hero.blend
+visender export renders/pen_grip_142530              # a bare bundle -> ./pen_grip_142530.blend
+```
+
+| flag | what it does |
+| --- | --- |
+| `-o, --output PATH` | Where to write the `.blend`. Default: the config's `output:` with a `.blend` suffix, or `<bundle>.blend` in the CWD. |
+| `--profile NAME` | Same profiles a render uses, for the settings that shape the scene (materials, lighting, camera). Sample counts and resolution ride along harmlessly. |
+| `--animation` / `--still` | Key the recording onto the timeline, or ignore it. Defaults to keying it when the bundle holds one. |
+| `--blender PATH` | Which Blender binary to use. |
+
+The argument is either a **config file** — so the `.blend` opens with the
+materials, lighting rig, backdrop and camera framing that config describes — or
+a **bundle directory**, for the raw scene as exported from viser. Any extra
+`blender_import.py` flag is forwarded through, same as with `render`.
+
+**A still** — [`examples/gundam.py`](examples/gundam.py) exports a bundle from
+the browser; [`examples/gundam.yaml`](examples/gundam.yaml) describes the shot:
+
+```bash
+python examples/gundam.py                            # pose it, click Export to Blender
+visender export examples/gundam.yaml --profile final -o out/gundam.blend
+```
+
+Open `out/gundam.blend` and the RX-78 is there in its posed, gold-shaded,
+key-lit state on the camera you framed in the browser — no render was run.
+
+**A video** — [`examples/gundam_video.py`](examples/gundam_video.py) is a
+keyframe editor; the recorded take becomes a bundle with a timeline:
+
+```bash
+python examples/gundam_video.py                      # keyframe it, click Record shot
+visender inspect examples/bundle_gundam_video        # frames, fps, what moved
+visender export examples/gundam_video.yaml -o out/gundam_video.blend
+```
+
+The whole take is keyed onto the objects at build time, so the saved scene holds
+the *entire animation*, not frame 1 — scrub it, retime it, or hit render from
+the GUI. Pass `--still` if you only want the opening pose.
+
+**Alongside a render.** If you want both in one go, keep using `render` and set
+`save_blend` in the config — it is written *before* the first frame, so it
+survives an interrupted or crashed render.
+[`examples/gundam_video.yaml`](examples/gundam_video.yaml) ends with it:
+
+```yaml
+save_blend: true                 # -> beside the output, out/gundam_video_draft.blend
+# save_blend: out/hero.blend     # or an explicit path, relative to the config file
+```
+
+The lowest-level route is `blender_import.py` with `--save-blend` and no
+`--render`; every flag is in
+[`docs/blender-flags.md`](docs/blender-flags.md).
+
 ## What transfers
 
 | viser | Blender |
@@ -155,6 +214,35 @@ framed. Every flag is documented in
 | browser camera | camera with matching position, aim and vertical FOV |
 
 Anything else is named on stdout and skipped rather than silently dropped.
+
+## Video
+
+A bundle is normally one instant. `visender.Recorder` samples the same world
+matrices over time, so Blender keys every object instead of just placing it —
+assets are still written once, so a 500-frame take costs about what a still
+does on disk.
+
+```python
+rec = visender.Recorder(server, fps=24)
+for cfg in trajectory:
+    viser_urdf.update_cfg(cfg)     # or drag things in the browser
+    rec.capture()
+rec.save("renders/take1")
+```
+
+```bash
+visender inspect renders/take1                       # frames, fps, what moved
+visender render take.yaml --profile draft            # animation: {enabled: true}
+```
+
+The output suffix picks the container: `.mp4` encode a movie,
+anything else writes a numbered PNG sequence. `visender.add_record_button`
+records live from the browser instead, camera moves included.
+`examples/gundam_video.py` is a keyframe editor in the browser: click a body
+part to pose the joint that drives it, capture that pose at a time, and the
+script interpolates between your keyframes onto a chosen fps. Scrub or play the
+result before committing to a render, and save the take to YAML.
+Details in [`docs/animation.md`](docs/animation.md).
 
 ## Things worth knowing
 

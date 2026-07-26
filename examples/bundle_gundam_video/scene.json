@@ -1,0 +1,5793 @@
+{
+ "format": "visender",
+ "version": 1,
+ "up_direction": "+z",
+ "nodes": [
+  {
+   "name": "/ctrl/light_1/light",
+   "kind": "DirectionalLightProps",
+   "matrix": [
+    [
+     0.7289383400354371,
+     -0.42456208274456897,
+     0.5370250779265109,
+     16.0
+    ],
+    [
+     -0.07661437030789689,
+     0.7289383400354371,
+     0.6802787183858581,
+     -12.0
+    ],
+    [
+     -0.6802787183858581,
+     -0.5370250779265109,
+     0.49882354694753417,
+     22.0
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "color": [
+     255,
+     236,
+     180
+    ],
+    "intensity": 2.2,
+    "cast_shadow": false
+   }
+  },
+  {
+   "name": "/ctrl/light_2/light",
+   "kind": "PointLightProps",
+   "matrix": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     -10.0
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     14.0
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     15.0
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "color": [
+     200,
+     220,
+     255
+    ],
+    "intensity": 3000.0,
+    "distance": 0.0,
+    "decay": 2.0,
+    "cast_shadow": false
+   }
+  },
+  {
+   "name": "/pad",
+   "kind": "BoxProps",
+   "matrix": [
+    [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     1.0,
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     -0.3
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "dimensions": [
+     30.0,
+     30.0,
+     0.6
+    ],
+    "color": [
+     58,
+     60,
+     66
+    ],
+    "wireframe": false,
+    "opacity": null,
+    "flat_shading": true,
+    "side": "front",
+    "material": "standard",
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   }
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_Null_066_link/rx78_Null_067_link/rx78_Null_069_link/rx78_Null_059_link/rx78_Null_060_link/rx78_Null_061_link/rx78_object_054-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.22515245972097506,
+     0.3562409727966841,
+     -0.9068620287466373,
+     4.720746775757169
+    ],
+    [
+     0.9594743517534777,
+     0.24294711791234302,
+     -0.14277838150550065,
+     3.7760567557074176
+    ],
+    [
+     0.16945600670628022,
+     -0.9022577609524667,
+     -0.3965042176222124,
+     15.16240562207405
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_069_link__rx78_Null_059_link__rx78_Null_060_link__rx78_Null_061_link__rx78_object_054-lib.dae__66a97447.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_Null_066_link/rx78_Null_067_link/rx78_Null_069_link/rx78_Null_059_link/rx78_Null_060_link/rx78_object_055-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.2251479253956632,
+     0.35623462475366807,
+     -0.9068656481621973,
+     4.388495005925317
+    ],
+    [
+     0.9594750656418769,
+     0.24294611845770658,
+     -0.142775284758429,
+     3.7237466440542675
+    ],
+    [
+     0.16945798919362096,
+     -0.9022605364599227,
+     -0.3964970545231165,
+     15.017139240762209
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_067_link__rx78_Null_069_link__rx78_Null_059_link__rx78_Null_060_link__rx78_object_055-lib.dae__4bfe89c3.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_Null_066_link/rx78_Null_067_link/rx78_Null_069_link/rx78_Null_059_link/rx78_object_056-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.22514701852990476,
+     0.35623462475366807,
+     -0.9068658733096687,
+     4.109427496151031
+    ],
+    [
+     0.9594752084166815,
+     0.24294611845770658,
+     -0.1427743252832944,
+     3.7294303682148944
+    ],
+    [
+     0.16945838569058977,
+     -0.9022605364599227,
+     -0.3964968850649295,
+     14.908485956105855
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_066_link__rx78_Null_067_link__rx78_Null_069_link__rx78_Null_059_link__rx78_object_056-lib.dae__c9e0c575.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_Null_066_link/rx78_Null_067_link/rx78_Null_069_link/rx78_Null_062_link/rx78_Null_063_link/rx78_Null_064_link/rx78_object_057-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.22514520479699998,
+     0.8931472459055187,
+     -0.38935540819192926,
+     3.6727963591498214
+    ],
+    [
+     0.9594754939638984,
+     0.27274418450716986,
+     0.07083351113881498,
+     3.3749177595125555
+    ],
+    [
+     0.16945917868221447,
+     -0.3576291472306275,
+     -0.9183599402257503,
+     15.174079195471318
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_069_link__rx78_Null_062_link__rx78_Null_063_link__rx78_Null_064_link__rx78_object_057-lib.dae__4623e5b8.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_Null_066_link/rx78_Null_067_link/rx78_Null_069_link/rx78_Null_062_link/rx78_Null_063_link/rx78_object_058-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.22514520479699998,
+     0.8931468565496651,
+     -0.38935630133897825,
+     3.5301907596595057
+    ],
+    [
+     0.9594754939638984,
+     0.2727442553405445,
+     0.07083323839459574,
+     3.4008704099584053
+    ],
+    [
+     0.16945917868221447,
+     -0.3576300655903866,
+     -0.9183595825961448,
+     14.837658356824626
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_067_link__rx78_Null_069_link__rx78_Null_062_link__rx78_Null_063_link__rx78_object_058-lib.dae__a402e7ba.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_Null_066_link/rx78_Null_067_link/rx78_Null_069_link/rx78_Null_062_link/rx78_object_059-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.22514520479699998,
+     0.35623371788761893,
+     -0.9068666798360614,
+     3.4643010101360203
+    ],
+    [
+     0.9594754939638984,
+     0.2429459756832602,
+     -0.14277264927864333,
+     3.436997144880087
+    ],
+    [
+     0.16945917868221447,
+     -0.9022609329563557,
+     -0.3964956438866336,
+     14.545565131956621
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_066_link__rx78_Null_067_link__rx78_Null_069_link__rx78_Null_062_link__rx78_object_059-lib.dae__e3efa5d9.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_Null_066_link/rx78_Null_067_link/rx78_Null_069_link/rx78_Null_068_link/rx78_Null_070_link/rx78_Null_071_link/rx78_object_065-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.2251515528563424,
+     0.356242786522257,
+     -0.9068615414148046,
+     4.878467525443468
+    ],
+    [
+     0.9594744945330798,
+     0.24294740346001656,
+     -0.1427769361365046,
+     3.917031019612271
+    ],
+    [
+     0.16945640320409633,
+     -0.9022569679436638,
+     -0.3965058526809372,
+     14.573753601952367
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_069_link__rx78_Null_068_link__rx78_Null_070_link__rx78_Null_071_link__rx78_object_065-lib.dae__fa3b5008.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_Null_066_link/rx78_Null_067_link/rx78_Null_069_link/rx78_Null_068_link/rx78_Null_070_link/rx78_object_066-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.22514701852990476,
+     0.35623462475366807,
+     -0.9068658733096687,
+     4.546215601875605
+    ],
+    [
+     0.9594752084166815,
+     0.24294611845770658,
+     -0.1427743252832944,
+     3.8647212108964974
+    ],
+    [
+     0.16945838569058977,
+     -0.9022605364599227,
+     -0.3964968850649295,
+     14.42848746317731
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_067_link__rx78_Null_069_link__rx78_Null_068_link__rx78_Null_070_link__rx78_object_066-lib.dae__b34a6fed.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_Null_066_link/rx78_Null_067_link/rx78_Null_069_link/rx78_Null_068_link/rx78_object_067-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.22514701852990476,
+     0.35623462475366807,
+     -0.9068658733096687,
+     4.267148918314326
+    ],
+    [
+     0.9594752084166815,
+     0.24294611845770658,
+     -0.1427743252832944,
+     3.8704052454318796
+    ],
+    [
+     0.16945838569058977,
+     -0.9022605364599227,
+     -0.3964968850649295,
+     14.319834699135573
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_066_link__rx78_Null_067_link__rx78_Null_069_link__rx78_Null_068_link__rx78_object_067-lib.dae__d6db8a19.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_Null_066_link/rx78_Null_067_link/rx78_Null_069_link/rx78_Null_072_link/rx78_Null_073_link/rx78_Null_074_link/rx78_object_068-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.2251515528563424,
+     0.3562418796602305,
+     -0.9068618976572583,
+     4.857274148737027
+    ],
+    [
+     0.9594744945330798,
+     0.24294726068291064,
+     -0.14277717908391893,
+     3.8740963697989277
+    ],
+    [
+     0.16945640320409633,
+     -0.9022573644491997,
+     -0.3965049504234657,
+     14.788697857153908
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_069_link__rx78_Null_072_link__rx78_Null_073_link__rx78_Null_074_link__rx78_object_068-lib.dae__3fc31ff4.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_Null_066_link/rx78_Null_067_link/rx78_Null_069_link/rx78_Null_072_link/rx78_Null_073_link/rx78_object_069-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.22514701852990476,
+     0.35623462475366807,
+     -0.9068658733096687,
+     4.525022373366135
+    ],
+    [
+     0.9594752084166815,
+     0.24294611845770658,
+     -0.1427743252832944,
+     3.8217861056401614
+    ],
+    [
+     0.16945838569058977,
+     -0.9022605364599227,
+     -0.3964968850649295,
+     14.643431543423604
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_067_link__rx78_Null_069_link__rx78_Null_072_link__rx78_Null_073_link__rx78_object_069-lib.dae__aef254ef.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_Null_066_link/rx78_Null_067_link/rx78_Null_069_link/rx78_Null_072_link/rx78_object_070-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.22514701852990476,
+     0.35623462475366807,
+     -0.9068658733096687,
+     4.245955699210797
+    ],
+    [
+     0.9594752084166815,
+     0.24294611845770658,
+     -0.1427743252832944,
+     3.82746992398589
+    ],
+    [
+     0.16945838569058977,
+     -0.9022605364599227,
+     -0.3964968850649295,
+     14.534778835716242
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_066_link__rx78_Null_067_link__rx78_Null_069_link__rx78_Null_072_link__rx78_object_070-lib.dae__ec1ff205.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_Null_066_link/rx78_Null_067_link/rx78_Null_069_link/rx78_Null_075_link/rx78_Null_076_link/rx78_Null_077_link/rx78_object_071-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.2251515528563424,
+     0.3562400659359336,
+     -0.9068626101391211,
+     4.815514448945365
+    ],
+    [
+     0.9594744945330798,
+     0.2429469751280998,
+     -0.14277766497809824,
+     3.8293009667551767
+    ],
+    [
+     0.16945640320409633,
+     -0.9022581574572037,
+     -0.3965031459081535,
+     14.986843889478466
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_069_link__rx78_Null_075_link__rx78_Null_076_link__rx78_Null_077_link__rx78_object_071-lib.dae__ebaae60d.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_Null_066_link/rx78_Null_067_link/rx78_Null_069_link/rx78_Null_075_link/rx78_Null_076_link/rx78_object_052-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.22514701852990476,
+     0.35623462475366807,
+     -0.9068658733096687,
+     4.483262525377501
+    ],
+    [
+     0.9594752084166815,
+     0.24294611845770658,
+     -0.1427743252832944,
+     3.776991158039403
+    ],
+    [
+     0.16945838569058977,
+     -0.9022605364599227,
+     -0.3964968850649295,
+     14.84157775070341
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_067_link__rx78_Null_069_link__rx78_Null_075_link__rx78_Null_076_link__rx78_object_052-lib.dae__0645d25f.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_Null_066_link/rx78_Null_067_link/rx78_Null_069_link/rx78_Null_075_link/rx78_object_053-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.22514701852990476,
+     0.35623462475366807,
+     -0.9068658733096687,
+     4.204195851222163
+    ],
+    [
+     0.9594752084166815,
+     0.24294611845770658,
+     -0.1427743252832944,
+     3.7826749763851315
+    ],
+    [
+     0.16945838569058977,
+     -0.9022605364599227,
+     -0.3964968850649295,
+     14.732925042996047
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_066_link__rx78_Null_067_link__rx78_Null_069_link__rx78_Null_075_link__rx78_object_053-lib.dae__cb0d2f20.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_Null_066_link/rx78_Null_067_link/rx78_Null_069_link/rx78_object_060-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.22514701852990476,
+     0.35623371788761893,
+     -0.9068662295438392,
+     3.430983024480193
+    ],
+    [
+     0.9594752084166815,
+     0.2429459756832602,
+     -0.14277456822934087,
+     3.748712038381002
+    ],
+    [
+     0.16945838569058977,
+     -0.9022609329563557,
+     -0.3964959828041971,
+     14.301421666446767
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_003_link__rx78_Null_066_link__rx78_Null_067_link__rx78_Null_069_link__rx78_object_060-lib.dae__066747ae.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_Null_066_link/rx78_Null_067_link/rx78_object_061-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.22514701852990476,
+     0.35623462475366807,
+     -0.9068658733096688,
+     3.2443889092745533
+    ],
+    [
+     0.9594752084166815,
+     0.2429461184577066,
+     -0.14277432528329442,
+     3.583135416178694
+    ],
+    [
+     0.16945838569058977,
+     -0.9022605364599228,
+     -0.3964968850649296,
+     14.183165821298594
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_002_link__rx78_Null_003_link__rx78_Null_066_link__rx78_Null_067_link__rx78_object_061-lib.dae__706c6bca.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_Null_066_link/rx78_Null_067_link/rx78_object_061-lib.dae_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.22514701852990476,
+     0.35623462475366807,
+     -0.9068658733096688,
+     3.2443889092745533
+    ],
+    [
+     0.9594752084166815,
+     0.2429461184577066,
+     -0.14277432528329442,
+     3.583135416178694
+    ],
+    [
+     0.16945838569058977,
+     -0.9022605364599228,
+     -0.3964968850649296,
+     14.183165821298594
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_002_link__rx78_Null_003_link__rx78_Null_066_link__rx78_Null_067_link__rx78_object_061-lib.dae_1__8a8ed6bc.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_Null_066_link/rx78_object_064-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.22514792539566322,
+     0.35623462475366807,
+     -0.9068656481621975,
+     0.9637595216220085
+    ],
+    [
+     0.9594750656418769,
+     0.2429461184577066,
+     -0.14277528475842904,
+     3.2240837895770005
+    ],
+    [
+     0.16945798919362098,
+     -0.9022605364599228,
+     -0.3964970545231166,
+     13.18600367492851
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_001_link__rx78_Null_002_link__rx78_Null_003_link__rx78_Null_066_link__rx78_object_064-lib.dae__7f0c97b3.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_Null_066_link/rx78_object_064-lib.dae_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.22514792539566322,
+     0.35623462475366807,
+     -0.9068656481621975,
+     0.9637595216220085
+    ],
+    [
+     0.9594750656418769,
+     0.2429461184577066,
+     -0.14277528475842904,
+     3.2240837895770005
+    ],
+    [
+     0.16945798919362098,
+     -0.9022605364599228,
+     -0.3964970545231166,
+     13.18600367492851
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_001_link__rx78_Null_002_link__rx78_Null_003_link__rx78_Null_066_link__rx78_object_064-lib.dae_1__0474bb11.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_Null_066_link/rx78_object_064-lib.dae_2",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.22514792539566322,
+     0.35623462475366807,
+     -0.9068656481621975,
+     0.9637595216220085
+    ],
+    [
+     0.9594750656418769,
+     0.2429461184577066,
+     -0.14277528475842904,
+     3.2240837895770005
+    ],
+    [
+     0.16945798919362098,
+     -0.9022605364599228,
+     -0.3964970545231166,
+     13.18600367492851
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_001_link__rx78_Null_002_link__rx78_Null_003_link__rx78_Null_066_link__rx78_object_064-lib.dae_2__213dc83f.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_object_062-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.22514792539566322,
+     -0.1308448953286625,
+     -0.9654988477758327,
+     0.9637595216220085
+    ],
+    [
+     0.9594750656418769,
+     0.1425731379439917,
+     -0.243064803598382,
+     3.2240837895770005
+    ],
+    [
+     0.16945798919362098,
+     -0.9810976066137533,
+     0.09344236830913344,
+     13.18600367492851
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_004_link__rx78_Null_001_link__rx78_Null_002_link__rx78_Null_003_link__rx78_object_062-lib.dae__1d176661.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_object_062-lib.dae_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.22514792539566322,
+     -0.1308448953286625,
+     -0.9654988477758327,
+     0.9637595216220085
+    ],
+    [
+     0.9594750656418769,
+     0.1425731379439917,
+     -0.243064803598382,
+     3.2240837895770005
+    ],
+    [
+     0.16945798919362098,
+     -0.9810976066137533,
+     0.09344236830913344,
+     13.18600367492851
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_004_link__rx78_Null_001_link__rx78_Null_002_link__rx78_Null_003_link__rx78_object_062-lib.dae_1__8715ed91.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_object_062-lib.dae_2",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.22514792539566322,
+     -0.1308448953286625,
+     -0.9654988477758327,
+     0.9637595216220085
+    ],
+    [
+     0.9594750656418769,
+     0.1425731379439917,
+     -0.243064803598382,
+     3.2240837895770005
+    ],
+    [
+     0.16945798919362098,
+     -0.9810976066137533,
+     0.09344236830913344,
+     13.18600367492851
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_004_link__rx78_Null_001_link__rx78_Null_002_link__rx78_Null_003_link__rx78_object_062-lib.dae_2__d2e1e375.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_object_002-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.22514792539566322,
+     -0.8502905610924464,
+     -0.47572510277167646,
+     0.22629766724999742
+    ],
+    [
+     0.9594750656418769,
+     -0.10857124507365176,
+     -0.2600382340246787,
+     2.8209656644090684
+    ],
+    [
+     0.16945798919362098,
+     -0.5149934431235511,
+     0.8402771825047998,
+     14.488650921523742
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_016_link__rx78_Null_004_link__rx78_Null_001_link__rx78_Null_002_link__rx78_object_002-lib.dae__c06966b0.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_object_002-lib.dae_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.22514792539566322,
+     -0.8502905610924464,
+     -0.47572510277167646,
+     0.22629766724999742
+    ],
+    [
+     0.9594750656418769,
+     -0.10857124507365176,
+     -0.2600382340246787,
+     2.8209656644090684
+    ],
+    [
+     0.16945798919362098,
+     -0.5149934431235511,
+     0.8402771825047998,
+     14.488650921523742
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_016_link__rx78_Null_004_link__rx78_Null_001_link__rx78_Null_002_link__rx78_object_002-lib.dae_1__e3cae0de.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_object_002-lib.dae_2",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.22514792539566322,
+     -0.8502905610924464,
+     -0.47572510277167646,
+     0.22629766724999742
+    ],
+    [
+     0.9594750656418769,
+     -0.10857124507365176,
+     -0.2600382340246787,
+     2.8209656644090684
+    ],
+    [
+     0.16945798919362098,
+     -0.5149934431235511,
+     0.8402771825047998,
+     14.488650921523742
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_016_link__rx78_Null_004_link__rx78_Null_001_link__rx78_Null_002_link__rx78_object_002-lib.dae_2__a22e8e68.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_object_001-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.22514792539566322,
+     -0.8502905610924464,
+     -0.47572510277167646,
+     -0.06147168743313888
+    ],
+    [
+     0.9594750656418769,
+     -0.10857124507365176,
+     -0.2600382340246787,
+     2.6636663325898757
+    ],
+    [
+     0.16945798919362098,
+     -0.5149934431235511,
+     0.8402771825047998,
+     14.996940403377977
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_017_link__rx78_Null_016_link__rx78_Null_004_link__rx78_Null_001_link__rx78_object_001-lib.dae__327b6130.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_object_001-lib.dae_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.22514792539566322,
+     -0.8502905610924464,
+     -0.47572510277167646,
+     -0.06147168743313888
+    ],
+    [
+     0.9594750656418769,
+     -0.10857124507365176,
+     -0.2600382340246787,
+     2.6636663325898757
+    ],
+    [
+     0.16945798919362098,
+     -0.5149934431235511,
+     0.8402771825047998,
+     14.996940403377977
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_017_link__rx78_Null_016_link__rx78_Null_004_link__rx78_Null_001_link__rx78_object_001-lib.dae_1__3dd53ba7.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_object_001-lib.dae_2",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.22514792539566322,
+     -0.8502905610924464,
+     -0.47572510277167646,
+     -0.06147168743313888
+    ],
+    [
+     0.9594750656418769,
+     -0.10857124507365176,
+     -0.2600382340246787,
+     2.6636663325898757
+    ],
+    [
+     0.16945798919362098,
+     -0.5149934431235511,
+     0.8402771825047998,
+     14.996940403377977
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_017_link__rx78_Null_016_link__rx78_Null_004_link__rx78_Null_001_link__rx78_object_001-lib.dae_2__a1f0a1d9.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_048_link/rx78_object_045-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12665887804251574,
+     -0.8502905610924464,
+     -0.5108458577008376,
+     0.020856498265440244
+    ],
+    [
+     0.9919463335347389,
+     -0.10857124507365176,
+     -0.06522849170528112,
+     2.018901204935171
+    ],
+    [
+     0.0,
+     -0.5149934431235511,
+     0.8571941166035555,
+     14.996940351878633
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_017_link__rx78_Null_016_link__rx78_Null_004_link__rx78_Null_048_link__rx78_object_045-lib.dae__c9fd7db5.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_048_link/rx78_object_045-lib.dae_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12665887804251574,
+     -0.8502905610924464,
+     -0.5108458577008376,
+     0.020856498265440244
+    ],
+    [
+     0.9919463335347389,
+     -0.10857124507365176,
+     -0.06522849170528112,
+     2.018901204935171
+    ],
+    [
+     0.0,
+     -0.5149934431235511,
+     0.8571941166035555,
+     14.996940351878633
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_017_link__rx78_Null_016_link__rx78_Null_004_link__rx78_Null_048_link__rx78_object_045-lib.dae_1__9b4b408a.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_048_link/rx78_object_045-lib.dae_2",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12665887804251574,
+     -0.8502905610924464,
+     -0.5108458577008376,
+     0.020856498265440244
+    ],
+    [
+     0.9919463335347389,
+     -0.10857124507365176,
+     -0.06522849170528112,
+     2.018901204935171
+    ],
+    [
+     0.0,
+     -0.5149934431235511,
+     0.8571941166035555,
+     14.996940351878633
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_017_link__rx78_Null_016_link__rx78_Null_004_link__rx78_Null_048_link__rx78_object_045-lib.dae_2__776a4862.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_object_063-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12665887804251574,
+     -0.8502905610924464,
+     -0.5108458577008376,
+     0.040005608831102796
+    ],
+    [
+     0.9919463335347389,
+     -0.10857124507365176,
+     -0.06522849170528112,
+     1.739072966494971
+    ],
+    [
+     0.0,
+     -0.5149934431235511,
+     0.8571941166035555,
+     14.987058657691978
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__rx78_Null_018_link__rx78_Null_017_link__rx78_Null_016_link__rx78_Null_004_link__rx78_object_063-lib.dae.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_013_link/rx78_Null_005_addition_null0_link/rx78_Null_005_link/rx78_object_005-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12665887804251577,
+     -0.928359422814136,
+     0.34943713409598687,
+     -1.9055469438187453
+    ],
+    [
+     0.9919463335347393,
+     -0.11853964165060146,
+     0.04461865914991037,
+     -0.8932996920601006
+    ],
+    [
+     -1.5570146696229487e-24,
+     0.3522742332750901,
+     0.9358968236779349,
+     13.875510111909879
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/l_016_link__rx78_Null_013_link__rx78_Null_005_addition_null0_link__rx78_Null_005_link__rx78_object_005-lib.dae__f2781463.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_013_link/rx78_Null_006_addition_null0_link/rx78_Null_006_link/rx78_object_004-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12665887804251577,
+     -0.928359422814136,
+     0.34943713409598687,
+     -2.0688724965871
+    ],
+    [
+     0.9919463335347393,
+     -0.11853964165060146,
+     0.04461865914991037,
+     0.38581624983637436
+    ],
+    [
+     -1.5570146696229487e-24,
+     0.3522742332750901,
+     0.9358968236779349,
+     13.875509657649678
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/l_016_link__rx78_Null_013_link__rx78_Null_006_addition_null0_link__rx78_Null_006_link__rx78_object_004-lib.dae__86fa252e.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_013_link/rx78_Null_009_link/rx78_Null_007_link/rx78_Null_008_link/rx78_object_006-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     0.5668878916886275,
+     -0.7460105948119018,
+     0.34943713409598687,
+     -0.18143969826152606
+    ],
+    [
+     0.7852321634663874,
+     0.6175917945646313,
+     0.04461865914991037,
+     -1.5943302301816427
+    ],
+    [
+     -0.24909549918599627,
+     0.24909549918621962,
+     0.9358968236779349,
+     17.47580863053378
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_013_link__rx78_Null_009_link__rx78_Null_007_link__rx78_Null_008_link__rx78_object_006-lib.dae__12e725b2.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_013_link/rx78_Null_009_link/rx78_Null_007_link/rx78_Null_008_link/rx78_object_006-lib.dae_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     0.5668878916886275,
+     -0.7460105948119018,
+     0.34943713409598687,
+     -0.18143969826152606
+    ],
+    [
+     0.7852321634663874,
+     0.6175917945646313,
+     0.04461865914991037,
+     -1.5943302301816427
+    ],
+    [
+     -0.24909549918599627,
+     0.24909549918621962,
+     0.9358968236779349,
+     17.47580863053378
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_013_link__rx78_Null_009_link__rx78_Null_007_link__rx78_Null_008_link__rx78_object_006-lib.dae_1__15e061fc.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_013_link/rx78_Null_009_link/rx78_Null_007_link/rx78_Null_008_link/rx78_object_006-lib.dae_2",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     0.5668878916886275,
+     -0.7460105948119018,
+     0.34943713409598687,
+     -0.18143969826152606
+    ],
+    [
+     0.7852321634663874,
+     0.6175917945646313,
+     0.04461865914991037,
+     -1.5943302301816427
+    ],
+    [
+     -0.24909549918599627,
+     0.24909549918621962,
+     0.9358968236779349,
+     17.47580863053378
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_013_link__rx78_Null_009_link__rx78_Null_007_link__rx78_Null_008_link__rx78_object_006-lib.dae_2__0afa3ac5.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_013_link/rx78_Null_012_link/rx78_Null_011_link/rx78_Null_010_link/rx78_object_007-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.7460105948113934,
+     -0.5668878916892964,
+     0.34943713409598687,
+     -0.5762237483270505
+    ],
+    [
+     0.6175917945653354,
+     -0.7852321634658336,
+     0.04461865914991037,
+     1.4975795579736118
+    ],
+    [
+     0.24909549918599627,
+     0.24909549918621962,
+     0.9358968236779349,
+     17.475805252043557
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_013_link__rx78_Null_012_link__rx78_Null_011_link__rx78_Null_010_link__rx78_object_007-lib.dae__67d24b3a.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_013_link/rx78_Null_012_link/rx78_Null_011_link/rx78_Null_010_link/rx78_object_007-lib.dae_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.7460105948113934,
+     -0.5668878916892964,
+     0.34943713409598687,
+     -0.5762237483270505
+    ],
+    [
+     0.6175917945653354,
+     -0.7852321634658336,
+     0.04461865914991037,
+     1.4975795579736118
+    ],
+    [
+     0.24909549918599627,
+     0.24909549918621962,
+     0.9358968236779349,
+     17.475805252043557
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_013_link__rx78_Null_012_link__rx78_Null_011_link__rx78_Null_010_link__rx78_object_007-lib.dae_1__e1d69d57.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_013_link/rx78_Null_012_link/rx78_Null_011_link/rx78_Null_010_link/rx78_object_007-lib.dae_2",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.7460105948113934,
+     -0.5668878916892964,
+     0.34943713409598687,
+     -0.5762237483270505
+    ],
+    [
+     0.6175917945653354,
+     -0.7852321634658336,
+     0.04461865914991037,
+     1.4975795579736118
+    ],
+    [
+     0.24909549918599627,
+     0.24909549918621962,
+     0.9358968236779349,
+     17.475805252043557
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_013_link__rx78_Null_012_link__rx78_Null_011_link__rx78_Null_010_link__rx78_object_007-lib.dae_2__66e0eb83.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_013_link/rx78_object_003-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.9283595494731698,
+     0.12665794967848384,
+     0.34943713409598687,
+     0.22630137416161902
+    ],
+    [
+     -0.11853864969935152,
+     -0.9919464520744652,
+     0.04461865914991037,
+     0.02889578247924298
+    ],
+    [
+     0.3522742332749139,
+     3.5227595820573565e-07,
+     0.9358968236779349,
+     13.853105834451101
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__rx78_Null_018_link__rx78_Null_017_link__rx78_Null_016_link__rx78_Null_013_link__rx78_object_003-lib.dae.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_015_link/rx78_Null_014_link/rx78_object_011-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12665887804251574,
+     -0.9822411268505744,
+     0.13841928094136816,
+     0.8322775852702987
+    ],
+    [
+     0.9919463335347389,
+     -0.12541964710004466,
+     0.017674374339397142,
+     0.10627120534710935
+    ],
+    [
+     0.0,
+     0.1395431146442365,
+     0.9902159962126372,
+     16.13524203558358
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_017_link__rx78_Null_016_link__rx78_Null_015_link__rx78_Null_014_link__rx78_object_011-lib.dae__c16af676.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_015_link/rx78_Null_014_link/rx78_object_011-lib.dae_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12665887804251574,
+     -0.9822411268505744,
+     0.13841928094136816,
+     0.8322775852702987
+    ],
+    [
+     0.9919463335347389,
+     -0.12541964710004466,
+     0.017674374339397142,
+     0.10627120534710935
+    ],
+    [
+     0.0,
+     0.1395431146442365,
+     0.9902159962126372,
+     16.13524203558358
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_017_link__rx78_Null_016_link__rx78_Null_015_link__rx78_Null_014_link__rx78_object_011-lib.dae_1__c5a47453.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_015_link/rx78_Null_014_link/rx78_object_011-lib.dae_2",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12665887804251574,
+     -0.9822411268505744,
+     0.13841928094136816,
+     0.8322775852702987
+    ],
+    [
+     0.9919463335347389,
+     -0.12541964710004466,
+     0.017674374339397142,
+     0.10627120534710935
+    ],
+    [
+     0.0,
+     0.1395431146442365,
+     0.9902159962126372,
+     16.13524203558358
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_017_link__rx78_Null_016_link__rx78_Null_015_link__rx78_Null_014_link__rx78_object_011-lib.dae_2__37d4a767.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_015_link/rx78_Null_014_link/rx78_object_011-lib.dae_3",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12665887804251574,
+     -0.9822411268505744,
+     0.13841928094136816,
+     0.8322775852702987
+    ],
+    [
+     0.9919463335347389,
+     -0.12541964710004466,
+     0.017674374339397142,
+     0.10627120534710935
+    ],
+    [
+     0.0,
+     0.1395431146442365,
+     0.9902159962126372,
+     16.13524203558358
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_017_link__rx78_Null_016_link__rx78_Null_015_link__rx78_Null_014_link__rx78_object_011-lib.dae_3__ac91573c.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_015_link/rx78_object_008-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12665887804251574,
+     -0.9283594228141355,
+     0.34943713409598687,
+     0.3832885905338633
+    ],
+    [
+     0.9919463335347389,
+     -0.11853964165060142,
+     0.04461865914991037,
+     0.04894104503076767
+    ],
+    [
+     0.0,
+     0.35227423327509,
+     0.9358968236779349,
+     15.313436086361584
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__rx78_Null_018_link__rx78_Null_017_link__rx78_Null_016_link__rx78_Null_015_link__rx78_object_008-lib.dae.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_015_link/rx78_object_008-lib.dae_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12665887804251574,
+     -0.9283594228141355,
+     0.34943713409598687,
+     0.3832885905338633
+    ],
+    [
+     0.9919463335347389,
+     -0.11853964165060142,
+     0.04461865914991037,
+     0.04894104503076767
+    ],
+    [
+     0.0,
+     0.35227423327509,
+     0.9358968236779349,
+     15.313436086361584
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__rx78_Null_018_link__rx78_Null_017_link__rx78_Null_016_link__rx78_Null_015_link__rx78_object_008-lib.dae_1.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_Null_053_link/rx78_Null_054_link/rx78_Null_055_link/rx78_Null_021_link/rx78_Null_022_link/rx78_Null_023_link/rx78_object_012-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12726716811321204,
+     -0.9796849287905988,
+     0.15498550971301425,
+     -1.2598859721367526
+    ],
+    [
+     0.991868159609684,
+     -0.12557961929423087,
+     0.020671554620178202,
+     -2.85708747869138
+    ],
+    [
+     -0.0007885892101776272,
+     0.15635600250222378,
+     0.9877004498371872,
+     9.021745149270911
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_055_link__rx78_Null_021_link__rx78_Null_022_link__rx78_Null_023_link__rx78_object_012-lib.dae__d5656349.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_Null_053_link/rx78_Null_054_link/rx78_Null_055_link/rx78_Null_021_link/rx78_Null_022_link/rx78_object_013-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12726716811321204,
+     -0.9796849287905988,
+     0.15498550971301425,
+     -1.2031043166459368
+    ],
+    [
+     0.991868159609684,
+     -0.12557961929423087,
+     0.020671554620178202,
+     -2.849512976836425
+    ],
+    [
+     -0.0007885892101776272,
+     0.15635600250222378,
+     0.9877004498371872,
+     9.383615076040215
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_054_link__rx78_Null_055_link__rx78_Null_021_link__rx78_Null_022_link__rx78_object_013-lib.dae__65560a14.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_Null_053_link/rx78_Null_054_link/rx78_Null_055_link/rx78_Null_021_link/rx78_object_014-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12726716811321204,
+     -0.9796849287905988,
+     0.15498550971301425,
+     -1.1509876757582085
+    ],
+    [
+     0.991868159609684,
+     -0.12557961929423087,
+     0.020671554620178202,
+     -2.8928419096117652
+    ],
+    [
+     -0.0007885892101776272,
+     0.15635600250222378,
+     0.9877004498371872,
+     9.675368868696163
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_053_link__rx78_Null_054_link__rx78_Null_055_link__rx78_Null_021_link__rx78_object_014-lib.dae__ecdb6582.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_Null_053_link/rx78_Null_054_link/rx78_Null_055_link/rx78_Null_024_link/rx78_Null_025_link/rx78_Null_026_link/rx78_object_015-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12726716811321204,
+     -0.9796849287905988,
+     0.15498550971301425,
+     -1.055253017111224
+    ],
+    [
+     0.991868159609684,
+     -0.12557961929423087,
+     0.020671554620178202,
+     -2.830838556433683
+    ],
+    [
+     -0.0007885892101776272,
+     0.15635600250222378,
+     0.9877004498371872,
+     9.013266112058503
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_055_link__rx78_Null_024_link__rx78_Null_025_link__rx78_Null_026_link__rx78_object_015-lib.dae__b355b217.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_Null_053_link/rx78_Null_054_link/rx78_Null_055_link/rx78_Null_024_link/rx78_Null_025_link/rx78_object_016-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12726716811321204,
+     -0.9796849287905988,
+     0.15498550971301425,
+     -0.998471191136856
+    ],
+    [
+     0.991868159609684,
+     -0.12557961929423087,
+     0.020671554620178202,
+     -2.8232638310891724
+    ],
+    [
+     -0.0007885892101776272,
+     0.15635600250222378,
+     0.9877004498371872,
+     9.375136007398888
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_054_link__rx78_Null_055_link__rx78_Null_024_link__rx78_Null_025_link__rx78_object_016-lib.dae__6f9ef818.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_Null_053_link/rx78_Null_054_link/rx78_Null_055_link/rx78_Null_024_link/rx78_object_017-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12726716811321204,
+     -0.9796849287905988,
+     0.15498550971301425,
+     -0.9463547500313552
+    ],
+    [
+     0.991868159609684,
+     -0.12557961929423087,
+     0.020671554620178202,
+     -2.866591982927947
+    ],
+    [
+     -0.0007885892101776272,
+     0.15635600250222378,
+     0.9877004498371872,
+     9.666889815059564
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_053_link__rx78_Null_054_link__rx78_Null_055_link__rx78_Null_024_link__rx78_object_017-lib.dae__cd4eecc5.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_Null_053_link/rx78_Null_054_link/rx78_Null_055_link/rx78_Null_027_link/rx78_Null_028_link/rx78_Null_029_link/rx78_object_018-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12726716811321204,
+     -0.9796849287905988,
+     0.15498550971301425,
+     -1.6532841211412248
+    ],
+    [
+     0.991868159609684,
+     -0.12557961929423087,
+     0.020671554620178202,
+     -2.9074392997853638
+    ],
+    [
+     -0.0007885892101776272,
+     0.15635600250222378,
+     0.9877004498371872,
+     9.179875950050974
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_055_link__rx78_Null_027_link__rx78_Null_028_link__rx78_Null_029_link__rx78_object_018-lib.dae__3476c9d1.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_Null_053_link/rx78_Null_054_link/rx78_Null_055_link/rx78_Null_027_link/rx78_Null_028_link/rx78_object_019-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12726716811321204,
+     -0.9796849287905988,
+     0.15498550971301425,
+     -1.5965023549551993
+    ],
+    [
+     0.991868159609684,
+     -0.12557961929423087,
+     0.020671554620178202,
+     -2.899864884559263
+    ],
+    [
+     -0.0007885892101776272,
+     0.15635600250222378,
+     0.9877004498371872,
+     9.541745861263538
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_054_link__rx78_Null_055_link__rx78_Null_027_link__rx78_Null_028_link__rx78_object_019-lib.dae__198e2b04.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_Null_053_link/rx78_Null_054_link/rx78_Null_055_link/rx78_Null_027_link/rx78_object_020-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12726716811321204,
+     -0.9796849287905988,
+     0.15498550971301425,
+     -1.5443858158812056
+    ],
+    [
+     0.991868159609684,
+     -0.12557961929423087,
+     0.020671554620178202,
+     -2.943193023840076
+    ],
+    [
+     -0.0007885892101776272,
+     0.15635600250222378,
+     0.9877004498371872,
+     9.833499653288614
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_053_link__rx78_Null_054_link__rx78_Null_055_link__rx78_Null_027_link__rx78_object_020-lib.dae__eb5c5c3d.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_Null_053_link/rx78_Null_054_link/rx78_Null_055_link/rx78_Null_056_link/rx78_Null_057_link/rx78_Null_058_link/rx78_object_049-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12726864438839133,
+     -0.8023318151918407,
+     -0.5831520817818515,
+     -0.4469734298059293
+    ],
+    [
+     0.9918679699025916,
+     -0.10341645118496676,
+     -0.07418199178789592,
+     -2.6038963663788177
+    ],
+    [
+     -0.0007889466732758547,
+     -0.5878509130343114,
+     0.808968900272361,
+     9.928609483633617
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_055_link__rx78_Null_056_link__rx78_Null_057_link__rx78_Null_058_link__rx78_object_049-lib.dae__f02cdbbe.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_Null_053_link/rx78_Null_054_link/rx78_Null_055_link/rx78_Null_056_link/rx78_Null_057_link/rx78_object_050-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12726747808397615,
+     -0.8023318151918407,
+     -0.5831523363179734,
+     -0.6606135388147076
+    ],
+    [
+     0.9918681182645911,
+     -0.10341645118496676,
+     -0.07418000805181275,
+     -2.631072936273457
+    ],
+    [
+     -0.0007905646110707351,
+     -0.5878509130343114,
+     0.8089688986928497,
+     10.224935230536918
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_054_link__rx78_Null_055_link__rx78_Null_056_link__rx78_Null_057_link__rx78_object_050-lib.dae__d3a0dc59.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_Null_053_link/rx78_Null_054_link/rx78_Null_055_link/rx78_Null_056_link/rx78_object_051-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12726716811321204,
+     -0.9796849287905988,
+     0.15498550971301425,
+     -0.8779953246100064
+    ],
+    [
+     0.991868159609684,
+     -0.12557961929423087,
+     0.020671554620178202,
+     -2.658799959303422
+    ],
+    [
+     -0.0007885892101776272,
+     0.15635600250222378,
+     0.9877004498371872,
+     10.432157154530744
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_053_link__rx78_Null_054_link__rx78_Null_055_link__rx78_Null_056_link__rx78_object_051-lib.dae__75bcce36.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_Null_053_link/rx78_Null_054_link/rx78_Null_055_link/rx78_Null_078_link/rx78_Null_079_link/rx78_Null_080_link/rx78_object_072-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12726716811321204,
+     -0.9796850837756181,
+     0.15498453002801044,
+     -1.454952801398135
+    ],
+    [
+     0.991868159609684,
+     -0.12557963996572266,
+     0.02067142904054889,
+     -2.882064355617615
+    ],
+    [
+     -0.0007885892101776272,
+     0.15635501480169825,
+     0.9877006061926954,
+     9.08760200176977
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_055_link__rx78_Null_078_link__rx78_Null_079_link__rx78_Null_080_link__rx78_object_072-lib.dae__7ebeace6.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_Null_053_link/rx78_Null_054_link/rx78_Null_055_link/rx78_Null_078_link/rx78_Null_079_link/rx78_object_073-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12726716811321204,
+     -0.9796850837756181,
+     0.15498453002801044,
+     -1.3981713089035614
+    ],
+    [
+     0.991868159609684,
+     -0.12557963996572266,
+     0.02067142904054889,
+     -2.874489874656119
+    ],
+    [
+     -0.0007885892101776272,
+     0.15635501480169825,
+     0.9877006061926954,
+     9.449471954551791
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_054_link__rx78_Null_055_link__rx78_Null_078_link__rx78_Null_079_link__rx78_object_073-lib.dae__63ddd44a.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_Null_053_link/rx78_Null_054_link/rx78_Null_055_link/rx78_Null_078_link/rx78_object_074-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12726716811321204,
+     -0.9796849287905988,
+     0.15498550971301425,
+     -1.346054842344627
+    ],
+    [
+     0.991868159609684,
+     -0.12557961929423087,
+     0.020671554620178202,
+     -2.917818224868526
+    ],
+    [
+     -0.0007885892101776272,
+     0.15635600250222378,
+     0.9877004498371872,
+     9.741225762370185
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_053_link__rx78_Null_054_link__rx78_Null_055_link__rx78_Null_078_link__rx78_object_074-lib.dae__9663ebcd.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_Null_053_link/rx78_Null_054_link/rx78_Null_055_link/rx78_object_048-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12726716811321204,
+     -0.9796849287905988,
+     0.15498550971301425,
+     -1.10517613197948
+    ],
+    [
+     0.991868159609684,
+     -0.12557961929423087,
+     0.020671554620178202,
+     -2.9552000621355408
+    ],
+    [
+     -0.0007885892101776272,
+     0.15635600250222378,
+     0.9877004498371872,
+     10.587920760963902
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_052_link__rx78_Null_053_link__rx78_Null_054_link__rx78_Null_055_link__rx78_object_048-lib.dae__1bc6ecee.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_Null_053_link/rx78_Null_054_link/rx78_object_047-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.1272668581458576,
+     -0.9796852387596581,
+     0.15498380487687727,
+     -1.0900895666039663
+    ],
+    [
+     0.991868200950307,
+     -0.12557966063708884,
+     0.020669319724543354,
+     -2.8150968770136036
+    ],
+    [
+     -0.0007866138086559447,
+     0.1563540271010164,
+     0.987700764122419,
+     10.79497840088542
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_051_link__rx78_Null_052_link__rx78_Null_053_link__rx78_Null_054_link__rx78_object_047-lib.dae__5832f005.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_Null_053_link/rx78_Null_054_link/rx78_object_047-lib.dae_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.1272668581458576,
+     -0.9796852387596581,
+     0.15498380487687727,
+     -1.0900895666039663
+    ],
+    [
+     0.991868200950307,
+     -0.12557966063708884,
+     0.020669319724543354,
+     -2.8150968770136036
+    ],
+    [
+     -0.0007866138086559447,
+     0.1563540271010164,
+     0.987700764122419,
+     10.79497840088542
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_051_link__rx78_Null_052_link__rx78_Null_053_link__rx78_Null_054_link__rx78_object_047-lib.dae_1__476280ff.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_Null_053_link/rx78_object_075-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.1272671681151714,
+     -0.9796850837753638,
+     0.15498453002801044,
+     -0.7003619389070251
+    ],
+    [
+     0.9918681596094328,
+     -0.12557963996770638,
+     0.020671429040548892,
+     -2.763114831787064
+    ],
+    [
+     -0.0007885892098649181,
+     0.15635501480169986,
+     0.9877006061926955,
+     13.278912994264147
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_050_link__rx78_Null_051_link__rx78_Null_052_link__rx78_Null_053_link__rx78_object_075-lib.dae__82c63ecd.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_Null_053_link/rx78_object_075-lib.dae_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.1272671681151714,
+     -0.9796850837753638,
+     0.15498453002801044,
+     -0.7003619389070251
+    ],
+    [
+     0.9918681596094328,
+     -0.12557963996770638,
+     0.020671429040548892,
+     -2.763114831787064
+    ],
+    [
+     -0.0007885892098649181,
+     0.15635501480169986,
+     0.9877006061926955,
+     13.278912994264147
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_050_link__rx78_Null_051_link__rx78_Null_052_link__rx78_Null_053_link__rx78_object_075-lib.dae_1__6687b34d.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_Null_053_link/rx78_object_075-lib.dae_2",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.1272671681151714,
+     -0.9796850837753638,
+     0.15498453002801044,
+     -0.7003619389070251
+    ],
+    [
+     0.9918681596094328,
+     -0.12557963996770638,
+     0.020671429040548892,
+     -2.763114831787064
+    ],
+    [
+     -0.0007885892098649181,
+     0.15635501480169986,
+     0.9877006061926955,
+     13.278912994264147
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_050_link__rx78_Null_051_link__rx78_Null_052_link__rx78_Null_053_link__rx78_object_075-lib.dae_2__2183af27.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_object_076-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.1272671681151714,
+     -0.9364382352096582,
+     0.32693500815508575,
+     -0.7003619134535916
+    ],
+    [
+     0.9918681596094328,
+     -0.119892784993821,
+     0.042699813341777255,
+     -2.7631150301606957
+    ],
+    [
+     -0.0007885892098649181,
+     0.329710709173734,
+     0.9440816841689131,
+     13.278912994421864
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_049_link__rx78_Null_050_link__rx78_Null_051_link__rx78_Null_052_link__rx78_object_076-lib.dae__b382b64e.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_object_076-lib.dae_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.1272671681151714,
+     -0.9364382352096582,
+     0.32693500815508575,
+     -0.7003619134535916
+    ],
+    [
+     0.9918681596094328,
+     -0.119892784993821,
+     0.042699813341777255,
+     -2.7631150301606957
+    ],
+    [
+     -0.0007885892098649181,
+     0.329710709173734,
+     0.9440816841689131,
+     13.278912994421864
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_049_link__rx78_Null_050_link__rx78_Null_051_link__rx78_Null_052_link__rx78_object_076-lib.dae_1__02fb329f.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_object_076-lib.dae_2",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.1272671681151714,
+     -0.9364382352096582,
+     0.32693500815508575,
+     -0.7003619134535916
+    ],
+    [
+     0.9918681596094328,
+     -0.119892784993821,
+     0.042699813341777255,
+     -2.7631150301606957
+    ],
+    [
+     -0.0007885892098649181,
+     0.329710709173734,
+     0.9440816841689131,
+     13.278912994421864
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_049_link__rx78_Null_050_link__rx78_Null_051_link__rx78_Null_052_link__rx78_object_076-lib.dae_2__14eb1291.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_object_077-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12726777695060917,
+     -0.7830213268278415,
+     0.6088353756828006,
+     0.243501666719792
+    ],
+    [
+     0.9918680808613083,
+     -0.09998182299436181,
+     0.0787486205544554,
+     -2.641033484276703
+    ],
+    [
+     -0.0007893785881883818,
+     0.6139065375148653,
+     0.789378325062168,
+     14.502621169031586
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_016_link__rx78_Null_049_link__rx78_Null_050_link__rx78_Null_051_link__rx78_object_077-lib.dae__5f622ed7.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_object_077-lib.dae_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12726777695060917,
+     -0.7830213268278415,
+     0.6088353756828006,
+     0.243501666719792
+    ],
+    [
+     0.9918680808613083,
+     -0.09998182299436181,
+     0.0787486205544554,
+     -2.641033484276703
+    ],
+    [
+     -0.0007893785881883818,
+     0.6139065375148653,
+     0.789378325062168,
+     14.502621169031586
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_016_link__rx78_Null_049_link__rx78_Null_050_link__rx78_Null_051_link__rx78_object_077-lib.dae_1__41a0a4b8.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_object_077-lib.dae_2",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12726777695060917,
+     -0.7830213268278415,
+     0.6088353756828006,
+     0.243501666719792
+    ],
+    [
+     0.9918680808613083,
+     -0.09998182299436181,
+     0.0787486205544554,
+     -2.641033484276703
+    ],
+    [
+     -0.0007893785881883818,
+     0.6139065375148653,
+     0.789378325062168,
+     14.502621169031586
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_016_link__rx78_Null_049_link__rx78_Null_050_link__rx78_Null_051_link__rx78_object_077-lib.dae_2__34b4dc71.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_object_046-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12726899462110292,
+     -0.7830213268278415,
+     0.6088351211460296,
+     0.6117897158966737
+    ],
+    [
+     0.9918679233620838,
+     -0.09998182299436181,
+     0.07875060429045462,
+     -2.593397774338741
+    ],
+    [
+     -0.0007909573448329399,
+     0.6139065375148653,
+     0.789378323481832,
+     14.980122195860853
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_017_link__rx78_Null_016_link__rx78_Null_049_link__rx78_Null_050_link__rx78_object_046-lib.dae__db9e590a.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_object_046-lib.dae_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12726899462110292,
+     -0.7830213268278415,
+     0.6088351211460296,
+     0.6117897158966737
+    ],
+    [
+     0.9918679233620838,
+     -0.09998182299436181,
+     0.07875060429045462,
+     -2.593397774338741
+    ],
+    [
+     -0.0007909573448329399,
+     0.6139065375148653,
+     0.789378323481832,
+     14.980122195860853
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_017_link__rx78_Null_016_link__rx78_Null_049_link__rx78_Null_050_link__rx78_object_046-lib.dae_1__cd93b862.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_081_link/rx78_object_079-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12665887804251574,
+     -0.7830231537113997,
+     0.6089599899540735,
+     0.529465946623937
+    ],
+    [
+     0.9919463335347389,
+     -0.09998205626405994,
+     0.07775641331876895,
+     -1.9486310746438065
+    ],
+    [
+     0.0,
+     0.6139041693758598,
+     0.7893805614676205,
+     14.980128195139123
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_017_link__rx78_Null_016_link__rx78_Null_049_link__rx78_Null_081_link__rx78_object_079-lib.dae__638fd30c.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_081_link/rx78_object_079-lib.dae_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12665887804251574,
+     -0.7830231537113997,
+     0.6089599899540735,
+     0.529465946623937
+    ],
+    [
+     0.9919463335347389,
+     -0.09998205626405994,
+     0.07775641331876895,
+     -1.9486310746438065
+    ],
+    [
+     0.0,
+     0.6139041693758598,
+     0.7893805614676205,
+     14.980128195139123
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_017_link__rx78_Null_016_link__rx78_Null_049_link__rx78_Null_081_link__rx78_object_079-lib.dae_1__de23555f.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_081_link/rx78_object_079-lib.dae_2",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12665887804251574,
+     -0.7830231537113997,
+     0.6089599899540735,
+     0.529465946623937
+    ],
+    [
+     0.9919463335347389,
+     -0.09998205626405994,
+     0.07775641331876895,
+     -1.9486310746438065
+    ],
+    [
+     0.0,
+     0.6139041693758598,
+     0.7893805614676205,
+     14.980128195139123
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_017_link__rx78_Null_016_link__rx78_Null_049_link__rx78_Null_081_link__rx78_object_079-lib.dae_2__7f7346b3.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_object_078-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12665887804251574,
+     -0.7830213268278415,
+     0.6089623390208774,
+     0.4939827008710398
+    ],
+    [
+     0.9919463335347389,
+     -0.09998182299436181,
+     0.07775671326459845,
+     -1.6708895047728969
+    ],
+    [
+     0.0,
+     0.6139065375148653,
+     0.789378719751495,
+     14.980104364650785
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__rx78_Null_018_link__rx78_Null_017_link__rx78_Null_016_link__rx78_Null_049_link__rx78_object_078-lib.dae.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_object_080-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12665887804251574,
+     -0.9283594228141355,
+     0.34943713409598687,
+     0.22630137416161902
+    ],
+    [
+     0.9919463335347389,
+     -0.11853964165060142,
+     0.04461865914991037,
+     0.02889578247924298
+    ],
+    [
+     0.0,
+     0.35227423327509,
+     0.9358968236779349,
+     13.853105834451101
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__rx78_Null_018_link__rx78_Null_017_link__rx78_Null_016_link__rx78_object_080-lib.dae.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_object_080-lib.dae_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12665887804251574,
+     -0.9283594228141355,
+     0.34943713409598687,
+     0.22630137416161902
+    ],
+    [
+     0.9919463335347389,
+     -0.11853964165060142,
+     0.04461865914991037,
+     0.02889578247924298
+    ],
+    [
+     0.0,
+     0.35227423327509,
+     0.9358968236779349,
+     13.853105834451101
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__rx78_Null_018_link__rx78_Null_017_link__rx78_Null_016_link__rx78_object_080-lib.dae_1.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_object_080-lib.dae_2",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12665887804251574,
+     -0.9283594228141355,
+     0.34943713409598687,
+     0.22630137416161902
+    ],
+    [
+     0.9919463335347389,
+     -0.11853964165060142,
+     0.04461865914991037,
+     0.02889578247924298
+    ],
+    [
+     0.0,
+     0.35227423327509,
+     0.9358968236779349,
+     13.853105834451101
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__rx78_Null_018_link__rx78_Null_017_link__rx78_Null_016_link__rx78_object_080-lib.dae_2.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_object_080-lib.dae_3",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12665887804251574,
+     -0.9283594228141355,
+     0.34943713409598687,
+     0.22630137416161902
+    ],
+    [
+     0.9919463335347389,
+     -0.11853964165060142,
+     0.04461865914991037,
+     0.02889578247924298
+    ],
+    [
+     0.0,
+     0.35227423327509,
+     0.9358968236779349,
+     13.853105834451101
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__rx78_Null_018_link__rx78_Null_017_link__rx78_Null_016_link__rx78_object_080-lib.dae_3.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_object_083-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12665887804251574,
+     -0.9688960384654507,
+     0.21259820144810124,
+     1e-07
+    ],
+    [
+     0.9919463335347389,
+     -0.12371564975150384,
+     0.027146075104001806,
+     0.0
+    ],
+    [
+     0.0,
+     0.2143242978584545,
+     0.9767625583259631,
+     12.8
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__rx78_Null_018_link__rx78_Null_017_link__rx78_object_083-lib.dae.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_object_083-lib.dae_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12665887804251574,
+     -0.9688960384654507,
+     0.21259820144810124,
+     1e-07
+    ],
+    [
+     0.9919463335347389,
+     -0.12371564975150384,
+     0.027146075104001806,
+     0.0
+    ],
+    [
+     0.0,
+     0.2143242978584545,
+     0.9767625583259631,
+     12.8
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__rx78_Null_018_link__rx78_Null_017_link__rx78_object_083-lib.dae_1.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_object_084-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12665887804251574,
+     -0.9919463335347389,
+     0.0,
+     1e-07
+    ],
+    [
+     0.9919463335347389,
+     -0.12665887804251574,
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     12.0
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__rx78_Null_018_link__rx78_object_084-lib.dae.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_018_link/rx78_object_084-lib.dae_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.12665887804251574,
+     -0.9919463335347389,
+     0.0,
+     1e-07
+    ],
+    [
+     0.9919463335347389,
+     -0.12665887804251574,
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     12.0
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__rx78_Null_018_link__rx78_object_084-lib.dae_1.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_031_link/rx78_object_025-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     4.896305583201865e-12,
+     -0.8653239416229415,
+     -0.501213004673798,
+     -1.1028700000037215
+    ],
+    [
+     1.0000000000000002,
+     4.236890446646652e-12,
+     2.4540920331576993e-12,
+     -0.7599999999946002
+    ],
+    [
+     0.0,
+     -0.5012130046737979,
+     0.8653239416229412,
+     11.970002
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__rx78_Null_083_link__rx78_Null_031_link__rx78_object_025-lib.dae.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_031_link/rx78_object_025-lib.dae_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     4.896305583201865e-12,
+     -0.8653239416229415,
+     -0.501213004673798,
+     -1.1028700000037215
+    ],
+    [
+     1.0000000000000002,
+     4.236890446646652e-12,
+     2.4540920331576993e-12,
+     -0.7599999999946002
+    ],
+    [
+     0.0,
+     -0.5012130046737979,
+     0.8653239416229412,
+     11.970002
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__rx78_Null_083_link__rx78_Null_031_link__rx78_object_025-lib.dae_1.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_032_link/rx78_object_026-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     4.894102410934781e-12,
+     -1.0000000000000002,
+     -1.4686713511241218e-13,
+     -0.0028688000089553923
+    ],
+    [
+     0.9995500337489878,
+     4.896305583201865e-12,
+     -0.029995500202495664,
+     -1.8290099999999865
+    ],
+    [
+     0.029995500202495657,
+     0.0,
+     0.9995500337489875,
+     11.898817
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__rx78_Null_083_link__rx78_Null_032_link__rx78_object_026-lib.dae.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_032_link/rx78_object_026-lib.dae_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     4.894102410934781e-12,
+     -1.0000000000000002,
+     -1.4686713511241218e-13,
+     -0.0028688000089553923
+    ],
+    [
+     0.9995500337489878,
+     4.896305583201865e-12,
+     -0.029995500202495664,
+     -1.8290099999999865
+    ],
+    [
+     0.029995500202495657,
+     0.0,
+     0.9995500337489875,
+     11.898817
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__rx78_Null_083_link__rx78_Null_032_link__rx78_object_026-lib.dae_1.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_033_link/rx78_object_027-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     4.896305583201865e-12,
+     -0.9393727128473791,
+     -0.3428978074554514,
+     -1.102869999996279
+    ],
+    [
+     1.0000000000000002,
+     4.599455858622104e-12,
+     1.6789324491118047e-12,
+     0.7600000000054002
+    ],
+    [
+     0.0,
+     -0.34289780745545134,
+     0.9393727128473789,
+     11.970002
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__rx78_Null_083_link__rx78_Null_033_link__rx78_object_027-lib.dae.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_033_link/rx78_object_027-lib.dae_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     4.896305583201865e-12,
+     -0.9393727128473791,
+     -0.3428978074554514,
+     -1.102869999996279
+    ],
+    [
+     1.0000000000000002,
+     4.599455858622104e-12,
+     1.6789324491118047e-12,
+     0.7600000000054002
+    ],
+    [
+     0.0,
+     -0.34289780745545134,
+     0.9393727128473789,
+     11.970002
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__rx78_Null_083_link__rx78_Null_033_link__rx78_object_027-lib.dae_1.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_034_link/rx78_object_028-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     4.896305583201865e-12,
+     -0.9393727128473791,
+     -0.3428978074554514,
+     1.0971300000037214
+    ],
+    [
+     1.0000000000000002,
+     4.599455858622104e-12,
+     1.6789324491118047e-12,
+     0.7599999999946283
+    ],
+    [
+     0.0,
+     -0.34289780745545134,
+     0.9393727128473789,
+     11.970002
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__rx78_Null_083_link__rx78_Null_034_link__rx78_object_028-lib.dae.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_034_link/rx78_object_028-lib.dae_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     4.896305583201865e-12,
+     -0.9393727128473791,
+     -0.3428978074554514,
+     1.0971300000037214
+    ],
+    [
+     1.0000000000000002,
+     4.599455858622104e-12,
+     1.6789324491118047e-12,
+     0.7599999999946283
+    ],
+    [
+     0.0,
+     -0.34289780745545134,
+     0.9393727128473789,
+     11.970002
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__rx78_Null_083_link__rx78_Null_034_link__rx78_object_028-lib.dae_1.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_Null_036_link/rx78_Null_037_link/rx78_Null_038_link/rx78_Null_039_link/rx78_Null_040_link/rx78_object_032-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.9743219186231451,
+     -0.07800234255055633,
+     0.21121655580739937,
+     1.1960109824477558
+    ],
+    [
+     0.07613166406083169,
+     -0.9969530646897266,
+     -0.016986951848151705,
+     1.0611158375049679
+    ],
+    [
+     0.21189801466234462,
+     -0.0004704916454353169,
+     0.9772916709047347,
+     1.0685681436850385
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_037_link__rx78_Null_038_link__rx78_Null_039_link__rx78_Null_040_link__rx78_object_032-lib.dae__cb0f2eee.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_Null_036_link/rx78_Null_037_link/rx78_Null_038_link/rx78_Null_039_link/rx78_Null_040_link/rx78_object_032-lib.dae_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.9743219186231451,
+     -0.07800234255055633,
+     0.21121655580739937,
+     1.1960109824477558
+    ],
+    [
+     0.07613166406083169,
+     -0.9969530646897266,
+     -0.016986951848151705,
+     1.0611158375049679
+    ],
+    [
+     0.21189801466234462,
+     -0.0004704916454353169,
+     0.9772916709047347,
+     1.0685681436850385
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_037_link__rx78_Null_038_link__rx78_Null_039_link__rx78_Null_040_link__rx78_object_032-lib.dae_1__6df9cdf1.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_Null_036_link/rx78_Null_037_link/rx78_Null_038_link/rx78_Null_039_link/rx78_Null_040_link/rx78_object_032-lib.dae_2",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.9743219186231451,
+     -0.07800234255055633,
+     0.21121655580739937,
+     1.1960109824477558
+    ],
+    [
+     0.07613166406083169,
+     -0.9969530646897266,
+     -0.016986951848151705,
+     1.0611158375049679
+    ],
+    [
+     0.21189801466234462,
+     -0.0004704916454353169,
+     0.9772916709047347,
+     1.0685681436850385
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_037_link__rx78_Null_038_link__rx78_Null_039_link__rx78_Null_040_link__rx78_object_032-lib.dae_2__b7131fc1.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_Null_036_link/rx78_Null_037_link/rx78_Null_038_link/rx78_Null_039_link/rx78_Null_041_link/rx78_object_034-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.9743219186231451,
+     -0.07800234255055633,
+     0.21121655580739937,
+     2.60448067821555
+    ],
+    [
+     0.07613166406083169,
+     -0.9969530646897266,
+     -0.016986951848151705,
+     0.9510612921262122
+    ],
+    [
+     0.21189801466234462,
+     -0.0004704916454353169,
+     0.9772916709047347,
+     0.7622515973820778
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_037_link__rx78_Null_038_link__rx78_Null_039_link__rx78_Null_041_link__rx78_object_034-lib.dae__96af8636.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_Null_036_link/rx78_Null_037_link/rx78_Null_038_link/rx78_Null_039_link/rx78_Null_041_link/rx78_object_034-lib.dae_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.9743219186231451,
+     -0.07800234255055633,
+     0.21121655580739937,
+     2.60448067821555
+    ],
+    [
+     0.07613166406083169,
+     -0.9969530646897266,
+     -0.016986951848151705,
+     0.9510612921262122
+    ],
+    [
+     0.21189801466234462,
+     -0.0004704916454353169,
+     0.9772916709047347,
+     0.7622515973820778
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_037_link__rx78_Null_038_link__rx78_Null_039_link__rx78_Null_041_link__rx78_object_034-lib.dae_1__59755f1a.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_Null_036_link/rx78_Null_037_link/rx78_Null_038_link/rx78_Null_039_link/rx78_Null_041_link/rx78_object_034-lib.dae_2",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.9743219186231451,
+     -0.07800234255055633,
+     0.21121655580739937,
+     2.60448067821555
+    ],
+    [
+     0.07613166406083169,
+     -0.9969530646897266,
+     -0.016986951848151705,
+     0.9510612921262122
+    ],
+    [
+     0.21189801466234462,
+     -0.0004704916454353169,
+     0.9772916709047347,
+     0.7622515973820778
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_037_link__rx78_Null_038_link__rx78_Null_039_link__rx78_Null_041_link__rx78_object_034-lib.dae_2__bf38b354.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_Null_036_link/rx78_Null_037_link/rx78_Null_038_link/rx78_Null_039_link/rx78_Null_041_link/rx78_object_034-lib.dae_3",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.9743219186231451,
+     -0.07800234255055633,
+     0.21121655580739937,
+     2.60448067821555
+    ],
+    [
+     0.07613166406083169,
+     -0.9969530646897266,
+     -0.016986951848151705,
+     0.9510612921262122
+    ],
+    [
+     0.21189801466234462,
+     -0.0004704916454353169,
+     0.9772916709047347,
+     0.7622515973820778
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_037_link__rx78_Null_038_link__rx78_Null_039_link__rx78_Null_041_link__rx78_object_034-lib.dae_3__bbd31a41.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_Null_036_link/rx78_Null_037_link/rx78_Null_038_link/rx78_Null_039_link/rx78_Null_046_link/rx78_object_039-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     0.078002553762302,
+     -0.98523405148437,
+     0.15241215634670852,
+     1.3473024504253062
+    ],
+    [
+     0.9969530477026488,
+     0.0770133336388031,
+     -0.012392220069012916,
+     1.0489465143029228
+    ],
+    [
+     0.0004714689381410359,
+     0.15291438858895098,
+     0.9882393270253453,
+     1.7685915224478423
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_037_link__rx78_Null_038_link__rx78_Null_039_link__rx78_Null_046_link__rx78_object_039-lib.dae__381209e7.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_Null_036_link/rx78_Null_037_link/rx78_Null_038_link/rx78_Null_039_link/rx78_Null_046_link/rx78_object_039-lib.dae_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     0.078002553762302,
+     -0.98523405148437,
+     0.15241215634670852,
+     1.3473024504253062
+    ],
+    [
+     0.9969530477026488,
+     0.0770133336388031,
+     -0.012392220069012916,
+     1.0489465143029228
+    ],
+    [
+     0.0004714689381410359,
+     0.15291438858895098,
+     0.9882393270253453,
+     1.7685915224478423
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_037_link__rx78_Null_038_link__rx78_Null_039_link__rx78_Null_046_link__rx78_object_039-lib.dae_1__7be1a1cc.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_Null_036_link/rx78_Null_037_link/rx78_Null_038_link/rx78_Null_039_link/rx78_object_040-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     0.07800234254578574,
+     -0.9743219186235268,
+     0.21121655580739937,
+     1.34730234519288
+    ],
+    [
+     0.9969530646900991,
+     0.07613166405595029,
+     -0.016986951848151705,
+     1.0489464222207827
+    ],
+    [
+     0.00047049164647283427,
+     0.21189801466234226,
+     0.9772916709047347,
+     1.7685915435905946
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_036_link__rx78_Null_037_link__rx78_Null_038_link__rx78_Null_039_link__rx78_object_040-lib.dae__5b1e71e3.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_Null_036_link/rx78_Null_037_link/rx78_Null_038_link/rx78_object_030-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     0.07800252866441557,
+     -0.9926004150228123,
+     0.0930592371476281,
+     2.128195101849252
+    ],
+    [
+     0.9969530491862993,
+     0.07761771903752565,
+     -0.007752896849071355,
+     0.9850124752655797
+    ],
+    [
+     0.00047248290724621927,
+     0.09338043578798058,
+     0.9956303887346695,
+     7.747080257700974
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_035_link__rx78_Null_036_link__rx78_Null_037_link__rx78_Null_038_link__rx78_object_030-lib.dae__f8308f2a.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_Null_036_link/rx78_Null_037_link/rx78_Null_038_link/rx78_object_030-lib.dae_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     0.07800252866441557,
+     -0.9926004150228123,
+     0.0930592371476281,
+     2.128195101849252
+    ],
+    [
+     0.9969530491862993,
+     0.07761771903752565,
+     -0.007752896849071355,
+     0.9850124752655797
+    ],
+    [
+     0.00047248290724621927,
+     0.09338043578798058,
+     0.9956303887346695,
+     7.747080257700974
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_035_link__rx78_Null_036_link__rx78_Null_037_link__rx78_Null_038_link__rx78_object_030-lib.dae_1__0203c9f5.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_Null_036_link/rx78_Null_037_link/rx78_Null_038_link/rx78_object_030-lib.dae_2",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     0.07800252866441557,
+     -0.9926004150228123,
+     0.0930592371476281,
+     2.128195101849252
+    ],
+    [
+     0.9969530491862993,
+     0.07761771903752565,
+     -0.007752896849071355,
+     0.9850124752655797
+    ],
+    [
+     0.00047248290724621927,
+     0.09338043578798058,
+     0.9956303887346695,
+     7.747080257700974
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_035_link__rx78_Null_036_link__rx78_Null_037_link__rx78_Null_038_link__rx78_object_030-lib.dae_2__9cb8a8e6.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_Null_036_link/rx78_Null_037_link/rx78_Null_038_link/rx78_object_030-lib.dae_3",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     0.07800252866441557,
+     -0.9926004150228123,
+     0.0930592371476281,
+     2.128195101849252
+    ],
+    [
+     0.9969530491862993,
+     0.07761771903752565,
+     -0.007752896849071355,
+     0.9850124752655797
+    ],
+    [
+     0.00047248290724621927,
+     0.09338043578798058,
+     0.9956303887346695,
+     7.747080257700974
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_035_link__rx78_Null_036_link__rx78_Null_037_link__rx78_Null_038_link__rx78_object_030-lib.dae_3__abcb9f47.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_Null_036_link/rx78_Null_037_link/rx78_object_041-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     0.07800252866441557,
+     -0.9604293294378227,
+     -0.2673782127952313,
+     1.8625097452355672
+    ],
+    [
+     0.9969530491862993,
+     0.0752719671641718,
+     0.02046334961281889,
+     1.005634595346395
+    ],
+    [
+     0.00047248290724621927,
+     -0.26815971754693285,
+     0.9633743522873398,
+     8.096604329761142
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/l_035_addition_null0_link__rx78_Null_035_link__rx78_Null_036_link__rx78_Null_037_link__rx78_object_041-lib.dae__e7eeff64.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_Null_036_link/rx78_Null_037_link/rx78_object_041-lib.dae_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     0.07800252866441557,
+     -0.9604293294378227,
+     -0.2673782127952313,
+     1.8625097452355672
+    ],
+    [
+     0.9969530491862993,
+     0.0752719671641718,
+     0.02046334961281889,
+     1.005634595346395
+    ],
+    [
+     0.00047248290724621927,
+     -0.26815971754693285,
+     0.9633743522873398,
+     8.096604329761142
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/035_addition_null0_link__rx78_Null_035_link__rx78_Null_036_link__rx78_Null_037_link__rx78_object_041-lib.dae_1__4de47ca4.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_Null_036_link/rx78_Null_037_link/rx78_object_041-lib.dae_2",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     0.07800252866441557,
+     -0.9604293294378227,
+     -0.2673782127952313,
+     1.8625097452355672
+    ],
+    [
+     0.9969530491862993,
+     0.0752719671641718,
+     0.02046334961281889,
+     1.005634595346395
+    ],
+    [
+     0.00047248290724621927,
+     -0.26815971754693285,
+     0.9633743522873398,
+     8.096604329761142
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/035_addition_null0_link__rx78_Null_035_link__rx78_Null_036_link__rx78_Null_037_link__rx78_object_041-lib.dae_2__3b99e7f9.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_Null_036_link/rx78_object_042-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     0.07800252866441557,
+     -0.7615351953221613,
+     -0.6434125828794424,
+     0.4404262043681887
+    ],
+    [
+     0.9969530491862993,
+     0.05988906708939946,
+     0.0499791692738287,
+     1.11578835909033
+    ],
+    [
+     0.00047248290724621927,
+     -0.6453506379703978,
+     0.7638863337114383,
+     10.441623586215798
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/l_083_link__rx78_Null_035_addition_null0_link__rx78_Null_035_link__rx78_Null_036_link__rx78_object_042-lib.dae__9c493e06.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_Null_036_link/rx78_object_042-lib.dae_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     0.07800252866441557,
+     -0.7615351953221613,
+     -0.6434125828794424,
+     0.4404262043681887
+    ],
+    [
+     0.9969530491862993,
+     0.05988906708939946,
+     0.0499791692738287,
+     1.11578835909033
+    ],
+    [
+     0.00047248290724621927,
+     -0.6453506379703978,
+     0.7638863337114383,
+     10.441623586215798
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/083_link__rx78_Null_035_addition_null0_link__rx78_Null_035_link__rx78_Null_036_link__rx78_object_042-lib.dae_1__bab32be0.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_Null_036_link/rx78_object_042-lib.dae_2",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     0.07800252866441557,
+     -0.7615351953221613,
+     -0.6434125828794424,
+     0.4404262043681887
+    ],
+    [
+     0.9969530491862993,
+     0.05988906708939946,
+     0.0499791692738287,
+     1.11578835909033
+    ],
+    [
+     0.00047248290724621927,
+     -0.6453506379703978,
+     0.7638863337114383,
+     10.441623586215798
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/083_link__rx78_Null_035_addition_null0_link__rx78_Null_035_link__rx78_Null_036_link__rx78_object_042-lib.dae_2__a5e348d8.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_object_029-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     0.03219746484250767,
+     -0.7648421872844886,
+     -0.6434125828794424,
+     5.630751420682145e-12
+    ],
+    [
+     0.9987502603948089,
+     3.744901071869367e-12,
+     0.0499791692738287,
+     1.1500000000000001
+    ],
+    [
+     -0.03822617714364731,
+     -0.6442176872376911,
+     0.7638863337114383,
+     10.964516
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__rx78_Null_083_link__rx78_Null_035_addition_null0_link__rx78_Null_035_link__rx78_object_029-lib.dae.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_object_029-lib.dae_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     0.03219746484250767,
+     -0.7648421872844886,
+     -0.6434125828794424,
+     5.630751420682145e-12
+    ],
+    [
+     0.9987502603948089,
+     3.744901071869367e-12,
+     0.0499791692738287,
+     1.1500000000000001
+    ],
+    [
+     -0.03822617714364731,
+     -0.6442176872376911,
+     0.7638863337114383,
+     10.964516
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__rx78_Null_083_link__rx78_Null_035_addition_null0_link__rx78_Null_035_link__rx78_object_029-lib.dae_1.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_object_029-lib.dae_2",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     0.03219746484250767,
+     -0.7648421872844886,
+     -0.6434125828794424,
+     5.630751420682145e-12
+    ],
+    [
+     0.9987502603948089,
+     3.744901071869367e-12,
+     0.0499791692738287,
+     1.1500000000000001
+    ],
+    [
+     -0.03822617714364731,
+     -0.6442176872376911,
+     0.7638863337114383,
+     10.964516
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__rx78_Null_083_link__rx78_Null_035_addition_null0_link__rx78_Null_035_link__rx78_object_029-lib.dae_2.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_047_link/rx78_object_043-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     4.894102410934781e-12,
+     -1.0000000000000002,
+     1.4686713511241218e-13,
+     -0.002868799991044609
+    ],
+    [
+     0.9995500337489878,
+     4.896305583201865e-12,
+     0.029995500202495664,
+     1.8290100000000145
+    ],
+    [
+     -0.029995500202495657,
+     0.0,
+     0.9995500337489875,
+     11.898817
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__rx78_Null_083_link__rx78_Null_047_link__rx78_object_043-lib.dae.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_047_link/rx78_object_043-lib.dae_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     4.894102410934781e-12,
+     -1.0000000000000002,
+     1.4686713511241218e-13,
+     -0.002868799991044609
+    ],
+    [
+     0.9995500337489878,
+     4.896305583201865e-12,
+     0.029995500202495664,
+     1.8290100000000145
+    ],
+    [
+     -0.029995500202495657,
+     0.0,
+     0.9995500337489875,
+     11.898817
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__rx78_Null_083_link__rx78_Null_047_link__rx78_object_043-lib.dae_1.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_084_link/rx78_object_085-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     4.896305583201865e-12,
+     -0.8653239416229415,
+     -0.501213004673798,
+     1.097129999996279
+    ],
+    [
+     1.0000000000000002,
+     4.236890446646652e-12,
+     2.4540920331576993e-12,
+     -0.7600000000053722
+    ],
+    [
+     0.0,
+     -0.5012130046737979,
+     0.8653239416229412,
+     11.969961
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__rx78_Null_083_link__rx78_Null_084_link__rx78_object_085-lib.dae.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_084_link/rx78_object_085-lib.dae_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     4.896305583201865e-12,
+     -0.8653239416229415,
+     -0.501213004673798,
+     1.097129999996279
+    ],
+    [
+     1.0000000000000002,
+     4.236890446646652e-12,
+     2.4540920331576993e-12,
+     -0.7600000000053722
+    ],
+    [
+     0.0,
+     -0.5012130046737979,
+     0.8653239416229412,
+     11.969961
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__rx78_Null_083_link__rx78_Null_084_link__rx78_object_085-lib.dae_1.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_Null_086_link/rx78_Null_087_link/rx78_Null_088_link/rx78_Null_089_link/rx78_Null_030_link/rx78_object_021-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.08297767431498126,
+     -0.6970580002187079,
+     0.7121971987422958,
+     -1.5281973911133173
+    ],
+    [
+     0.9955559637322943,
+     -0.02604754974885705,
+     0.09049778024429114,
+     -1.5680006163655897
+    ],
+    [
+     -0.04453120975608107,
+     0.716541463896666,
+     0.696121614284805,
+     4.474774289883933
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_087_link__rx78_Null_088_link__rx78_Null_089_link__rx78_Null_030_link__rx78_object_021-lib.dae__22c3dc5d.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_Null_086_link/rx78_Null_087_link/rx78_Null_088_link/rx78_Null_089_link/rx78_Null_030_link/rx78_object_021-lib.dae_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.08297767431498126,
+     -0.6970580002187079,
+     0.7121971987422958,
+     -1.5281973911133173
+    ],
+    [
+     0.9955559637322943,
+     -0.02604754974885705,
+     0.09049778024429114,
+     -1.5680006163655897
+    ],
+    [
+     -0.04453120975608107,
+     0.716541463896666,
+     0.696121614284805,
+     4.474774289883933
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_087_link__rx78_Null_088_link__rx78_Null_089_link__rx78_Null_030_link__rx78_object_021-lib.dae_1__b8953489.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_Null_086_link/rx78_Null_087_link/rx78_Null_088_link/rx78_Null_089_link/rx78_Null_090_link/rx78_object_089-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.6970596596466031,
+     0.08296658193014454,
+     0.7121968668677159,
+     -2.038338388892428
+    ],
+    [
+     -0.026027638631264963,
+     -0.9955561224849506,
+     0.09050176246908745,
+     -1.6327944099023666
+    ],
+    [
+     0.7165405731154676,
+     0.04454832505896775,
+     0.6961214361114,
+     3.976148318737657
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_087_link__rx78_Null_088_link__rx78_Null_089_link__rx78_Null_090_link__rx78_object_089-lib.dae__9f472e53.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_Null_086_link/rx78_Null_087_link/rx78_Null_088_link/rx78_Null_089_link/rx78_Null_090_link/rx78_object_089-lib.dae_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.6970596596466031,
+     0.08296658193014454,
+     0.7121968668677159,
+     -2.038338388892428
+    ],
+    [
+     -0.026027638631264963,
+     -0.9955561224849506,
+     0.09050176246908745,
+     -1.6327944099023666
+    ],
+    [
+     0.7165405731154676,
+     0.04454832505896775,
+     0.6961214361114,
+     3.976148318737657
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_087_link__rx78_Null_088_link__rx78_Null_089_link__rx78_Null_090_link__rx78_object_089-lib.dae_1__4f9ce14c.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_Null_086_link/rx78_Null_087_link/rx78_Null_088_link/rx78_Null_089_link/rx78_Null_090_link/rx78_object_089-lib.dae_2",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.6970596596466031,
+     0.08296658193014454,
+     0.7121968668677159,
+     -2.038338388892428
+    ],
+    [
+     -0.026027638631264963,
+     -0.9955561224849506,
+     0.09050176246908745,
+     -1.6327944099023666
+    ],
+    [
+     0.7165405731154676,
+     0.04454832505896775,
+     0.6961214361114,
+     3.976148318737657
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_087_link__rx78_Null_088_link__rx78_Null_089_link__rx78_Null_090_link__rx78_object_089-lib.dae_2__067c02db.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_Null_086_link/rx78_Null_087_link/rx78_Null_088_link/rx78_Null_089_link/rx78_Null_091_link/rx78_object_091-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.6970597426106999,
+     0.08296730926384578,
+     0.7121967009366322,
+     -1.030755023056489
+    ],
+    [
+     -0.02602664307485817,
+     -0.9955559675065965,
+     0.09050375358105013,
+     -1.594030503794586
+    ],
+    [
+     0.7165405285688726,
+     0.04455043384213979,
+     0.6961213470097852,
+     2.940261651206291
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_087_link__rx78_Null_088_link__rx78_Null_089_link__rx78_Null_091_link__rx78_object_091-lib.dae__1bff9654.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_Null_086_link/rx78_Null_087_link/rx78_Null_088_link/rx78_Null_089_link/rx78_Null_091_link/rx78_object_091-lib.dae_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.6970597426106999,
+     0.08296730926384578,
+     0.7121967009366322,
+     -1.030755023056489
+    ],
+    [
+     -0.02602664307485817,
+     -0.9955559675065965,
+     0.09050375358105013,
+     -1.594030503794586
+    ],
+    [
+     0.7165405285688726,
+     0.04455043384213979,
+     0.6961213470097852,
+     2.940261651206291
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_087_link__rx78_Null_088_link__rx78_Null_089_link__rx78_Null_091_link__rx78_object_091-lib.dae_1__826cadb8.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_Null_086_link/rx78_Null_087_link/rx78_Null_088_link/rx78_Null_089_link/rx78_Null_091_link/rx78_object_091-lib.dae_2",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.6970597426106999,
+     0.08296730926384578,
+     0.7121967009366322,
+     -1.030755023056489
+    ],
+    [
+     -0.02602664307485817,
+     -0.9955559675065965,
+     0.09050375358105013,
+     -1.594030503794586
+    ],
+    [
+     0.7165405285688726,
+     0.04455043384213979,
+     0.6961213470097852,
+     2.940261651206291
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_087_link__rx78_Null_088_link__rx78_Null_089_link__rx78_Null_091_link__rx78_object_091-lib.dae_2__c46066c2.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_Null_086_link/rx78_Null_087_link/rx78_Null_088_link/rx78_Null_089_link/rx78_Null_091_link/rx78_object_091-lib.dae_3",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.6970597426106999,
+     0.08296730926384578,
+     0.7121967009366322,
+     -1.030755023056489
+    ],
+    [
+     -0.02602664307485817,
+     -0.9955559675065965,
+     0.09050375358105013,
+     -1.594030503794586
+    ],
+    [
+     0.7165405285688726,
+     0.04455043384213979,
+     0.6961213470097852,
+     2.940261651206291
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_087_link__rx78_Null_088_link__rx78_Null_089_link__rx78_Null_091_link__rx78_object_091-lib.dae_3__d5e90e17.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_Null_086_link/rx78_Null_087_link/rx78_Null_088_link/rx78_Null_089_link/rx78_object_022-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.08297838651213672,
+     -0.6970580002187079,
+     0.7121971157642656,
+     -1.5281972965140014
+    ],
+    [
+     0.9955558732340165,
+     -0.02604754974885705,
+     0.09049877580020711,
+     -1.5680009124275966
+    ],
+    [
+     -0.04453190587767133,
+     0.716541463896666,
+     0.6961215697532473,
+     4.474774231589358
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_086_link__rx78_Null_087_link__rx78_Null_088_link__rx78_Null_089_link__rx78_object_022-lib.dae__985d458f.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_Null_086_link/rx78_Null_087_link/rx78_Null_088_link/rx78_object_087-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.08297767431498128,
+     -0.6970580002187079,
+     0.7121971987422958,
+     2.9177535668242056
+    ],
+    [
+     0.9955559637322944,
+     -0.02604754974885705,
+     0.09049778024429114,
+     -1.016626709562634
+    ],
+    [
+     -0.04453120975608107,
+     0.716541463896666,
+     0.6961216142848051,
+     8.510330735358608
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/_link__rx78_Null_085_link__rx78_Null_086_link__rx78_Null_087_link__rx78_Null_088_link__rx78_object_087-lib.dae__eeaacba0.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_Null_086_link/rx78_Null_087_link/rx78_Null_088_link/rx78_object_087-lib.dae_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.08297767431498128,
+     -0.6970580002187079,
+     0.7121971987422958,
+     2.9177535668242056
+    ],
+    [
+     0.9955559637322944,
+     -0.02604754974885705,
+     0.09049778024429114,
+     -1.016626709562634
+    ],
+    [
+     -0.04453120975608107,
+     0.716541463896666,
+     0.6961216142848051,
+     8.510330735358608
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_085_link__rx78_Null_086_link__rx78_Null_087_link__rx78_Null_088_link__rx78_object_087-lib.dae_1__935ffd84.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_Null_086_link/rx78_Null_087_link/rx78_Null_088_link/rx78_object_087-lib.dae_2",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.08297767431498128,
+     -0.6970580002187079,
+     0.7121971987422958,
+     2.9177535668242056
+    ],
+    [
+     0.9955559637322944,
+     -0.02604754974885705,
+     0.09049778024429114,
+     -1.016626709562634
+    ],
+    [
+     -0.04453120975608107,
+     0.716541463896666,
+     0.6961216142848051,
+     8.510330735358608
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_085_link__rx78_Null_086_link__rx78_Null_087_link__rx78_Null_088_link__rx78_object_087-lib.dae_2__4b0f989a.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_Null_086_link/rx78_Null_087_link/rx78_Null_088_link/rx78_object_087-lib.dae_3",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.08297767431498128,
+     -0.6970580002187079,
+     0.7121971987422958,
+     2.9177535668242056
+    ],
+    [
+     0.9955559637322944,
+     -0.02604754974885705,
+     0.09049778024429114,
+     -1.016626709562634
+    ],
+    [
+     -0.04453120975608107,
+     0.716541463896666,
+     0.6961216142848051,
+     8.510330735358608
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/ink__rx78_Null_085_link__rx78_Null_086_link__rx78_Null_087_link__rx78_Null_088_link__rx78_object_087-lib.dae_3__ef40aefc.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_Null_086_link/rx78_Null_087_link/rx78_object_023-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.08297767431498128,
+     -0.995106331859531,
+     -0.05364786909418076,
+     2.7336537396012193
+    ],
+    [
+     0.9955559637322944,
+     -0.08518015283207447,
+     0.040157995973001806,
+     -1.0140790006892573
+    ],
+    [
+     -0.04453120975608107,
+     -0.05007723890725097,
+     0.9977520942103234,
+     8.909432003095223
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/l_085_addition_null0_link__rx78_Null_085_link__rx78_Null_086_link__rx78_Null_087_link__rx78_object_023-lib.dae__8e152f98.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_Null_086_link/rx78_Null_087_link/rx78_object_023-lib.dae_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.08297767431498128,
+     -0.995106331859531,
+     -0.05364786909418076,
+     2.7336537396012193
+    ],
+    [
+     0.9955559637322944,
+     -0.08518015283207447,
+     0.040157995973001806,
+     -1.0140790006892573
+    ],
+    [
+     -0.04453120975608107,
+     -0.05007723890725097,
+     0.9977520942103234,
+     8.909432003095223
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/085_addition_null0_link__rx78_Null_085_link__rx78_Null_086_link__rx78_Null_087_link__rx78_object_023-lib.dae_1__b1777f4c.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_Null_086_link/rx78_Null_087_link/rx78_object_023-lib.dae_2",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.08297767431498128,
+     -0.995106331859531,
+     -0.05364786909418076,
+     2.7336537396012193
+    ],
+    [
+     0.9955559637322944,
+     -0.08518015283207447,
+     0.040157995973001806,
+     -1.0140790006892573
+    ],
+    [
+     -0.04453120975608107,
+     -0.05007723890725097,
+     0.9977520942103234,
+     8.909432003095223
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/085_addition_null0_link__rx78_Null_085_link__rx78_Null_086_link__rx78_Null_087_link__rx78_object_023-lib.dae_2__441f9c95.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_Null_086_link/rx78_object_024-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.08297767431498128,
+     -0.49251512044816553,
+     -0.866339172434911,
+     0.5930237912919972
+    ],
+    [
+     0.9955559637322944,
+     -0.07981482140868376,
+     -0.04997916926643649,
+     -1.1157884089912469
+    ],
+    [
+     -0.04453120975608107,
+     -0.8666362849623993,
+     0.49694921364685835,
+     10.624345815122092
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/l_083_link__rx78_Null_085_addition_null0_link__rx78_Null_085_link__rx78_Null_086_link__rx78_object_024-lib.dae__fc643589.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_Null_086_link/rx78_object_024-lib.dae_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.08297767431498128,
+     -0.49251512044816553,
+     -0.866339172434911,
+     0.5930237912919972
+    ],
+    [
+     0.9955559637322944,
+     -0.07981482140868376,
+     -0.04997916926643649,
+     -1.1157884089912469
+    ],
+    [
+     -0.04453120975608107,
+     -0.8666362849623993,
+     0.49694921364685835,
+     10.624345815122092
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/083_link__rx78_Null_085_addition_null0_link__rx78_Null_085_link__rx78_Null_086_link__rx78_object_024-lib.dae_1__c308077c.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_Null_086_link/rx78_object_024-lib.dae_2",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.08297767431498128,
+     -0.49251512044816553,
+     -0.866339172434911,
+     0.5930237912919972
+    ],
+    [
+     0.9955559637322944,
+     -0.07981482140868376,
+     -0.04997916926643649,
+     -1.1157884089912469
+    ],
+    [
+     -0.04453120975608107,
+     -0.8666362849623993,
+     0.49694921364685835,
+     10.624345815122092
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/083_link__rx78_Null_085_addition_null0_link__rx78_Null_085_link__rx78_Null_086_link__rx78_object_024-lib.dae_2__23464bb0.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_object_086-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.043353092216391,
+     -0.4975710478917269,
+     -0.866339172434911,
+     -1.000056307514207e-07
+    ],
+    [
+     0.9987502603951788,
+     2.4362598998318645e-12,
+     -0.04997916926643649,
+     -1.1500000000000001
+    ],
+    [
+     0.02486818762676941,
+     -0.867423225594017,
+     0.49694921364685835,
+     10.964516
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__rx78_Null_083_link__rx78_Null_085_addition_null0_link__rx78_Null_085_link__rx78_object_086-lib.dae.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_object_086-lib.dae_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.043353092216391,
+     -0.4975710478917269,
+     -0.866339172434911,
+     -1.000056307514207e-07
+    ],
+    [
+     0.9987502603951788,
+     2.4362598998318645e-12,
+     -0.04997916926643649,
+     -1.1500000000000001
+    ],
+    [
+     0.02486818762676941,
+     -0.867423225594017,
+     0.49694921364685835,
+     10.964516
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__rx78_Null_083_link__rx78_Null_085_addition_null0_link__rx78_Null_085_link__rx78_object_086-lib.dae_1.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_object_086-lib.dae_2",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     -0.043353092216391,
+     -0.4975710478917269,
+     -0.866339172434911,
+     -1.000056307514207e-07
+    ],
+    [
+     0.9987502603951788,
+     2.4362598998318645e-12,
+     -0.04997916926643649,
+     -1.1500000000000001
+    ],
+    [
+     0.02486818762676941,
+     -0.867423225594017,
+     0.49694921364685835,
+     10.964516
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__rx78_Null_083_link__rx78_Null_085_addition_null0_link__rx78_Null_085_link__rx78_object_086-lib.dae_2.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_object_044-lib.dae",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     4.896305583201865e-12,
+     -1.0000000000000002,
+     0.0,
+     0.0
+    ],
+    [
+     1.0000000000000002,
+     4.896305583201865e-12,
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     11.5
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__rx78_Null_083_link__rx78_object_044-lib.dae.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_object_044-lib.dae_1",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     4.896305583201865e-12,
+     -1.0000000000000002,
+     0.0,
+     0.0
+    ],
+    [
+     1.0000000000000002,
+     4.896305583201865e-12,
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     11.5
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__rx78_Null_083_link__rx78_object_044-lib.dae_1.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_object_044-lib.dae_2",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     4.896305583201865e-12,
+     -1.0000000000000002,
+     0.0,
+     0.0
+    ],
+    [
+     1.0000000000000002,
+     4.896305583201865e-12,
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     11.5
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__rx78_Null_083_link__rx78_object_044-lib.dae_2.glb"
+  },
+  {
+   "name": "/robot/visual/rx78_Null_083_link/rx78_object_044-lib.dae_3",
+   "kind": "GlbProps",
+   "matrix": [
+    [
+     4.896305583201865e-12,
+     -1.0000000000000002,
+     0.0,
+     0.0
+    ],
+    [
+     1.0000000000000002,
+     4.896305583201865e-12,
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     1.0,
+     11.5
+    ],
+    [
+     0.0,
+     0.0,
+     0.0,
+     1.0
+    ]
+   ],
+   "props": {
+    "cast_shadow": true,
+    "receive_shadow": true,
+    "scale": 1.0
+   },
+   "asset": "assets/robot__visual__rx78_Null_083_link__rx78_object_044-lib.dae_3.glb"
+  }
+ ],
+ "camera": {
+  "position": [
+   0.5513702927783003,
+   -5.361645736326973,
+   15.500450446097055
+  ],
+  "look_at": [
+   2.2562812892302526,
+   0.10912186755477471,
+   15.616122703184798
+  ],
+  "up": [
+   0.0,
+   2.220446049250313e-16,
+   1.0
+  ],
+  "fov": 1.3089969389957472,
+  "aspect": 2.7044025157232703,
+  "near": 0.01,
+  "far": 1000.0,
+  "image_width": 3440,
+  "image_height": 1272
+ },
+ "environment_map": null,
+ "extras": {},
+ "animation": {
+  "fps": 60.0,
+  "frame_count": 145,
+  "asset": "assets/animation.npz",
+  "nodes": [
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_Null_066_link/rx78_Null_067_link/rx78_Null_069_link/rx78_Null_059_link/rx78_Null_060_link/rx78_Null_061_link/rx78_object_054-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_Null_066_link/rx78_Null_067_link/rx78_Null_069_link/rx78_Null_059_link/rx78_Null_060_link/rx78_object_055-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_Null_066_link/rx78_Null_067_link/rx78_Null_069_link/rx78_Null_059_link/rx78_object_056-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_Null_066_link/rx78_Null_067_link/rx78_Null_069_link/rx78_Null_062_link/rx78_Null_063_link/rx78_Null_064_link/rx78_object_057-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_Null_066_link/rx78_Null_067_link/rx78_Null_069_link/rx78_Null_062_link/rx78_Null_063_link/rx78_object_058-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_Null_066_link/rx78_Null_067_link/rx78_Null_069_link/rx78_Null_062_link/rx78_object_059-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_Null_066_link/rx78_Null_067_link/rx78_Null_069_link/rx78_Null_068_link/rx78_Null_070_link/rx78_Null_071_link/rx78_object_065-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_Null_066_link/rx78_Null_067_link/rx78_Null_069_link/rx78_Null_068_link/rx78_Null_070_link/rx78_object_066-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_Null_066_link/rx78_Null_067_link/rx78_Null_069_link/rx78_Null_068_link/rx78_object_067-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_Null_066_link/rx78_Null_067_link/rx78_Null_069_link/rx78_Null_072_link/rx78_Null_073_link/rx78_Null_074_link/rx78_object_068-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_Null_066_link/rx78_Null_067_link/rx78_Null_069_link/rx78_Null_072_link/rx78_Null_073_link/rx78_object_069-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_Null_066_link/rx78_Null_067_link/rx78_Null_069_link/rx78_Null_072_link/rx78_object_070-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_Null_066_link/rx78_Null_067_link/rx78_Null_069_link/rx78_Null_075_link/rx78_Null_076_link/rx78_Null_077_link/rx78_object_071-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_Null_066_link/rx78_Null_067_link/rx78_Null_069_link/rx78_Null_075_link/rx78_Null_076_link/rx78_object_052-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_Null_066_link/rx78_Null_067_link/rx78_Null_069_link/rx78_Null_075_link/rx78_object_053-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_Null_066_link/rx78_Null_067_link/rx78_Null_069_link/rx78_object_060-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_Null_066_link/rx78_Null_067_link/rx78_object_061-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_Null_066_link/rx78_Null_067_link/rx78_object_061-lib.dae_1",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_Null_066_link/rx78_object_064-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_Null_066_link/rx78_object_064-lib.dae_1",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_Null_066_link/rx78_object_064-lib.dae_2",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_object_062-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_object_062-lib.dae_1",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_Null_003_link/rx78_object_062-lib.dae_2",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_object_002-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_object_002-lib.dae_1",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_Null_002_link/rx78_object_002-lib.dae_2",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_object_001-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_object_001-lib.dae_1",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_001_link/rx78_object_001-lib.dae_2",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_048_link/rx78_object_045-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_048_link/rx78_object_045-lib.dae_1",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_Null_048_link/rx78_object_045-lib.dae_2",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_004_link/rx78_object_063-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_013_link/rx78_Null_005_addition_null0_link/rx78_Null_005_link/rx78_object_005-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_013_link/rx78_Null_006_addition_null0_link/rx78_Null_006_link/rx78_object_004-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_013_link/rx78_Null_009_link/rx78_Null_007_link/rx78_Null_008_link/rx78_object_006-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_013_link/rx78_Null_009_link/rx78_Null_007_link/rx78_Null_008_link/rx78_object_006-lib.dae_1",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_013_link/rx78_Null_009_link/rx78_Null_007_link/rx78_Null_008_link/rx78_object_006-lib.dae_2",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_013_link/rx78_Null_012_link/rx78_Null_011_link/rx78_Null_010_link/rx78_object_007-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_013_link/rx78_Null_012_link/rx78_Null_011_link/rx78_Null_010_link/rx78_object_007-lib.dae_1",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_013_link/rx78_Null_012_link/rx78_Null_011_link/rx78_Null_010_link/rx78_object_007-lib.dae_2",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_013_link/rx78_object_003-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_015_link/rx78_Null_014_link/rx78_object_011-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_015_link/rx78_Null_014_link/rx78_object_011-lib.dae_1",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_015_link/rx78_Null_014_link/rx78_object_011-lib.dae_2",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_015_link/rx78_Null_014_link/rx78_object_011-lib.dae_3",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_015_link/rx78_object_008-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_015_link/rx78_object_008-lib.dae_1",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_Null_053_link/rx78_Null_054_link/rx78_Null_055_link/rx78_Null_021_link/rx78_Null_022_link/rx78_Null_023_link/rx78_object_012-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_Null_053_link/rx78_Null_054_link/rx78_Null_055_link/rx78_Null_021_link/rx78_Null_022_link/rx78_object_013-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_Null_053_link/rx78_Null_054_link/rx78_Null_055_link/rx78_Null_021_link/rx78_object_014-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_Null_053_link/rx78_Null_054_link/rx78_Null_055_link/rx78_Null_024_link/rx78_Null_025_link/rx78_Null_026_link/rx78_object_015-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_Null_053_link/rx78_Null_054_link/rx78_Null_055_link/rx78_Null_024_link/rx78_Null_025_link/rx78_object_016-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_Null_053_link/rx78_Null_054_link/rx78_Null_055_link/rx78_Null_024_link/rx78_object_017-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_Null_053_link/rx78_Null_054_link/rx78_Null_055_link/rx78_Null_027_link/rx78_Null_028_link/rx78_Null_029_link/rx78_object_018-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_Null_053_link/rx78_Null_054_link/rx78_Null_055_link/rx78_Null_027_link/rx78_Null_028_link/rx78_object_019-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_Null_053_link/rx78_Null_054_link/rx78_Null_055_link/rx78_Null_027_link/rx78_object_020-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_Null_053_link/rx78_Null_054_link/rx78_Null_055_link/rx78_Null_056_link/rx78_Null_057_link/rx78_Null_058_link/rx78_object_049-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_Null_053_link/rx78_Null_054_link/rx78_Null_055_link/rx78_Null_056_link/rx78_Null_057_link/rx78_object_050-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_Null_053_link/rx78_Null_054_link/rx78_Null_055_link/rx78_Null_056_link/rx78_object_051-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_Null_053_link/rx78_Null_054_link/rx78_Null_055_link/rx78_Null_078_link/rx78_Null_079_link/rx78_Null_080_link/rx78_object_072-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_Null_053_link/rx78_Null_054_link/rx78_Null_055_link/rx78_Null_078_link/rx78_Null_079_link/rx78_object_073-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_Null_053_link/rx78_Null_054_link/rx78_Null_055_link/rx78_Null_078_link/rx78_object_074-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_Null_053_link/rx78_Null_054_link/rx78_Null_055_link/rx78_object_048-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_Null_053_link/rx78_Null_054_link/rx78_object_047-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_Null_053_link/rx78_Null_054_link/rx78_object_047-lib.dae_1",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_Null_053_link/rx78_object_075-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_Null_053_link/rx78_object_075-lib.dae_1",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_Null_053_link/rx78_object_075-lib.dae_2",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_object_076-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_object_076-lib.dae_1",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_Null_052_link/rx78_object_076-lib.dae_2",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_object_077-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_object_077-lib.dae_1",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_Null_051_link/rx78_object_077-lib.dae_2",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_object_046-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_050_link/rx78_object_046-lib.dae_1",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_081_link/rx78_object_079-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_081_link/rx78_object_079-lib.dae_1",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_Null_081_link/rx78_object_079-lib.dae_2",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_Null_049_link/rx78_object_078-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_object_080-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_object_080-lib.dae_1",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_object_080-lib.dae_2",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_Null_016_link/rx78_object_080-lib.dae_3",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_object_083-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_Null_017_link/rx78_object_083-lib.dae_1",
+   "/robot/visual/rx78_Null_018_link/rx78_object_084-lib.dae",
+   "/robot/visual/rx78_Null_018_link/rx78_object_084-lib.dae_1",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_031_link/rx78_object_025-lib.dae",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_031_link/rx78_object_025-lib.dae_1",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_033_link/rx78_object_027-lib.dae",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_033_link/rx78_object_027-lib.dae_1",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_034_link/rx78_object_028-lib.dae",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_034_link/rx78_object_028-lib.dae_1",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_Null_036_link/rx78_Null_037_link/rx78_Null_038_link/rx78_Null_039_link/rx78_Null_040_link/rx78_object_032-lib.dae",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_Null_036_link/rx78_Null_037_link/rx78_Null_038_link/rx78_Null_039_link/rx78_Null_040_link/rx78_object_032-lib.dae_1",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_Null_036_link/rx78_Null_037_link/rx78_Null_038_link/rx78_Null_039_link/rx78_Null_040_link/rx78_object_032-lib.dae_2",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_Null_036_link/rx78_Null_037_link/rx78_Null_038_link/rx78_Null_039_link/rx78_Null_041_link/rx78_object_034-lib.dae",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_Null_036_link/rx78_Null_037_link/rx78_Null_038_link/rx78_Null_039_link/rx78_Null_041_link/rx78_object_034-lib.dae_1",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_Null_036_link/rx78_Null_037_link/rx78_Null_038_link/rx78_Null_039_link/rx78_Null_041_link/rx78_object_034-lib.dae_2",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_Null_036_link/rx78_Null_037_link/rx78_Null_038_link/rx78_Null_039_link/rx78_Null_041_link/rx78_object_034-lib.dae_3",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_Null_036_link/rx78_Null_037_link/rx78_Null_038_link/rx78_Null_039_link/rx78_Null_046_link/rx78_object_039-lib.dae",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_Null_036_link/rx78_Null_037_link/rx78_Null_038_link/rx78_Null_039_link/rx78_Null_046_link/rx78_object_039-lib.dae_1",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_Null_036_link/rx78_Null_037_link/rx78_Null_038_link/rx78_Null_039_link/rx78_object_040-lib.dae",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_Null_036_link/rx78_Null_037_link/rx78_Null_038_link/rx78_object_030-lib.dae",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_Null_036_link/rx78_Null_037_link/rx78_Null_038_link/rx78_object_030-lib.dae_1",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_Null_036_link/rx78_Null_037_link/rx78_Null_038_link/rx78_object_030-lib.dae_2",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_Null_036_link/rx78_Null_037_link/rx78_Null_038_link/rx78_object_030-lib.dae_3",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_Null_036_link/rx78_Null_037_link/rx78_object_041-lib.dae",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_Null_036_link/rx78_Null_037_link/rx78_object_041-lib.dae_1",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_Null_036_link/rx78_Null_037_link/rx78_object_041-lib.dae_2",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_Null_036_link/rx78_object_042-lib.dae",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_Null_036_link/rx78_object_042-lib.dae_1",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_Null_036_link/rx78_object_042-lib.dae_2",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_object_029-lib.dae",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_object_029-lib.dae_1",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_035_addition_null0_link/rx78_Null_035_link/rx78_object_029-lib.dae_2",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_084_link/rx78_object_085-lib.dae",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_084_link/rx78_object_085-lib.dae_1",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_Null_086_link/rx78_Null_087_link/rx78_Null_088_link/rx78_Null_089_link/rx78_Null_030_link/rx78_object_021-lib.dae",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_Null_086_link/rx78_Null_087_link/rx78_Null_088_link/rx78_Null_089_link/rx78_Null_030_link/rx78_object_021-lib.dae_1",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_Null_086_link/rx78_Null_087_link/rx78_Null_088_link/rx78_Null_089_link/rx78_Null_090_link/rx78_object_089-lib.dae",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_Null_086_link/rx78_Null_087_link/rx78_Null_088_link/rx78_Null_089_link/rx78_Null_090_link/rx78_object_089-lib.dae_1",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_Null_086_link/rx78_Null_087_link/rx78_Null_088_link/rx78_Null_089_link/rx78_Null_090_link/rx78_object_089-lib.dae_2",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_Null_086_link/rx78_Null_087_link/rx78_Null_088_link/rx78_Null_089_link/rx78_Null_091_link/rx78_object_091-lib.dae",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_Null_086_link/rx78_Null_087_link/rx78_Null_088_link/rx78_Null_089_link/rx78_Null_091_link/rx78_object_091-lib.dae_1",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_Null_086_link/rx78_Null_087_link/rx78_Null_088_link/rx78_Null_089_link/rx78_Null_091_link/rx78_object_091-lib.dae_2",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_Null_086_link/rx78_Null_087_link/rx78_Null_088_link/rx78_Null_089_link/rx78_Null_091_link/rx78_object_091-lib.dae_3",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_Null_086_link/rx78_Null_087_link/rx78_Null_088_link/rx78_Null_089_link/rx78_object_022-lib.dae",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_Null_086_link/rx78_Null_087_link/rx78_Null_088_link/rx78_object_087-lib.dae",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_Null_086_link/rx78_Null_087_link/rx78_Null_088_link/rx78_object_087-lib.dae_1",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_Null_086_link/rx78_Null_087_link/rx78_Null_088_link/rx78_object_087-lib.dae_2",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_Null_086_link/rx78_Null_087_link/rx78_Null_088_link/rx78_object_087-lib.dae_3",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_Null_086_link/rx78_Null_087_link/rx78_object_023-lib.dae",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_Null_086_link/rx78_Null_087_link/rx78_object_023-lib.dae_1",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_Null_086_link/rx78_Null_087_link/rx78_object_023-lib.dae_2",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_Null_086_link/rx78_object_024-lib.dae",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_Null_086_link/rx78_object_024-lib.dae_1",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_Null_086_link/rx78_object_024-lib.dae_2",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_object_086-lib.dae",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_object_086-lib.dae_1",
+   "/robot/visual/rx78_Null_083_link/rx78_Null_085_addition_null0_link/rx78_Null_085_link/rx78_object_086-lib.dae_2"
+  ],
+  "has_camera": true,
+  "camera_static": {
+   "aspect": 2.7044025157232703,
+   "near": 0.01,
+   "far": 1000.0,
+   "image_width": 3440,
+   "image_height": 1272
+  }
+ }
+}
